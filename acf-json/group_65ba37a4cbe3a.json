@@ -1,0 +1,76 @@
+{
+    "key": "group_65ba37a4cbe3a",
+    "title": "Lohko | UI Kit",
+    "fields": [
+        {
+            "key": "field_65ba37a42578d",
+            "label": "UI Kit lohko",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Kehittäjille tehty lohko, joka lisää monipuolista sisältöä sivuston tyylien testaamiseksi.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_65ba46b57093c",
+            "label": "Näytettävät moduulit",
+            "name": "modules_to_show",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Valitse näytettävät moduulit. Voit myös muuttaa esitettävien moduulien järjestystä vetämällä valinnat haluttuun järjestykseen tässä valitsimessa.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "buttons": "Painikkeet",
+                "colors": "Värit",
+                "forms": "Lomakkeet",
+                "icons": "Ikonit",
+                "pagination": "Sivutus",
+                "typography": "Typografia"
+            },
+            "default_value": [
+                "colors",
+                "buttons"
+            ],
+            "return_format": "array",
+            "multiple": 1,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 1,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/uikit"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1731402603
+}

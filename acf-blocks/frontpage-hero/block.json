@@ -1,0 +1,36 @@
+{
+  "name": "acf/frontpage-hero",
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "title": "Etusivun hero",
+  "description": "Etusivun hero",
+  "keywords": [
+    "etusivu",
+    "hero"
+  ],
+  "category": "eternia",
+  "icon": "megaphone",
+  "example": {
+    "viewportWidth": 1440,
+    "mode": "preview",
+    "attributes": {
+      "data": {
+        "frontpage-hero_title": "Etusivun heron otsikko on h1-tason otsikko.",
+        "frontpage-hero_text": "Heroa käytetään etusivupohjan yläosassa. Hero sisältää kuvan, otsikon, tekstin ja CTA-painikkeita.",
+        "frontpage-hero_image": {
+          "url": "http://eternia-kehitys.local/wp-content/uploads/2024/01/forest-2942477_1920.jpg",
+          "alt": "Placeholder"
+        },
+        "frontpage-buttons": {
+          "title": "Testipainike",
+          "url": "#",
+          "target": ""
+        }
+      }
+    }
+  },
+  "acf": {
+    "postTypes": [
+      "page"
+    ]
+  }
+}

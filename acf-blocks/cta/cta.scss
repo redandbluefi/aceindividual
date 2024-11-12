@@ -1,0 +1,43 @@
+@import "../../app/sass/loaders/scss-tooling-import";
+
+.block-cta {
+  // Content wrapper, on default full width
+  &__inner-content {
+    padding: 4.5rem 0;
+
+    @media (min-width: $breakpoint-md) {
+      padding: 4.5rem 0;
+    }
+  }
+
+  // Light and dark variations
+  &--dark {
+    color: var(--rnb--color--background);
+    background-color: var(--rnb--color--text);
+  }
+
+  &--light {
+    color: var(--rnb--color--text);
+    background-color: var(--rnb--color--background);
+  }
+
+  // Block element styles
+  &__heading {
+    margin-bottom: 2rem;
+    font-size: var(--rnb--font-size--h1);
+    hyphens: auto;
+    line-height: var(--rnb--line-height--h1);
+    white-space: auto;
+  }
+
+  &__text {
+    font-size: var(--rnb--font-size--body-large);
+    hyphens: auto;
+    line-height: var(--rnb--line-height--body);
+    white-space: auto;
+  }
+
+  .button {
+    margin-top: 2rem;
+  }
+}

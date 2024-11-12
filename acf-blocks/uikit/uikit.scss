@@ -1,0 +1,232 @@
+/*
+  Styles for UI kit test block.
+  Avoid cascading styles from this block to the components
+  shown within - we are trying to test the styles for each
+  component, and the block context should not alter them.
+  The styling here therefor is for the layout and the meta
+  elements of the block, not the components themselves.
+*/
+.uikit {
+  // Header section does not contain any components.
+  &__header {
+    width: 90%;
+    max-width: 640px;
+    margin-top: 4.5rem;
+    margin-right: auto;
+    margin-left: auto;
+    font-weight: 300;
+    text-align: center;
+
+    .header {
+
+      &__title {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      &__subtitle {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  &__sectionheader {
+    width: 90%;
+    max-width: 1080px;
+    margin: 4.5rem auto;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  &__typography {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    width: 90%;
+    max-width: 1080px;
+    margin-right: auto;
+    margin-left: auto;
+
+    .typography {
+
+      &__headings {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          max-width: 600px; 
+        }
+      }
+
+      &__paragraphs {
+
+        p {
+          max-width: 600px; 
+        }
+      }
+
+      &__extra {
+
+        & > *:not(.typography-meta) {
+          max-width: 600px; 
+        }
+      }
+    }
+
+    .typography-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      column-gap: 1rem;
+      margin-bottom: 2.5rem;
+      font-size: 11px;
+
+      &__item {
+        margin-bottom: 0;
+        line-height: 1;
+
+        // Reduce intensity to emphasize the main component.
+        opacity: 0.7; 
+      }
+    }
+  }
+
+  &__colors {
+    width: 90%;
+    max-width: 1080px;
+    margin-right: auto;
+    margin-left: auto;
+
+    &--base,
+    &--functional {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem 2rem;
+      justify-content: space-between;
+    }
+
+    &--subheading {
+      margin-top: 5rem;
+      text-align: center;
+    }
+
+    .color-item {
+      display: flex;
+      column-gap: 2rem;
+      align-items: center;
+      justify-content: space-between;
+
+      &__swatch {
+        width: 72px;
+        height: 72px;
+        border-radius: 1000px;
+      }
+
+      &__data {
+        width: 280px;
+      }
+
+      &__meta {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .color-meta {
+
+      &__title {
+        margin-bottom: 0;
+        font-weight: 800;
+      }
+
+      &__value {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__favicon {
+    width: 90%;
+    max-width: 1080px;
+    margin-right: auto;
+    margin-left: auto;
+
+    img {
+      margin: 0 auto;
+    }
+  }
+
+  &__icons {
+    width: 90%;
+    max-width: 1080px;
+    margin-right: auto;
+    margin-left: auto;
+
+    .icons-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: space-around;
+    }
+
+    .icons-container--filled {
+
+      svg {
+        fill: var(--rnb--color--secondary);
+      }
+    }
+
+    i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+    }
+
+    p {
+      margin-top: 4.5rem;
+    }
+  }
+
+  &__forms {
+    width: 90%;
+    max-width: 1080px;
+    margin-right: auto;
+    margin-left: auto;
+
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 90%;
+    max-width: 1080px;
+    margin-top: 4.5rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__pagination {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  &__footer {
+    width: 90%;
+    max-width: 1080px;
+    margin: 4.5rem auto;
+    font-weight: 300;
+    text-align: center;
+  }
+
+}

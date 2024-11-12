@@ -1,0 +1,28 @@
+{
+  "name": "acf/cta",
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "title": "CTA",
+  "description": "CTA-nostoon voi lisätä otsikon ja tekstin. Lisäksi nostoon voi lisätä painikkeen, joka ohjaa käyttäjän haluttuun osoitteeseen.",
+  "keywords": ["cta", "nosto"],
+  "category": "eternia",
+  "icon": "megaphone",
+  "example": {
+    "viewportWidth": 1440,
+    "mode": "preview",
+    "attributes": {
+      "data": {
+        "cta_title": "CTA-lohko",
+        "cta_text": "Nostoon voi lisätä otsikon, kuvan ja tekstin. Lisäksi nostoon voi lisätä painikkeen, joka ohjaa käyttäjän haluttuun osoitteeseen.",
+        "cta_background-color": "dark",
+        "cta_button": {
+          "title": "Testipainike",
+          "url": "#",
+          "target": ""
+        }
+      }
+    }
+  },
+  "acf": {
+    "postTypes": ["page"]
+  }
+}

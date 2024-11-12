@@ -1,0 +1,153 @@
+@import "../../app/sass/loaders/scss-tooling-import";
+
+/**
+* Styles for accordion block
+*/
+
+.block-accordion {
+  --icon-width: 1rem;
+
+  &__heading {
+    margin-bottom: 2rem;
+
+    &--title {
+      margin-bottom: 0;
+    }
+
+    &--ingress {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.accordion-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__title {
+    position: relative;
+    margin-bottom: 0;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 3.5rem;
+    padding: 0.5rem 0;
+    margin-bottom: 0;
+    text-align: left;
+    background: none;
+    border: none;
+    transition: var(--transition-duration-dialog);
+
+    .accordion-icon-wrapper {
+      display: flex;
+      align-items: center;
+      min-width: 2rem;
+      min-height: 3.5rem;
+    }
+
+    .open-icon {
+      position: absolute;
+      right: 0;
+      display: inline-block;
+      width: calc( var(--icon-width) + 0.5rem );
+      height: calc( var(--icon-width) + 0.5rem );
+      transition: var(--transition-easing-dialog) var(--transition-duration-dialog);
+
+      svg {
+        width: var(--icon-width);
+        height: var(--icon-width);
+        transition: var(--transition-easing-dialog) var(--transition-duration-dialog);
+      }
+    }
+
+    .close-icon {
+      position: absolute;
+      right: 0;
+      display: none;
+      width: calc( var(--icon-width) + 0.5rem );
+      height: calc( var(--icon-width) + 0.5rem );
+      transition: var(--transition-easing-dialog) var(--transition-duration-dialog);
+
+      svg {
+        width: var(--icon-width);
+        height: var(--icon-width);
+        transition: var(--transition-easing-dialog) var(--transition-duration-dialog);
+      }
+    }
+
+    &[aria-expanded="true"] {
+      color: var(--color-black);
+
+      .open-icon {
+        display: none;
+      }
+
+      .close-icon {
+        display: inline-block;
+      }
+
+      &:focus {
+        color: var(--color-black);
+
+        .close-icon {
+
+          svg {
+
+            path {
+              fill: var(--color-black);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__section-wrapper {
+    height: auto;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-black);
+  }
+
+  &__panel {
+    display: none;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-duration-dialog) var(--transition-easing-dialog);
+
+    figure {
+      margin: 2rem 0 1.5rem;
+
+      @media (min-width: $breakpoint-md) {
+        margin: 2rem 0;
+      }
+    }
+
+    p {
+      @media (min-width: $breakpoint-lg) {
+        width: 70ch;
+      }
+    }
+
+    figcaption {
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    > :first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__content {
+    padding: 0.5rem 0;
+  }
+
+  &:first-child {
+    border-top: 1px solid var(--color-black);
+  }
+}

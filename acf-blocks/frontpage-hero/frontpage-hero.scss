@@ -1,0 +1,76 @@
+@import "../../app/sass/loaders/scss-tooling-import";
+@import "../../app/sass/base/buttons";
+
+.block-frontpage-hero {
+
+  .mobile-only {
+    display: grid;
+
+    @media (min-width: $breakpoint-mobile-menu) {
+      display: none;
+    }
+  }
+
+  .desktop-only {
+    display: none;
+
+    @media (min-width: $breakpoint-mobile-menu) {
+      display: grid;
+    }
+  }
+
+  &__inner-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3.5rem 0;
+
+    @media (min-width: $breakpoint-mobile-menu) {
+      grid-template-columns: 1fr 1fr;
+      padding: 4.5rem 0;
+    }
+  }
+
+  &__image {
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: center;
+
+      @media (min-width: $breakpoint-mobile-menu) {
+        height: 100%;
+      }
+    }
+  }
+
+  &__text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__title {
+    margin-bottom: 2rem;
+    font-size: var(--rnb--font-size--hero);
+    hyphens: auto;
+    line-height: var(--rnb--line-height--heading);
+    white-space: auto;
+  }
+
+  &__text {
+
+    p {
+      margin-bottom: 2.5rem;
+      hyphens: auto;
+      white-space: auto;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1.25rem;
+  }
+}

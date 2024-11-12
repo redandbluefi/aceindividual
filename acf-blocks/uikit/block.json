@@ -1,0 +1,12 @@
+{
+  "name": "acf/uikit",
+  "$schema": "../../block-schema.json",
+  "title": "UI kit",
+  "description": "Sivuston kehittäjille suunnattu lohko, joka esittelee sivuston perustyylejä.",
+  "keywords": ["ui", "design", "style"],
+  "icon": "code",
+  "category": "eternia",
+  "acf": {
+    "postTypes": ["page"]
+  }
+}
