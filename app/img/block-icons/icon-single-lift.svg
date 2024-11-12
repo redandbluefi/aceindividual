@@ -1,0 +1,12 @@
+<svg class="rnb-eternia" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="15" y="35" width="90" height="130" stroke="#682EE3" stroke-width="10"/>
+<path d="M190 35L110 35" stroke="#682EE3" stroke-width="10"/>
+<rect x="15" y="35" width="170" height="130" stroke="#682EE3" stroke-width="10"/>
+<rect x="105" y="135" width="80" height="30" rx="15" stroke="#682EE3" stroke-width="10"/>
+<path d="M185 55L110 55" stroke="#682EE3" stroke-width="10"/>
+<path d="M185 75H110" stroke="#682EE3" stroke-width="10"/>
+<path d="M185 95H110" stroke="#682EE3" stroke-width="10"/>
+<path d="M185 115H110" stroke="#682EE3" stroke-width="10"/>
+<path d="M185 124H110" stroke="#682EE3" stroke-width="10"/>
+<path d="M185 133H110" stroke="#682EE3" stroke-width="10"/>
+</svg>

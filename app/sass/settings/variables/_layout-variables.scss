@@ -1,0 +1,73 @@
+/*
+  Layout sizes.
+
+  These are the horizontal content breakpoints,
+  utilised by the layout grid.
+*/
+
+:root {
+  // Max width for the slim content area, such as paragraphs and text flow.
+  --content-max-width: 730px;
+
+  // Maximum width for the wide grid area and breakout.
+  --wide-max-width: 1280px;
+
+  // Breakout is the margin from stylesheet edge to content.
+  --breakout-offset: 1rem;
+
+  @media (min-width: $breakpoint-sm ) {
+    --breakout-offset: 2.5rem;
+  }
+
+  @media (min-width: $breakpoint-lg ) {
+    --breakout-offset: 5rem;
+  }
+
+  & {
+    /*
+    Layout grid.
+  */
+
+    // Breakout width
+    --breakout-width: calc(var(--wide-max-width) + var(--breakout-offset) * 2);
+
+    // Sizes come from the layout variables.
+    --wide-offset: calc( ( var(--wide-max-width) - var(--content-max-width) ) / 2 );
+    --breakout-max-width: var(--wide-max-width) + ( var(--breakout-offset) * 2 );
+
+    // Column structure for the container.
+    --layout-grid-structure: [full-start] 
+
+      1fr
+
+      [breakout-start]
+
+      var(--breakout-offset)
+    
+      [wide-start] 
+
+      minmax(0, var(--wide-offset))
+    
+      [slim-start] 
+
+      min(
+        calc(100% - (var(--breakout-offset) * 2)),
+        var(--content-max-width)
+      )
+
+      [slim-end]
+      
+      minmax(0, var(--wide-offset))
+     
+      [wide-end]
+      
+      var(--breakout-offset)
+    
+      [breakout-end]
+
+      1fr
+
+      [full-end];
+
+  }
+}

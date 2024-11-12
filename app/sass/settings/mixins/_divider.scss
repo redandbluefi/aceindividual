@@ -1,0 +1,51 @@
+/* stylelint-disable scss/at-if-closing-brace-newline-after */
+/* stylelint-disable scss/at-if-closing-brace-space-after */
+
+/* ==========================================================================
+   Divider mixins
+   ========================================================================== */
+
+/* Vertical divider
+ * @param {string} $position - Position of the divider. Can be 'before' or 'after'
+ * @param {number} $gap - Gap between the divider and the content
+ * @param {number} $height - Height of the divider
+ * @param {number} $width - Width of the divider
+ * @param {string} $border-color - Color of the divider
+ * @example
+ *  .divider {
+ *    @include vertical-divider(1.7rem, 1.5rem, 1px, var(--color-text));
+ *  }
+ */
+
+@mixin vertical-divider($position: 'before', $gap: 1.7rem, $height: 1.5rem, $width: 1px, $border-color: var(--rnb--color--text)) {
+  position: relative;
+  
+  @if  $position == 'before' {
+    margin-left: $gap;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: -$gap;
+      display: inline-block;
+      height: $height;
+      content: "";
+      border-left: $width solid $border-color;
+      transform: translateY(-50%);
+    }
+  }
+  @else {
+    margin-right: $gap;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: -$gap;
+      display: inline-block;
+      height: $height;
+      content: "";
+      border-left: $width solid $border-color;
+      transform: translateY(-50%);
+    }
+  }
+}

@@ -1,0 +1,257 @@
+/*
+  Editor alignment
+  These style definitions ensure a consistent alignment for ACF & Core blocks in the editor.
+*/
+
+/**
+  Remove opinionated styling from core that usually goes against
+  our design system. May require additional tweaking for some custom
+  blocks, but is more consistent with our vision overall.
+*/
+.editor-styles-wrapper {
+
+  .card {
+    padding: unset;
+    margin: unset;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+}
+
+.editor-styles-wrapper {
+  // Ensure the grid system can be used in the editor.
+  .extend-layout-grid {
+    display: grid;
+    grid-template-columns: var(--layout-grid-structure);
+  }
+
+  // Reset negative margins for fully aligned blocks
+  .block-editor-block-list__layout.is-root-container > .wp-block[data-align="full"] {
+    margin-right: unset;
+    margin-left: unset;
+  }
+}
+
+/**
+  Block alignment
+*/
+.is-root-container > .wp-block,
+.is-root-container > .block-editor-block-list__block > .wp-block {
+  width: 100%;
+  max-width: var(--content-max-width, 730px);
+
+  // Alignfull - Fills the whole container area.
+  &[data-align="full"] {
+    max-width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  // Alignwide - Content container on wide layouts, but not quite to the edge of sheet.
+  &[data-align="wide"] {
+    max-width: var(--wide-max-width, 1280px);
+
+    @media (min-width: $breakpoint-lg) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  // Breakout assumes a width that matches the design stylesheet edges.
+  &.alignbreak {
+    max-width: var(--breakout-width, 1440px);
+
+    @media (min-width: $breakpoint-lg) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  // Handle ACF block alignment.
+  &.acf-block-component {
+    width: 100%;
+    max-width: var(--breakout-width, 1440px); // Form max width!
+
+    // Handle preview alignment.
+    &.acf-block-preview {
+      display: grid;
+      grid-template-columns: var(--layout-grid-structure);
+      max-width: 100%;
+
+      & > * {
+        grid-column: slim;
+      }
+
+      & > .alignfull {
+        grid-column: full;
+      }
+
+      & > .alignbreak {
+        grid-column: breakout;
+      }
+
+      & > .alignwide {
+        grid-column: wide;
+      }
+    }
+  }
+
+  .alignbreak {
+    grid-column: breakout;
+  }
+
+  // Overwrite core UI primary button within blocks.
+  .button-primary {
+    @include button;
+  }
+}
+
+/*
+  Editor improvements
+  These styles are used to improve the editor experience.
+*/
+
+.block-editor {
+  // Text smoothing - Used throughout the editor.
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricprecision;
+}
+
+// The editor area - NOT the sidebar or block inserter
+.editor-styles-wrapper {
+  // Prevent horizontal scrolling
+  overflow-x: hidden;
+}
+
+/**
+  Eternia Editor header improvements.
+*/
+
+.edit-post-visual-editor {
+
+  &__post-title-wrapper {
+    position: relative;
+    z-index: 3;
+    margin: 0;
+  }
+
+  & + .is-root-container > .wp-block:first-child {
+    margin-top: 0;
+  }
+}
+
+.block-editor {
+
+  &-button-block-appender {
+    box-shadow: none;
+  }
+
+  .editor-styles-wrapper {
+    padding-top: 0;
+
+    .editor-post-title {
+      padding: 4rem 0;
+      margin: 0 auto;
+
+      &::before {
+        position: relative;
+        display: block;
+        margin-bottom: 1rem;
+        font-size: medium;
+        font-weight: 500;
+        color: #bababa;
+      }
+
+      [data-rich-text-placeholder]::after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.interface-interface-skeleton__header {
+  border-bottom: 0;
+}
+
+body.locale-fi .editor-styles-wrapper .editor-post-title::before {
+  content: "Nimi, joka näkyy selaimen välilehdessä ja valikossa";
+}
+
+body.locale-en-us .editor-styles-wrapper .editor-post-title::before {
+  content: "Name shown in the browser tab and menus";
+}
+
+/**
+  Inner blocks related fixes
+*/
+.block-editor-block-list__block {
+  width: 100%;
+}
+
+.block-list-appender.wp-block {
+  position: relative;
+
+  button.block-editor-button-block-appender {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+}
+
+// ACF blocks - Common editor styling for all ACF Blocks
+.wp-block[data-type^="acf"] {
+  padding: 2.5rem 1rem 1.5rem;
+  margin-top: 0;
+  margin-bottom: 3.5rem;
+  border: solid 0.125rem transparent;
+  border-radius: 0.125rem;
+
+  // Show block name in black frame and use default blue border on hover and focus.
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    padding: 0.125rem 0.375rem;
+    font-size: 0.813rem;
+    font-weight: 500;
+    color: var(--color--white, #fff);
+    content: attr(data-title);
+    background-color: var(--color--black, #000);
+    border-radius: 0;
+  }
+
+  &:has(.acf-block-fields) {
+    border-color: var(--color--black, #000);
+
+    &::before {
+      display: block;
+    }
+  }
+
+  &:hover {
+    border-color: #2271b1;
+
+    &::before {
+      display: block;
+      background-color: #2271b1;
+      opacity: 1;
+    }
+  }
+
+  &:focus {
+    border-color: #2271b1;
+
+    &::before {
+      display: block;
+      background-color: #2271b1;
+      opacity: 1;
+    }
+
+    &::after {
+      box-shadow: unset;
+    }
+  }
+}

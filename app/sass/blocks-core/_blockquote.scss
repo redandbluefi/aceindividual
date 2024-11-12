@@ -1,0 +1,17 @@
+.wp-block-quote {
+  padding: 3.5rem 6rem;
+  text-align: center;
+  border: 0 none;
+
+  p {
+    margin-bottom: 0.5rem;
+    font-size: var(--font-size-h3, 1.5rem);
+    font-weight: var(--font-weight-bold, 700);
+    line-height: var(--line-height-heading, 1.5);
+  }
+
+  cite {
+    font-size: var(--font-size-body-small, 0.8rem);
+    line-height: var(--line-height-body, 1.7);
+  }
+}

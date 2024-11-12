@@ -1,0 +1,34 @@
+// Alignments
+
+.alignleft > * {
+  float: left;
+}
+
+.alignright > * {
+  float: right;
+}
+
+.alignleft > img {
+  margin-top: var(--margin-between-paragraphs);
+  margin-bottom: var(--margin-between-paragraphs);
+
+  +figcaption {
+    margin-top: 0;
+  }
+}
+
+.alignright > img {
+  margin-top: var(--margin-between-paragraphs);
+  margin-bottom: var(--margin-between-paragraphs);
+
+  +figcaption {
+    margin-top: 0;
+  }
+}
+
+// Grids are already 100%, but this is great for escaping nested grids.
+.alignfull {
+  max-width: 100vw;
+  margin-right: calc(-100vw / 2 + 100% / 2);
+  margin-left: calc(-100vw / 2 + 100% / 2);
+}

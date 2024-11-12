@@ -1,0 +1,96 @@
+// A hidden screen reader texts for readers, focus elements for
+// vision impaired and other useful a11y CSS hacks.
+.screen-reader-text {
+  @include screen-reader-text;
+}
+
+// Skip to content link styles
+.skip-link {
+  min-width: 5rem;
+  min-height: 2rem;
+  margin: 5px;
+
+  span {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: black;
+  }
+
+  #text {
+    padding-right: 5px;
+  }
+
+  &:focus-within {
+    display: inline-flex;
+    align-items: center;
+    max-width: 92%;
+    border: 2px solid rgb(97 97 97);
+    box-shadow: none;
+  }
+}
+
+// Visually distinct focus color on keyboard
+a:focus,
+input:focus,
+button:focus,
+select:focus,
+textarea:focus,
+div[tabindex]:focus {
+  outline-offset: 5px; // Make sure it's not glued to the element
+  opacity: 1; // Make sure every focusable element has opacity 100%
+}
+
+// Make focus a little more engaging
+// @source https://twitter.com/argyleink/status/1387072095159406596
+// @link https://codepen.io/argyleink/pen/JjEzeLp
+@media (prefers-reduced-motion: no-preference) {
+
+  *:focus {
+    transition: outline-offset 0.25s ease;
+  }
+}
+
+// External link icon
+.external-link-styles {
+
+  svg {
+    width: 0.9em;
+    height: 0.9em;
+    margin-right: 0.2rem;
+    margin-left: 0.4rem;
+    transform: translateY(1px);
+
+    @media (min-width: $breakpoint-sm) {
+      margin-left: 0.3rem;
+      transform: none;
+    }
+  }
+}
+
+/**
+* Change the cursor on busy elements in all browsers (opinionated).
+*/
+:where([aria-busy="true" i]) {
+  cursor: progress;
+}
+
+/*
+* Change the cursor on disabled, not-editable, or otherwise
+* inoperable elements in all browsers (opinionated).
+*/
+:where([aria-disabled="true" i], [disabled]) {
+  cursor: not-allowed;
+}
+
+/*
+* Change the display on visually hidden accessible elements
+* in all browsers (opinionated).
+*/
+:where([aria-hidden="false" i][hidden]) {
+  display: initial;
+}
+
+:where([aria-hidden="false" i][hidden]:not(:focus)) {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}

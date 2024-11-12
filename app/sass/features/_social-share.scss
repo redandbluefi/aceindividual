@@ -1,0 +1,51 @@
+.share-links {
+
+  &__title {
+    margin-bottom: 0.5rem;
+  }
+
+  ul {
+    @include list-reset;
+
+    & {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  }
+
+  a {
+    display: block;
+  }
+
+  i {
+    width: 1.875rem;
+    height: 1.875rem;
+
+    svg {
+      width: 1.875rem;
+      height: 1.875rem;
+    }
+  }
+
+  #tooltip {
+    @include button-reset;
+
+    color: var(--rnb--color--primary);
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    + .tooltip-response {
+      display: none;
+    }
+
+    &.copy-success {
+
+      + .tooltip-response {
+        display: inline-block;
+      }
+    }
+  }
+}

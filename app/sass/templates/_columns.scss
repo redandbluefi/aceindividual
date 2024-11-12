@@ -1,0 +1,25 @@
+/*
+  Useful classes for aligning within the container.
+*/
+
+.columns--two {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat( 2, minmax( 0, 1fr ) );
+  }
+}
+
+.columns--three {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat( 2, minmax( 0, 1fr ) );
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat( 3, minmax( 0, 1fr ) );
+  }
+}

@@ -1,0 +1,57 @@
+/*
+  Container.
+
+  Takes care of horizontal layouting. Container divides the page
+  width with custom columns, essentially providing columns that
+  the children elements span over.
+
+  Child elements are in control of their width, which is set with
+  the grid-column property.
+
+  Container provides maximum size and prevents content and wide content
+  width elements from hitting the screen edges.
+*/
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: var(--layout-grid-structure);
+}
+
+// Usage within the layout-grid container.
+.layout-grid > * {
+  grid-column: slim;
+}
+
+.layout-grid > .alignwide {
+  grid-column: wide;
+}
+
+.layout-grid > .alignfull {
+  grid-column: full;
+}
+
+.layout-grid > .alignbreak {
+  grid-column: breakout;
+}
+
+// For use inside elements, we can inherit the columns.
+.extend-layout-grid {
+  display: grid;
+  grid-template-columns: inherit;
+}
+
+.extend-layout-grid > * {
+  grid-column: slim;
+}
+
+.extend-layout-grid > .alignwide {
+  grid-column: wide;
+}
+
+.extend-layout-grid > .alignfull {
+  grid-column: full;
+}
+
+.extend-layout-grid > .alignbreak {
+  grid-column: breakout;
+}

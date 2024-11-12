@@ -1,0 +1,11 @@
+// General form related styles
+// see app/sass/features/_gravity-forms.scss for Gravity Forms styles
+input:not(input[type="checkbox"], input[type="submit"]),
+.input,
+textarea {
+  @include input;
+}
+
+label {
+  font-size: var(--font-size-label);
+}

@@ -1,0 +1,61 @@
+// Input mixin
+@mixin input(
+  $padding: 1rem,
+  $additional-padding-left: 0.3rem,
+  $border-color: var(--rnb--color--text),
+  $border-style: solid,
+  $border-width: 1px,
+  $border-radius: 32px,
+  $border-width-hover: 3px,
+  $border-color-hover: var(--rnb--color--primary),
+  $border-color-disabled: var(--rnb--color--disabled-text),
+  $border-color-error: var(--rnb--color--error),
+  $border-color-success: var(--rnb--color--secondary),
+  $color: var(--rnb--color--text),
+  $placeholder-color: var(--rnb--color--disabled-text),
+  $font-size: var(--rnb--font-size--input),
+  $line-height: var(--rnb--line-height--input),
+) {
+  box-sizing: border-box;
+  padding: $padding $padding $padding calc($padding + $additional-padding-left);
+  font-family: var(--rnb--font--paragraph);
+  border-color: $border-color;
+  border-style: $border-style;
+  border-width: $border-width;
+  border-radius: $border-radius;
+
+  $font-size: $font-size;
+  $line-height: $line-height;
+
+  &:focus {
+    outline: none;
+  }
+
+  &[disabled] {
+    color: $border-color-disabled;
+    cursor: not-allowed;
+    border-color: $border-color-disabled;
+  }
+
+  &[aria-invalid="true"] {
+    border-color: $border-color-error;
+  }
+
+  &[disabled],
+  &[aria-invalid="true"],
+  &:hover,
+  &:active,
+  &:focus {
+    padding: calc($padding - $border-width-hover + $border-width) calc($padding - $border-width-hover + $border-width) calc($padding - $border-width-hover + $border-width) calc($padding - $border-width-hover + $border-width + $additional-padding-left);
+    border-width: $border-width-hover;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+
+    &:not([disabled]) {
+      border-color: $border-color-hover;
+    }
+  }
+}

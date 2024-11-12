@@ -1,0 +1,5 @@
+# .env (same directory as composer.json)
+
+ACF_PRO_KEY=Your-Key-Here
+NODE_ENV=development
+proxyUrl="https://eternia.local"

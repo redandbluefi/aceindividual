@@ -1,0 +1,11 @@
+// Variables
+
+:root {
+  // Default transitions (e.g. hovers, sub-menu toggles)
+  --rnb--transition-duration: 170ms;
+  --rnb--transition-easing: ease-in;
+
+  // Dialog transitions (e.g. mobile-menu, modals etc)
+  --rnb--transition-duration--dialog: 300ms;
+  --rnb--transition-easing--dialog: ease-in-out;
+}

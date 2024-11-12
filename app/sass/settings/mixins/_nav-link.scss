@@ -1,0 +1,118 @@
+/* stylelint-disable scss/at-if-closing-brace-newline-after */
+/* stylelint-disable scss/at-if-closing-brace-space-after */
+
+/* ==========================================================================
+   Nav link mixins
+   ========================================================================== */
+
+/**
+ * Nav Link
+ * --------------------------------------------------
+ * Creates a nav link style
+ *
+ * @param {string} $color - The color of the link.
+ * @param {boolean} $icon - Whether or not the link has an icon.
+ * @param {boolean} $icon-start - Whether or not the icon is at the start of the link.
+ * @param {string} $icon-color - The color of the icon.
+ * @param {string} $icon-size - The size of the icon.
+ * @param {string} $icon-margin - The margin between icon and link text.
+ * @param {string} $font-size - The font size of the link text.
+ * @param {string} $line-height - The line height of the link text.
+ * @param {string} $font-weight - The font weight of the link text.
+ * @param {string} $letter-spacing - The letter spacing of the link text.
+ * @param {string} $text-transform - The text transform of the link text.
+ * @param {string} $hover-color - The color of the link text and icon on hover.
+ * @param {boolean} $icon-hover - Whether or not the icon changes color on hover.
+ * @param {boolean} $hover-underline - Whether or not the link text is underlined on hover.
+ * @param {string} $duration - The duration of the hover transition.
+ * @param {string} $easing - The easing of the hover transition.
+ */
+
+@mixin nav-link(
+  $color: var(--rnb--color--text),
+  $icon: false,
+  $icon-start: true,
+  $icon-color: $color,
+  $icon-size: 1.25rem,
+  $icon-margin: 0.5rem,
+  $font-size: var(--rnb--font-size--nav-link),
+  $line-height: var(--rnb--line-height--body),
+  $font-weight: var(--rnb--font-weight--regular),
+  $letter-spacing: inherit,
+  $text-transform: inherit,
+  $hover-color: var(--rnb--color--primary),
+  $icon-hover: false,
+  $hover-underline: false,
+  $duration: var(--rnb--transition-duration),
+  $easing: var(--rnb--transition-easing),
+) {
+  display: inline-block;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $color;
+  text-decoration: none;
+  text-transform: $text-transform;
+  letter-spacing: $letter-spacing;
+  white-space: nowrap;
+  appearance: none;
+  cursor: pointer;
+  transition-timing-function: $easing;
+  transition-duration: $duration;
+  transition-property: all;
+
+  &:active:not([disabled]),
+  &:hover:not([disabled]),
+  &:focus-visible:not([disabled]) {
+    @if  $hover-color {
+      color: $hover-color;
+    }
+    @else {
+      color: inherit;
+    }
+
+    @if  $hover-underline {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    @if  $icon-hover {
+
+      i svg path {
+        fill: $hover-color;
+      }
+    }
+  }
+
+  @if  $icon {
+
+    & i {
+      display: inline-block;
+      width: $icon-size;
+      height: auto;
+
+      @if  $icon-start {
+        margin-right: $icon-margin;
+      }
+      @else {
+        margin-left: $icon-margin;
+      }
+
+      @if  $icon-color {
+
+        svg path {
+          fill: $icon-color;
+        }
+      }
+
+      @if  $icon-hover {
+
+        svg path {
+          transition-timing-function: $easing;
+          transition-duration: $duration;
+          transition-property: fill;
+        }
+      }
+    }
+  }
+}

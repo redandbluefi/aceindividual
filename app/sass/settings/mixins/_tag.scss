@@ -1,0 +1,22 @@
+/*
+  Tag
+
+  A small text typically used for displaying categories or meta data on
+  lifts and heroes.
+*/
+@mixin tag(
+  // Typography.
+  $line-height: var(--rnb--line-height--body),
+  $font-size: var(--rnb--font-size--tag),
+  $font-weight: var(--rnb--font-weight--bold),
+  $font-family: var(--rnb--font-family--paragraph),
+  $text-transform: uppercase,
+  $letter-spacing: 0.14em,
+) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  text-transform: $text-transform;
+  letter-spacing: $letter-spacing;
+}

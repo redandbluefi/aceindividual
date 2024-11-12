@@ -1,0 +1,64 @@
+/*
+  Colors
+
+  We first set the tones from design sheet as HSL values. These are
+  then mapped to the respective role variables, which are more typically
+  used throughout the project. 
+*/
+
+// 1. Theme colors as HSL values.
+$hsl-colors: (
+  "black": (0, 0%, 0%),
+  "white": (0, 0%, 100%),
+  "off-white": (221, 100%, 99.5%),
+  "grey-1": (0, 1%, 90%),
+  "grey-2": (0, 4%, 70%),
+  "grey-3": (0, 6%, 40%),
+  "grey-4": (221, 20%, 17%),
+  "green": (158, 100%, 35%),
+  "gold": (47,34%,58%),
+  "orange": (16, 95%, 57%),
+);
+
+// 2. Functional colors
+$functional-colors: (
+  "text": "grey-4",
+  "text-inverted": "off-white",
+  "primary": "green",
+  "secondary": "gold",
+  "error": "orange",
+  "background": "off-white",
+  "background--inverted": "grey-4",
+  "background--paper": "grey-1",
+  "background--primary": "green",
+  "background--secondary": "grey-2",
+  "disabled--text" : "grey-3",
+  "disabled--background" : "grey-1",
+);
+
+:root {
+  // Generate hsl variables, e.g. --hsl-black
+  @each $name, $value in $hsl-colors {
+    --hsl--#{$name}: #{$value};
+  }
+
+  // Generate colors, e.g. --color-black
+  @each $name, $value in $hsl-colors {
+    --color--#{$name}: hsl(var(--hsl--#{$name}));
+  }
+
+  // Generate functional hsl variables, e.g. --hsl-primary
+  @each $name, $value in $functional-colors {
+    --hsl--#{$name}: var(--hsl--#{$value});
+  }
+
+  // Generate functional colors, e.g. --color-primary
+  @each $name, $value in $functional-colors {
+    --rnb--color--#{$name}: hsl(var(--hsl--#{$name}));
+  }
+
+  // 3. Colors with a specified alpha value (Translucent colors)
+  // remove unnecessary & add colors with a spesific alpha value: color name => hsl(hsl-variable, alpha-value)
+  --rnb--color--black-80: hsl(var(--hsl--black) 0.8);
+  --rnb--color--secondary-25: hsl(var(--hsl--secondary) 0.25);
+}

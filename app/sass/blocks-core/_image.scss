@@ -1,0 +1,37 @@
+// Image block
+.wp-block-image {
+
+  &.alignwide,
+  &.alignfull {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .alignwide img,
+  .alignfull img {
+    width: 100%;
+  }
+
+  // No border radius on full width image
+  .alignfull img {
+    border-radius: 0;
+  }
+
+  > figure {
+    display: block;
+    width: auto;
+  }
+
+  figcaption {
+    margin-bottom: 2rem;
+  }
+
+  .aligncenter {
+    text-align: center;
+  }
+
+  .aligncenter img {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

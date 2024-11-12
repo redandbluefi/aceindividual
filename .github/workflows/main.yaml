@@ -1,0 +1,50 @@
+name: eternia production deployment
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  var_dumb_check:
+    runs-on: ubuntu-latest
+    name: Check if code has var_dumps
+    steps:
+      # Clone this repo
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Check 1 (var_dump)
+        id: check1
+        uses: umutphp/php-var-dump-check-action@v1
+        with:
+          checktype: "none"
+          exclude: "vendor"
+          extensions: "php"
+  build:
+    name: Build
+    # Run build only on main push / merge, not activating this on pr creation
+    if: ${{ !github.event.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd /data/wordpress/htdocs/wp-content/themes/${{ github.event.repository.name }}/
+            git pull origin main
+            composer install --no-dev
+            npm install
+            npm run build
+            wp theme activate ${{ github.event.repository.name }}
+            wp rnb-refresh-roles
+            wp eternia set strings to translate
+            wp rewrite flush
+            wp cache flush

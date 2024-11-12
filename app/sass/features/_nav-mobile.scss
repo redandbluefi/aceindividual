@@ -1,0 +1,199 @@
+@media (max-width: $breakpoint-mobile-menu) {
+
+  .mobile-only {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  // * * *
+  // TOP BAR
+  // * * *
+
+  .top-bar {
+    // variables
+    --top-bar-gap: 1rem;
+
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rnb--color--primary);
+
+    &__content-wrapper {
+      gap: var(--top-bar-gap);
+    }
+  }
+
+  .site-branding {
+
+    &__logo {
+      width: 7.5rem;
+    }
+  }
+
+  .nav-toggle {
+
+    &__icon {
+      height: 100%;
+
+      &--open {
+        width: 1.25rem;
+      }
+
+      &--close {
+        width: 1.25rem;
+      }
+    }
+
+    &__button {
+      @include button-reset;
+
+      $text-transform: uppercase;
+
+      cursor: pointer;
+
+      position: relative;
+      z-index: 6;
+
+      &[data-action="open"] {
+
+        .nav-toggle__icon--open {
+          display: inline-block;
+        }
+
+        .nav-toggle__icon--close {
+          display: none;
+        }
+      }
+
+      &[data-action="close"] {
+
+        .nav-toggle__icon--close {
+          display: inline-block;
+        }
+
+        .nav-toggle__icon--open {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // * * *
+  // MOBILE MENU
+  // * * *
+
+  .mobile-menu {
+    // variables
+    --nav-gap: 1.7rem; // variable used in desktop menu
+    --sub-menu-gap: 1rem; // variable used in desktop menu
+    --mobile-menu-offset: var(--rnb--header--height, 56px); // default height of nav bar when user not logged --> this will be recalculated in javascript
+
+    position: fixed;
+    z-index: 5;
+    flex-direction: column;
+    width: 100%;
+    max-width: unset;
+    padding-top: calc(16px + var(--mobile-menu-offset));
+    height: calc(100% - var(--mobile-menu-offset));
+    min-height: calc(100vh - var(--wp-admin-bar-offset));
+    min-height: calc(100dvh - var(--wp-admin-bar-offset));
+    max-height: unset;
+    overflow-y: auto;
+    border: none;
+
+    &::backdrop {
+      background-color: unset;
+    }
+
+    &__content-wrapper {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: var(--nav-gap);
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    &__section {
+      padding-bottom: var(--nav-gap);
+      border-bottom: 1px solid var(--rnb--color--primary);
+
+      &:last-child {
+        border-bottom: unset;
+      }
+
+      &--top {
+        display: flex;
+        flex-wrap: wrap-reverse;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .nav-primary {
+
+    &__menu-items {
+      flex-direction: column;
+      row-gap: var(--nav-gap);
+    }
+
+    .sub-menu {
+
+      &__container {
+        position: unset;
+        padding: 0;
+        margin-top: var(--nav-gap);
+        margin-left: 1rem;
+      }
+    }
+  }
+}
+
+// animations
+.mobile-menu[open] {
+  animation: show-horizontal var(--rnb--transition-duration--dialog)
+    var(--rnb--transition-easing--dialog) normal;
+}
+
+@keyframes show-horizontal {
+
+  from {
+    transform: translateX(-110%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.mobile-menu.closing {
+  animation: close-horizontal var(--rnb--transition-duration--dialog)
+    var(--rnb--transition-easing--dialog) normal;
+}
+
+@keyframes close-horizontal {
+
+  to {
+    transform: translateX(-110%);
+  }
+}
+
+// accessibility
+
+.site-content[aria-hidden="false"] {
+  visibility: visible;
+}
+
+.site-content[aria-hidden="true"] {
+  visibility: hidden;
+}
+
+.skip-link[aria-hidden="false"] {
+  visibility: visible;
+}
+
+.skip-link[aria-hidden="true"] {
+  visibility: hidden;
+}

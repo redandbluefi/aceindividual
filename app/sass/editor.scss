@@ -1,0 +1,39 @@
+/*
+
+  Editor styles
+
+  These styles are loaded to the Gutenberg editor.
+  Editor specific styles are contained here.
+
+  More opionated files are in the end, and you can 
+  opt out simply by commenting out the import. Even
+  these are quite mild and intended to help provide
+  a consistent experience for the editor.
+
+*/
+
+@charset 'utf-8';
+@import "loaders/scss-tooling-import";
+@import "loaders/css-settings-import";
+
+// Helpers
+@import "base/accessibility";
+@import "base/global";
+@import "base/typography";
+
+// Blocks
+@import "loaders/blocks-import";
+
+// Template parts
+@import "loaders/template-parts-import";
+
+// Apply general styles from site front-end
+@import 'templates/general';
+@import "templates/content";
+@import "templates/columns";
+
+// Voluntary ACF style upgrades
+@import "features/acf-edits";
+
+// Voluntary editor quality of life improvements
+@import "features/editor-fixes";

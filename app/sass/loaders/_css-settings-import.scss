@@ -1,0 +1,16 @@
+/*
+
+    Imports all css related settings: e.g. css resets and variables.
+
+    This file is included in the editor & frontend stylesheets.
+    Note that loading order matters!
+*/
+
+// Setting files containing css variables
+@import "../settings/variables/transitions";
+@import "../settings/variables/layout-variables";
+@import "../settings/variables/colors";
+@import "../settings/variables/font-face";
+@import "../settings/variables/font-family";
+@import "../settings/variables/font-size";
+@import "../settings/variables/spacing";

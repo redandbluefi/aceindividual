@@ -1,0 +1,52 @@
+/*
+
+  Main styles
+  Styling for the front end of the site.
+
+*/
+
+@charset 'utf-8';
+
+// Apply styling resets.
+@import "settings/resets";
+
+// Import resets, settings and mixins, in that order.
+@import "loaders/scss-tooling-import";
+@import "loaders/css-settings-import";
+
+// Helper classes and utilities that are used throughout the site.
+@import "base/accessibility";
+@import "base/global";
+@import "base/typography";
+@import "base/buttons";
+@import "base/forms";
+@import "base/layout-grid";
+
+// Styles for the main navigation and mobile navigation.
+@import "features/nav-desktop";
+@import "features/nav-mobile";
+
+// Styles for templates and template parts
+@import "templates/general";
+@import "templates/404";
+@import "templates/print";
+@import "templates/site-header";
+@import "templates/site-footer";
+@import "templates/wordpress";
+@import "templates/columns";
+@import "templates/search";
+@import "templates/content";
+
+// Styles for components that are used throughout the site.
+@import "features/pagination";
+@import "features/gravity-forms";
+@import "features/breadcrumbs";
+@import "features/social-share";
+@import "features/lightbox";
+@import "features/icons";
+
+// All core and ACF blocks are loaded here.
+@import "loaders/blocks-import";
+
+// Template parts
+@import "loaders/template-parts-import";

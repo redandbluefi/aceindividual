@@ -1,0 +1,100 @@
+/* stylelint-disable scss/at-if-closing-brace-newline-after */
+/* stylelint-disable scss/at-if-closing-brace-space-after */
+
+// Text Button
+@mixin text-button(
+  $width: fit-content,
+  $color: var(--rnb--color--text),
+  $hover-color: var(--rnb--color--primary),
+  $weight: var(--rnb--font-weight--bold),
+  $line-height: var(--rnb--line-height--link),
+  $text-decoration: underline,
+  $text-transform: uppercase,
+  $letter-spacing: calc(var(--rnb--font-size--button) * 0.06),
+  $underline-offset: 4px,
+  $underline-thickness: 2px,
+  $icon: false,
+  $icon-start: false,
+  $icon-margin: 0.5rem,
+  $icon-width: 0.875rem,
+  $icon-fill: var(--rnb--color--text),
+  $icon-fill-hover: var(--rnb--color--primary),
+  $duration: var(--rnb--transition-duration),
+  $easing: var(--rnb--transition-easing),
+  $disabled-color: var(--rnb--color--disabled-text),
+) {
+  @include button-reset;
+
+  position: relative;
+  display: inline-block;
+  width: $width;
+  padding-bottom: $underline-offset;
+  font-family: var(--rnb--font--paragraph);
+  font-size: var(--rnb--font-size--button);
+  font-weight: $weight;
+  line-height: $line-height;
+  color: $color;
+  text-decoration: $text-decoration;
+  text-decoration-thickness: $underline-thickness;
+  text-underline-offset: $underline-offset;
+  text-transform: $text-transform;
+  letter-spacing: $letter-spacing;
+  white-space: nowrap;
+  cursor: pointer;
+  transition-timing-function: $easing;
+  transition-duration: $duration;
+  transition-property: all;
+
+  &:active:not([disabled]),
+  &:hover:not([disabled]),
+  &:focus-visible:not([disabled]) {
+    color: $hover-color;
+
+    // icon
+    @if  $icon {
+
+      svg > path {
+        fill: $icon-fill-hover;
+      }
+    }
+  }
+
+  // icon
+  @if  $icon {
+
+    i {
+      display: inline-block;
+      width: $icon-width;
+      height: auto;
+      transition-timing-function: $easing;
+      transition-duration: $duration;
+      transition-property: all;
+      
+      @if $icon-start {
+        margin-right: $icon-margin;
+      }
+      @else {
+        margin-left: $icon-margin;
+      }
+    }
+
+    svg > path {
+      fill: $icon-fill;
+      transition-timing-function: $easing;
+      transition-duration: $duration;
+      transition-property: fill;
+    }
+  }
+
+  &[disabled] {
+    color: $disabled-color;
+    cursor: not-allowed;
+
+    @if $icon {
+
+      i svg > path {
+        fill: $disabled-color;
+      }
+    }
+  }
+}

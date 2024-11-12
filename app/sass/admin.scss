@@ -1,0 +1,74 @@
+/*
+
+  Admin styles
+
+  These styles are loaded to the WordPress admin,
+  or dashboard views.
+
+*/
+
+@import "loaders/scss-tooling-import";
+@import "loaders/css-settings-import";
+
+// Admin styles API
+* {
+  --admin-color-error: #dc325b;
+}
+
+// Notify developer that ACF Sync is available
+.acf-admin-field-groups {
+
+  .subsubsub {
+
+    li.sync {
+
+      a {
+        position: relative;
+        padding: 0.7em 1.4em;
+        font-weight: 700;
+        color: #fff;
+
+        &::after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          content: "";
+          background: var(--admin-color-error, #dc325b);
+          border-radius: 0.25rem;
+          animation: flash 1.3s infinite;
+        }
+
+        span.count {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.eternia-danger {
+  font-size: 1.5rem;
+}
+
+/*
+    Animations
+*/
+
+// Flash brightness - used for button highlighting
+@keyframes flash {
+
+  0% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(0.75);
+  }
+
+  100% {
+    filter: brightness(1);
+  }
+}

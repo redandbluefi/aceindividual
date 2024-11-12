@@ -1,0 +1,17 @@
+// Core/embed block
+.wp-block-embed iframe,
+.wp-block-embed video {
+  width: 100%;
+  max-width: 100%;
+}
+
+// Limit the size of the caption
+.wp-block-embed.alignwide,
+.wp-block-embed.alignfull {
+
+  figcaption {
+    max-width: $breakpoint-sm;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

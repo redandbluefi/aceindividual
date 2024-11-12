@@ -1,0 +1,26 @@
+content/
+move_out.sh
+move_in.sh
+theme_tests.sh
+bower_components/
+node_modules/
+dandelion.yml
+sass/navigation/luxbar
+sass/navigation/_luxbar.scss
+.DS_Store
+package-lock.json
+html
+w3cErrors/
+composer.lock
+vendor/
+.env
+*.sql
+*.sql.gz
+*.sql.zip
+auth.json
+
+# here temporarily to reduce merge conflicts while developing the starter
+build/
+
+# Remove the following line after cloning the starter and starting your project
+acf-blocks/

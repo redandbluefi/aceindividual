@@ -1,0 +1,48 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "esnext",
+    "strict": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "noImplicitReturns": false,
+    "jsxImportSource": "vue",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": [
+      "webpack-env"
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable"
+    ]
+  },
+  "include": [
+    "./*.d.ts",
+    "./app/js/**/*.ts",
+    "./app/js/**/*.tsx",
+    "./app/js/**/*.vue",
+    "./shims-vue.d.ts",
+    "./types.d.ts",
+    "src/store.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

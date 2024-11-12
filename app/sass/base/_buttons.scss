@@ -1,0 +1,24 @@
+/**
+  Button classes
+
+  In Eternia projects, the button mixin defaults are typically 
+  set to match the project primary button styling. 
+  You'd then create variations, and name them with an 
+  latinalized ordinal number, 
+  e.g. button-secondary, button-tertiary, etc.
+*/
+
+.button-primary {
+  @include button;
+}
+
+.button-secondary {
+  @include button(
+    $background-color: var(--rnb--color--background),
+    $background-color--hover: var(--rnb--color--primary),
+    $border-color: var(--rnb--color--primary),
+    $border-color--hover: var(--rnb--color--primary),
+    $color: var(--rnb--color--primary),
+    $color--hover: var(--rnb--color--background),
+  );
+}

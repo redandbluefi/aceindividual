@@ -1,0 +1,30 @@
+// A natural box layout model to all elements
+html,
+*,
+*::before,
+*::after {
+  /* autoprefixer: ignore next */
+  box-sizing: border-box;
+}
+
+img {
+  /* autoprefixer: ignore next */
+  box-sizing: content-box;
+}
+
+// WP Admin Bar
+body {
+  background-color: var(--rnb--color--background);
+
+  &.admin-bar {
+
+    &::before {
+      top: 32px;
+    }
+  }
+}
+
+// Hide Vue apps before they're loaded
+[v-cloak] {
+  display: none;
+}

@@ -1,0 +1,226 @@
+// Gravity forms styles >= 2.5
+// Please disable CSS in /admin.php?page=gf_settings
+
+// WCAG 2.0 errors
+// stylelint-disable selector-class-pattern
+div.validation_error {
+  padding: 2rem;
+  margin-bottom: var(--form-row-gap);
+  font-size: var(--font-size-17);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  background-color: var(--color-error);
+
+  &:focus {
+    color: var(--color-white);
+  }
+}
+
+body *[aria-invalid="true"] {
+  border-color: var(--color-error);
+}
+
+.validation_message {
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-error);
+}
+
+.validation_list {
+  padding: 0;
+  margin-bottom: var(--form-row-gap);
+  margin-left: 0;
+  list-style: none;
+
+  a {
+    color: var(--color-error);
+    text-decoration: none;
+  }
+
+  li {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-error);
+  }
+}
+
+// Form screen reader texts
+.gform_required_legend,
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+
+  // doiuse-disable
+  clip-path: inset(50%);
+
+  // Many screen reader and browser combinations announce broken words as they would appear visually.
+  // stylelint-disable-next-line declaration-no-important, max-line-length
+  word-wrap: normal !important;
+  border: 0;
+
+  &:focus-within {
+    top: 5px;
+    left: 5px;
+    z-index: 100000; // Above WP toolbar.
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 15px 23px 14px;
+    clip: auto;
+    clip-path: none;
+    font-size: 1.7rem;
+    font-weight: var(--font-weight-bold);
+    line-height: normal;
+    text-decoration: none;
+    background-color: var(--color-white);
+    border-radius: 0;
+    box-shadow: 0 0 2px 2px rgb(22 22 22 / 60%);
+  }
+}
+
+// Default required label
+.gfield_required.gfield_required_asterisk {
+  font-size: var(--font-size-required-asterisk-label);
+}
+
+.gfield_required.gfield_required_asterisk,
+.gfield_required.gfield_required_text {
+  color: var(--color-required-label-text);
+}
+
+.gfield_required.gfield_required_text {
+  font-size: var(--font-size-required-text-label);
+}
+
+// Gravity forms minimal default styles
+.gform_wrapper > form {
+  display: grid;
+  grid-gap: var(--form-row-gap) var(--form-column-gap);
+}
+
+.gform-body {
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  textarea,
+  input:not([type="checkbox"], [type="radio"]) {
+    width: 100%;
+  }
+
+  // Fix textarea not full width
+  .ginput_container.ginput_container_textarea {
+    display: flex;
+  }
+
+  // Checkboxes & radio buttons
+  .gfield_radio,
+  .gfield_checkbox {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .gchoice {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .gfield_label {
+    display: inline-flex;
+    gap: var(--form-required-gap);
+    padding-inline: 0 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  // 2.5 built-in multi column support
+  .gform_fields {
+    display: grid;
+    grid-template-rows: repeat(auto-fill, auto);
+
+    // doiuse-disable
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: var(--form-row-gap) var(--form-column-gap);
+    width: 100%;
+  }
+
+  .gfield {
+    grid-column: 1 / -1;
+    padding: 0;
+    border: 0;
+  }
+
+  .gfield.gfield--width-full {
+    grid-column: span 12;
+  }
+
+  .gfield.gfield--width-eleven-twelfths {
+    grid-column: span 11;
+  }
+
+  .gfield.gfield--width-five-sixths {
+    grid-column: span 10;
+  }
+
+  .gfield.gfield--width-three-quarter {
+    grid-column: span 9;
+  }
+
+  .gfield.gfield--width-two-thirds {
+    grid-column: span 8;
+  }
+
+  .gfield.gfield--width-seven-twelfths {
+    grid-column: span 7;
+  }
+
+  .gfield.gfield--width-half {
+    grid-column: span 6;
+  }
+
+  .gfield.gfield--width-five-twelfths {
+    grid-column: span 5;
+  }
+
+  .gfield.gfield--width-third {
+    grid-column: span 4;
+  }
+
+  .gfield.gfield--width-quarter {
+    grid-column: span 3;
+  }
+
+  @media (width <= 640px) {
+
+    .gform_fields {
+      grid-column-gap: 0;
+    }
+
+    .gfield:not(.gfield--width-full) {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+// Hide SPAM Honeypot fields
+// stylelint-disable-next-line a11y/no-display-none
+.gform_validation_container {
+  display: none;
+}
+
+// Default confirmation message styles
+.gform_confirmation_message {
+  padding: 2rem;
+  font-size: var(--font-size-paragraph);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-success);
+  background-color: transparent;
+  border: 2px solid var(--color-success);
+}

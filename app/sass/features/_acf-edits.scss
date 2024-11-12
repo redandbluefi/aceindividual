@@ -1,0 +1,104 @@
+/*
+    This file contains changes to Advanced Custom Fields form designs. 
+    Don't worry, the styling is mild by default, but you can make
+    changes here easily if you want to.
+
+*/
+
+:root {
+  --acf-field-title-font-size: 0.875rem;
+  --acf-field-title-font-weight: 700;
+  --acf-field-title-font-family: system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+  --acf-field-title-color: #444;
+  --acf-field-input-font-size: 0.75rem;
+  --acf-field-input-font-weight: 400;
+  --acf-field-input-font-family: system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+  --acf-field-input-color: #444;
+  --acf-field-input-border-color: #dcdcdd;
+  --acf-field-instructions-font-size: 0.75rem;
+  --acf-field-instructions-font-weight: 400;
+  --acf-field-instructions-font-family: system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+  --acf-field-instructions-color: #646970;
+  --acf-layout-border-color: #EAECF0;
+  --acf-button-border-color: #EAECF0;
+}
+
+.acf-field {
+  border-top-color: var(--acf-layout-border-color);
+
+  // Smooth fonts
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    
+  .acf-label {
+
+    label {
+      font-family: var(--acf-field-title-font-family);
+      font-size: var(--acf-field-title-font-size);
+      font-weight: var(--acf-field-title-font-weight);
+      color: var(--acf-field-title-color);
+    }
+
+    .description {
+      max-width: 840px;
+      font-family: var(--acf-field-instructions-font-family);
+      font-size: var(--acf-field-instructions-font-size);
+      font-weight: var(--acf-field-instructions-font-weight);
+      line-height: 150%;
+      color: var(--acf-field-instructions-color);
+    }
+  }
+
+  .acf-input {
+
+    input,
+    textarea,
+    .select2-container .select2-selection,
+    select {
+      font-family: var(--acf-field-input-font-family);
+      font-size: var(--acf-field-input-font-size);
+      font-weight: var(--acf-field-input-font-weight);
+      color: var(--acf-field-input-color);
+    }
+
+    input,
+    textarea,
+    .select2-container .select2-selection,
+    .acf-input-prepend,
+    .acf-input-append,
+    select {
+      border-color: var(--acf-field-input-border-color);
+    }
+    
+  }
+
+  // Input variations
+  &-button-group {
+
+    .acf-button-group label {
+      border-color: var(--acf-button-border-color);
+    }
+  }
+
+    
+  &-color-picker {
+
+    .iris-picker {
+      border-color: var(--acf-field-input-border-color);
+      border-radius: 4px;
+            
+      // The box shadows on this are dated and serve no purpose.           
+      .iris-palette,
+      .iris-picker,
+      .iris-slider,
+      .iris-square-inner {
+        box-shadow: none; 
+      }
+    }
+  }
+}
+
+// Higher padding improves readability.
+.block-editor .acf-fields > .acf-field {
+  padding: 1rem 1.5rem 2rem;
+}

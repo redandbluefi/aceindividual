@@ -1,0 +1,15 @@
+:root {
+  // Default block margin.
+  --rnb--margin-between--blocks: 2rem;
+
+  // Grid column gap.
+  --rnb--gap: 1rem;
+
+  // Margins in typography
+  --rnb--margin-between--paragraphs: 1.5rem;
+
+  @media (min-width: $breakpoint-md ) {
+    --rnb--margin-between--blocks: 3rem;
+    --rnb--gap: 2rem;
+  }
+}

@@ -1,0 +1,104 @@
+// stylelint-disable declaration-property-unit-allowed-list, no-descending-specificity
+// Everything around fonts, font size definitions and typeset
+// presets. No modular scale, but a sophisticated viewport
+// based responsive mixin can be found in _helpers.scss
+
+// Typography settings
+.is-root-container,
+.acf-block-preview .block,
+body {
+  font-family: var(--rnb--font-family--paragraph);
+  font-size: var(--rnb--font-size--body);
+  font-weight: var(--rnb--font-weight--regular);
+  line-height: var(--rnb--line-height--body);
+  color: var(--rnb--color--text);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  // stylelint-disable-next-line value-keyword-case
+  text-rendering: geometricPrecision;
+}
+
+// Heading defaults
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-bottom: var(--rnb--margin-between--paragraphs);
+  font-family: var(--rnb--font-family--heading);
+  font-weight: var(--rnb--font-weight--heading);
+  line-height: var(--rnb--line-height--heading);
+}
+
+h1,
+.h1 {
+  font-size: var(--rnb--font-size--h1);
+}
+
+h2,
+.h2 {
+  font-size: var(--rnb--font-size--h2);
+}
+
+h3,
+.h3 {
+  font-size: var(--rnb--font-size--h3);
+}
+
+h4,
+.h4 {
+  font-size: var(--rnb--font-size--h4);
+}
+
+h5,
+.h5 {
+  font-size: var(--rnb--font-size--h5);
+}
+
+h6,
+.h6 {
+  font-size: var(--rnb--font-size--h6);
+}
+
+// Bold
+b,
+strong {
+  font-weight: var(--rnb--font-weight--bold);
+}
+
+// Italic
+em,
+i {
+  font-style: italic;
+}
+
+// Default paragraphs
+p {
+  margin-bottom: var(--rnb--margin-between--paragraphs);
+}
+
+li {
+  margin-top: 0.25em;
+}
+
+a {
+  color: var(--rnb--color--primary);
+}
+
+.tag {
+  @include tag;
+}
+
+.tag--light {
+  @include tag(
+    $font-weight: var(--rnb--font-weight--regular),
+    $letter-spacing: 0.08em 
+  );
+}

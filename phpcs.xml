@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<ruleset name="Eternia php Coding Standars">
+    <description>php coding standards for Eternia starter theme, based on Wordpress Coding Standards</description>
+
+    <rule ref="WordPress">
+        <!-- Exclude rules -->
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+        <exclude name="Squiz.PHP.CommentedOutCode.Found"/>
+    </rule>
+
+		<!-- Exclude spesific rules from files / folders -->
+		<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed">
+    	<exclude-pattern>/inc/hooks/*</exclude-pattern>
+		</rule>
+
+    <!-- Allow indenting PHP inside HTML -->
+    <rule ref="Universal.WhiteSpace.PrecisionAlignment.Found">
+       <!-- Exclude rules -->
+       <exclude-pattern>*</exclude-pattern>
+    </rule>
+
+    <!-- Scan only PHP files -->
+    <arg name="extensions" value="php"/>
+
+    <!-- Scan all files in directory -->
+    <file>.</file>
+
+    <!-- Exclude files -->
+    <exclude-pattern>/vendor/*</exclude-pattern>
+    <exclude-pattern>/node_modules/*</exclude-pattern>
+
+    <!-- Minimum supported php version-->
+    <config name="minimum_supported_wp_version" value="7.4"/>
+
+    <!-- Show colors in console -->
+    <arg value="-colors"/>
+
+</ruleset>

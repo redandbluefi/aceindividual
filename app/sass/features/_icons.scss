@@ -1,0 +1,7 @@
+/* Fix icon wrappers not autosizing after inline_svg function was fixed */
+i {
+  display: inline-flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}

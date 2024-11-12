@@ -1,0 +1,133 @@
+.search {
+
+  &__header {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem;
+    place-content: center center;
+    align-items: center;
+  }
+
+  &__meta {
+    display: flex;
+    flex-flow: row nowrap;
+    place-content: center space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 52.5rem;
+    margin-right: auto;
+    margin-left: auto;
+
+    &:focus {
+      outline: 0.063rem solid var(--color-green, #00b371);
+    }
+
+    &-resultcount {
+      // Empty block ready for styling
+    }
+
+    &-pagecount {
+      // Empty block ready for styling
+    }
+  }
+
+  &__results {
+    max-width: 52.5rem;
+    margin-top: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__result {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5rem 0 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 0.063rem solid var(--color-grey-2, #b3b3b3);
+
+    &:focus-within {
+      outline: 0.063rem solid var(--color-green, #00b371);
+      opacity: 1;
+    }
+
+    &-title {
+
+      a {
+        hyphens: auto;
+        color: var(--color-black, #000);
+        text-decoration: none;
+        outline: none;
+        transition: 0.3s ease-in;
+
+        &::after {
+          position: absolute;
+          inset: 0;
+          z-index: 2;
+          content: "";
+        }
+
+        // this is for cases when :focus-within is not supported
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &:hover {
+
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    &-image-wrap {
+      width: 9.375rem;
+      height: 9.375rem;
+      margin-bottom: 1.5rem;
+
+      @media (min-width: $breakpoint-sm) {
+        margin-bottom: 0;
+      }
+
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &-content {
+      width: 100%;
+      padding-left: 0;
+
+      @media (min-width: $breakpoint-sm) {
+        width: calc(100% - 9.375rem);
+        padding-left: 1.5rem;
+      }
+    }
+  }
+
+  &__pagination {
+    // Empty block ready for styling
+  }
+
+  &__form-wrapper {
+    // Empty block ready for styling
+  }
+
+  &__form {
+    // Empty block ready for styling
+  }
+
+  &__label {
+    // Empty block ready for styling
+  }
+
+  &__input {
+    // Empty block ready for styling
+  }
+
+  &__submit {
+    // Empty block ready for styling
+  }
+}

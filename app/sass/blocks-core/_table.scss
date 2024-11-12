@@ -1,0 +1,53 @@
+.wp-block-table {
+  
+  table {
+    border: var(--color-grey-1, #c1c1c1) 1px solid;
+  }
+
+  td {
+    border: var(--color-grey-1, #c1c1c1) 1px solid;
+  }
+
+  thead {
+    color: var(--color-text-inverted, #fff);
+    background-color: var(--color-primary, #000);
+    border-bottom: 0;
+  }
+
+  tfoot {
+    font-weight: 600;
+    color: var(--color-primary, #000);
+    border-top: 0;
+  }
+
+  th {
+    text-align: left;
+  }
+    
+  figcaption {
+    margin-top: 1rem;
+  }
+    
+  &.is-style-stripes {
+    border-bottom: 0;
+
+    table {
+
+      tbody {
+
+        tr:nth-child(even) {
+          background-color: var(--color-grey-1, #c1c1c1);
+        }
+
+        tr:nth-child(odd) {
+          background-color: var(--color-white, #fff);
+        }
+
+        thead,
+        tfoot {
+          color: var(--color-text, #000);
+        }
+      }
+    }
+  }
+}

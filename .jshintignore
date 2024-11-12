@@ -1,0 +1,11 @@
+build/js/all.js
+build/js/prod/*.js
+build/js/dev/*.js
+app/js/*.js
+app/js/legacy.js
+app/js/modules/lazyload.js
+app/js/modules/sticky-nav.js
+app/js/modules/navigation.js
+gulpfile.js
+gulp/*.js
+gulp/*/*.js

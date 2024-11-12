@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Element Resets
+   ========================================================================== */
+
+/* Remove html default button styles */
+@mixin button-reset() {
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  text-decoration: none;
+  text-indent: 0;
+  list-style: none outside none;
+  appearance: none;
+  border-spacing: 0;
+  background: none repeat scroll 0 0 transparent;
+  border: none;
+}
+
+/* Lists (ol / ul elements)
+   Remove default html list styles + ones defined in typography.scss
+*/
+@mixin list-reset() {
+  padding-left: unset;
+  margin-top: unset;
+  margin-bottom: unset;
+  list-style: none;
+
+  li {
+    padding-left: unset;
+    margin-bottom: unset;
+
+    &::marker {
+      content: none;
+    }
+  }
+}

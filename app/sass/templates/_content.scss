@@ -1,0 +1,42 @@
+/**
+  Content helper class allows us to set the row gap and 
+  vertical margins between different elements.
+*/
+.content {
+  // Blocks should have a leading margin.
+  & > * + * {
+    margin-top: var(--rnb--margin-between--blocks, 2rem);
+    margin-bottom: 0;
+  }
+
+  // Content following immediately after a heading should have a smaller margin. 
+  & > h1 + p,
+  & > h2 + p,
+  & > h3 + p,
+  & > h4 + p,
+  & > h5 + p,
+  & > h6 + p {
+    margin-top: var(--rnb--margin-between--paragraphs, 1.5rem);
+  }
+
+  // List items following immediately after a paragraph should have a smaller margin.
+  & > p + ol,
+  & > p + ul {
+    margin-top: 0.75em;
+  }
+
+  // Paragraphs following immediately after another paragraph should have a smaller margin.
+  & > p + p {
+    margin-top: var(--rnb--margin-between--paragraphs, 1.5rem);
+  }
+
+  // Full width ACF blocks can follow each other without any margin.
+  section.alignfull + section.alignfull {
+    margin-top: 0;
+  }
+
+  // If a heading is the first element in a block, it should have a larger margin.
+  & > h1 {
+    margin-top: var(--rnb--margin-between--blocks, 2rem);
+  }
+}

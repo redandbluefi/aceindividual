@@ -1,0 +1,8 @@
+<svg class="rnb-eternia" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="15" y="55" width="170" height="110" stroke="#682EE3" stroke-width="10"/>
+<path d="M20 58.8075L180 160.769M20 160.769L180 58.8075" stroke="#682EE3" stroke-width="10"/>
+<rect width="170" height="20" transform="matrix(1 0 0 -1 15 55)" stroke="#682EE3" stroke-width="10"/>
+<path d="M35 35V55" stroke="#682EE3" stroke-width="10"/>
+<path d="M55 35V55" stroke="#682EE3" stroke-width="10"/>
+<path d="M185 45L70 45" stroke="#682EE3" stroke-width="10"/>
+</svg>
