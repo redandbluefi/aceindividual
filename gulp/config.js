@@ -40,7 +40,7 @@ module.exports = {
       logLevel: "debug",
       injectChanges: true,
       proxy: proxyUrl,
-      browser: "Google Chrome",
+      browser: "",
       open: true,
       notify: true,
       // @TODO: need to figure out how to handle ssl-certs in this setup with Local, below code that applies to Dude-stack
