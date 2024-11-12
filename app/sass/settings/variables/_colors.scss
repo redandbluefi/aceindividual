@@ -3,35 +3,33 @@
 
   We first set the tones from design sheet as HSL values. These are
   then mapped to the respective role variables, which are more typically
-  used throughout the project. 
+  used throughout the project.
 */
 
 // 1. Theme colors as HSL values.
 $hsl-colors: (
   "black": (0, 0%, 0%),
   "white": (0, 0%, 100%),
-  "off-white": (221, 100%, 99.5%),
-  "grey-1": (0, 1%, 90%),
-  "grey-2": (0, 4%, 70%),
-  "grey-3": (0, 6%, 40%),
-  "grey-4": (221, 20%, 17%),
-  "green": (158, 100%, 35%),
-  "gold": (47,34%,58%),
-  "orange": (16, 95%, 57%),
+  "red": (0, 100%, 53%),
+  "very-dark-grayish-blue": (220, 41%, 23%),
+  "dark-grayish-blue": (220, 12%, 29%),
+  "ligh-grayish-blue": (221, 15%, 76%),
+  "grey": (0, 0%, 51%),
+  "grey-1": (0, 0%, 71%),
+  "grey-2": (0, 0%, 77%),
+  "grey-3": (0, 0%, 51%),
 );
 
 // 2. Functional colors
 $functional-colors: (
-  "text": "grey-4",
-  "text-inverted": "off-white",
-  "primary": "green",
-  "secondary": "gold",
-  "error": "orange",
-  "background": "off-white",
-  "background--inverted": "grey-4",
-  "background--paper": "grey-1",
-  "background--primary": "green",
-  "background--secondary": "grey-2",
+  "text": "white",
+  "text-inverted": "black",
+  "primary": "black",
+  "secondary": "white",
+  "error": "red",
+  "background": "black",
+  "background--primary": "black",
+  "background--secondary": "white",
   "disabled--text" : "grey-3",
   "disabled--background" : "grey-1",
 );
