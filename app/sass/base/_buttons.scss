@@ -38,8 +38,10 @@
     $border-color--hover: unset
   );
 
-  border: unset;
+  display: flex;
+  gap: 0.5rem;
   padding: 0;
+  border: unset;
 
   &:hover {
     text-decoration: underline;
