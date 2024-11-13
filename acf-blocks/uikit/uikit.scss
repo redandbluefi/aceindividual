@@ -8,6 +8,7 @@
 */
 .uikit {
   // Header section does not contain any components.
+  background-color: #666666;
   &__header {
     width: 90%;
     max-width: 640px;
@@ -61,21 +62,21 @@
         h4,
         h5,
         h6 {
-          max-width: 600px; 
+          max-width: 600px;
         }
       }
 
       &__paragraphs {
 
         p {
-          max-width: 600px; 
+          max-width: 600px;
         }
       }
 
       &__extra {
 
         & > *:not(.typography-meta) {
-          max-width: 600px; 
+          max-width: 600px;
         }
       }
     }
@@ -93,7 +94,7 @@
         line-height: 1;
 
         // Reduce intensity to emphasize the main component.
-        opacity: 0.7; 
+        opacity: 0.7;
       }
     }
   }
@@ -178,7 +179,7 @@
 
     .icons-container--filled {
 
-      svg {
+      svg, path {
         fill: var(--rnb--color--secondary);
       }
     }

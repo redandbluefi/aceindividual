@@ -1,3 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" >
-  <path d="M17.3537 12.2931L8.64666 3.58594L7.23244 5.00015L14.5253 12.2931L7.23242 19.586L8.64664 21.0002L17.3537 12.2931Z"/>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<g id="Property 1=chevron right">
+<path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M10 5C10 8.31371 12.6863 11 16 11L16 13C12.6863 13 10 15.6863 10 19L8 19C8 15.988 9.66458 13.3647 12.124 12C9.66458 10.6353 8 8.01203 8 5L10 5Z" />
+</g>
 </svg>

@@ -3,13 +3,13 @@
 */
 :root {
   // Heading font sizes
-  --rnb--font-size--hero: 2.75rem;
-  --rnb--font-size--h1: 2.375rem;
-  --rnb--font-size--h2: 2.25rem;
-  --rnb--font-size--h3: 2rem;
-  --rnb--font-size--h4: 1.75rem;
-  --rnb--font-size--h5: 1.25rem;
-  --rnb--font-size--h6: 1.125rem;
+  --rnb--font-size--h1: 2.25rem;
+  --rnb--font-size--h2: 2rem;
+  --rnb--font-size--h3: 1.75rem;
+  --rnb--font-size--h4: 1.5rem;
+  --rnb--font-size--h5: 1.375rem;
+  --rnb--font-size--h6: 1.25rem;
+
 
   // Paragraph font sizes
   --rnb--font-size--body: 1rem;
@@ -30,12 +30,12 @@
   --rnb--line-height--body: 1.5;
   --rnb--line-height--heading: 1.22;
   --rnb--line-height--input: 1.3;
-  --rnb--line-height--h1: 1.22;
-  --rnb--line-height--h2: 1.22;
-  --rnb--line-height--h3: 1.25;
-  --rnb--line-height--h4: 1.29;
-  --rnb--line-height--h5: 1.4;
-  --rnb--line-height--h6: 1.33;
+  --rnb--line-height--h1: 1.0667;
+  --rnb--line-height--h2: 1.1154;
+  --rnb--line-height--h3: 1.1818;
+  --rnb--line-height--h4: 1.3333;
+  --rnb--line-height--h5: 1.6;
+  --rnb--line-height--h6: 1.4;
 
   // Font weights
   --rnb--font-weight--regular: 400;
@@ -43,18 +43,18 @@
   --rnb--font-weight--bold: 700;
 
   @media (min-width: $breakpoint-mobile-menu) {
-    --rnb--font-size--hero: 5.625rem;
-    --rnb--font-size--h1: 3.75rem;
-    --rnb--font-size--h2: 3.25rem;
-    --rnb--font-size--h3: 2.75rem;
-    --rnb--font-size--h4: 1.875rem;
-    --rnb--font-size--h5: 1.25rem;
-    --rnb--font-size--h6: 1.25rem;
-    --rnb--line-height--h1: 1.0667;
-    --rnb--line-height--h2: 1.1154;
-    --rnb--line-height--h3: 1.1818;
-    --rnb--line-height--h4: 1.3333;
-    --rnb--line-height--h5: 1.6;
-    --rnb--line-height--h6: 1.4;
+    --rnb--font-size--hero: 2.75rem;
+    --rnb--font-size--h1: 3.875rem;
+    --rnb--font-size--h2: 3.75rem;
+    --rnb--font-size--h3: 3.25rem;
+    --rnb--font-size--h4: 2.75rem;
+    --rnb--font-size--h5: 2rem;
+    --rnb--font-size--h6: 1.75rem;
+    --rnb--line-height--h1: 1.22;
+    --rnb--line-height--h2: 1.22;
+    --rnb--line-height--h3: 1.25;
+    --rnb--line-height--h4: 1.29;
+    --rnb--line-height--h5: 1.4;
+    --rnb--line-height--h6: 1.33;
   }
 }

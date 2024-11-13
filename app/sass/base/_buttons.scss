@@ -16,10 +16,10 @@
   @include button(
     $background-color: var(--rnb--color--background--secondary),
     $background-color--hover: var(--color--very-dark-grayish-blue),
-    $border-color: var(--rnb--color--primary),
-    $border-color--hover: var(--rnb--color--primary),
+    $border-color: var(--rnb--color--secondary),
+    $border-color--hover: var(--color--very-dark-grayish-blue),
     $color: var(--rnb--color--primary),
-    $color--hover: var(--rnb--color--secondary),
+    $color--hover: var(--rnb--color--secondary)
   );
 
   &:disabled {
@@ -35,7 +35,7 @@
     $background-color--hover: unset,
     $border: unset,
     $border-color: unset,
-    $border-color--hover: unset,
+    $border-color--hover: unset
   );
 
   border: unset;

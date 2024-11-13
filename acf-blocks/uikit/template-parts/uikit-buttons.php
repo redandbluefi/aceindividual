@@ -14,18 +14,26 @@ namespace eternia;
 ?>
 <section class="uikit__buttons" id="uikit-buttons">
   <button class="button-primary">
-    Button primary
+    <div class="button-content">
+      Button primary
+    </div>
   </button>
   <button class="button-primary">
-    Button primary
-    <?php inline_svg('arrow-right.svg', array('wrapper' => 'i'), true); ?>
+    <div class="button-content">
+      Button primary
+      <?php inline_svg('arrow-right.svg', array('wrapper' => 'i'), true); ?>
+    </div>
   </button>
   <button class="button-secondary">
-    Button secondary
+    <div class="button-content">
+      Button secondary
+    </div>
   </button>
   <button class="button-secondary">
-    Button secondary
-    <?php inline_svg('arrow-right.svg', array('wrapper' => 'i'), true); ?>
+    <div class="button-content">
+      Button secondary
+      <?php inline_svg('arrow-right.svg', array('wrapper' => 'i'), true); ?>
+    </div>
   </button>
   <button class="button-tertiary">
     Button tertiary
