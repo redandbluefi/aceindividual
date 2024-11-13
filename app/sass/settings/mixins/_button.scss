@@ -142,6 +142,7 @@
   }
 
   &:focus-visible:not([disabled]) {
+    overflow: auto;
     outline: none;
 
     &::after {
