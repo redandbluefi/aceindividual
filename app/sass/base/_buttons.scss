@@ -28,6 +28,9 @@
 }
 
 .button-tertiary {
+  $duration: var(--rnb--transition-duration);
+  $easing: var(--rnb--transition-easing);
+
   @include button-reset;
   @include button(
     $color: var(--rnb--color--secondary),
@@ -44,8 +47,21 @@
   gap: 0.5rem;
   padding: 0;
 
-  &:hover {
-    text-decoration: underline;
+  &::before {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    content: "";
+    background-color: currentcolor;
+    transition: width $duration $easing;
+  }
+
+  &:hover:not([disabled]) {
+    &::before {
+      width: 100%;
+    }
   }
 
   &:disabled {
