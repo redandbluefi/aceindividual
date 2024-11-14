@@ -9,7 +9,6 @@
   blocks, but is more consistent with our vision overall.
 */
 .editor-styles-wrapper {
-
   .card {
     padding: unset;
     margin: unset;
@@ -17,7 +16,6 @@
     border: none;
     box-shadow: none;
   }
-
 }
 
 .editor-styles-wrapper {
@@ -28,7 +26,8 @@
   }
 
   // Reset negative margins for fully aligned blocks
-  .block-editor-block-list__layout.is-root-container > .wp-block[data-align="full"] {
+  .block-editor-block-list__layout.is-root-container
+    > .wp-block[data-align="full"] {
     margin-right: unset;
     margin-left: unset;
   }
@@ -131,7 +130,6 @@
 */
 
 .edit-post-visual-editor {
-
   &__post-title-wrapper {
     position: relative;
     z-index: 3;
@@ -144,7 +142,6 @@
 }
 
 .block-editor {
-
   &-button-block-appender {
     box-shadow: none;
   }
