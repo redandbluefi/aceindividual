@@ -83,7 +83,7 @@ if (!empty($block['className'])) {
             <?php elseif ($button_url && $button_title): ?>
               <a href="<?php echo esc_url($button_url); ?>" class="button-primary"
                 target="<?php echo esc_attr($button_target); ?>">
-                <span><?php echo esc_html($button_title); ?></span>
+                <?php echo esc_html($button_title); ?>
               </a>
             <?php endif; ?>
           <?php endwhile; ?>

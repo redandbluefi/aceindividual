@@ -28,20 +28,21 @@
 }
 
 .button-tertiary {
+  @include button-reset;
   @include button(
     $color: var(--rnb--color--secondary),
     $color--hover: var(--rnb--color--secondary),
     $background-color: unset,
     $background-color--hover: unset,
-    $border: unset,
+    $border: false,
     $border-color: unset,
-    $border-color--hover: unset
+    $border-color--hover: unset,
+    $border-radius: 0
   );
 
   display: flex;
   gap: 0.5rem;
   padding: 0;
-  border: unset;
 
   &:hover {
     text-decoration: underline;
