@@ -13,13 +13,13 @@ namespace eternia;
 
 ?>
 <section class="uikit__buttons" id="uikit-buttons">
-  <button class="button-primary">
+  <a class="button-primary">
     Button primary
-  </button>
-  <button class="button-primary">
+  </a>
+  <a class="button-primary">
     Button primary
     <?php inline_svg('arrow-right.svg', array('wrapper' => 'i'), true); ?>
-  </button>
+  </a>
   <button class="button-secondary">
     Button secondary
   </button>

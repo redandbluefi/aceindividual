@@ -4,60 +4,48 @@
   This button can be used for regular buttons,
   buttons with icons and buttons with only icons.
 */
-@mixin button(
 
-  // Scaling.
+@mixin button(
   $max-width: initial,
   $padding-top: 0.7rem,
   $padding-left: 1.2rem,
   $padding-bottom: 0.7rem,
   $padding-right: 1.2rem,
   $width: fit-content,
-
-  // Typography.
   $line-height: var(--rnb--line-height--body),
   $font-size: var(--rnb--font-size--button),
   $font-weight: var(--rnb--font-weight--regular),
   $font-family: var(--rnb--font-family--body),
   $text-transform: none,
-
-  // Coloring.
   $background-color: var(--color--transparent),
   $background-color--hover: var(--color--white),
   $border-color: var(--color--white),
   $border-color--hover: var(--color--white),
   $color: var(--rnb--color--text),
+  $color--hover: var(--rnb--color--primary),
   $color--disabled: var(--rnb--color--disabled--text),
   $background-color--disabled: var(--rnb--color--disabled--background),
   $border-color--disabled: var(--rnb--color--disabled--text),
-  $color--hover: var(--rnb--color--primary),
-  $color--icon: $color,
-  $color--icon-hover: $color--hover,
-
-  // Border.
-  $border: false,
+  $border: true,
   $border-hover: true,
-  $border-radius:  2.5rem,
+  $border-radius: 2.5rem,
   $border-style: solid,
   $border-width: 1px,
-
-  // Icon.
-  $icon-margin: 0.25em,
+  $icon-margin: 0.5em,
   $icon-width: 1.25em,
-
-  // Animation.
-  $duration: var(--transition-duration),
-  $easing: var(--transition-easing),
+  $duration: var(--rnb--transition-duration),
+  $easing: var(--rnb--transition-easing)
 ) {
   position: relative;
   box-sizing: border-box;
   display: inline-flex;
-  column-gap: $icon-margin;
   align-items: center;
+  justify-content: center;
   width: $width;
   max-width: $max-width;
   padding: $padding-top $padding-right $padding-bottom $padding-left;
   margin-bottom: 0;
+  overflow: visible;
   font-family: $font-family;
   font-size: $font-size;
   font-weight: $font-weight;
@@ -68,55 +56,67 @@
   white-space: nowrap;
   appearance: none;
   cursor: pointer;
-  background-color: $background-color;
-  border-color: $border-color;
-  border-style: $border-style;
-  border-width: $border-width;
-  border-radius: $border-radius;
-  transition-timing-function: $easing;
-  transition-duration: $duration;
-  transition-property: all;
 
-  // Icon
-  i {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: $icon-width;
-    height: $icon-width;
+  // Conditional Background
+  @if $background-color != false and $background-color != "unset" {
+    background: linear-gradient(
+      to right,
+      $background-color--hover 50%,
+      $background-color 50%
+    );
+    background-position: right bottom;
+    background-size: 200% 100%;
   }
 
+  // Conditional Border
+  @if $border != false and $border != "unset" {
+    border: $border-width $border-style $border-color;
+    border-radius: $border-radius;
+  }
+
+  $transitions:
+    color $duration $easing,
+    border-color $duration $easing;
+
+  @if $background-color != false and $background-color != "unset" {
+    $transitions:
+      $transitions,
+      background-position $duration $easing;
+  }
+
+  transition: $transitions;
+
   svg {
-    width: $icon-width;
-    height: $icon-width;
-    margin-right: 0;
-    margin-left: 0;
-    fill: $color--icon;
+    fill: currentcolor;
     transition: fill $duration $easing;
   }
 
-  // Disabled state
-  &[disabled] {
-    color: $color--disabled;
-    cursor: not-allowed;
-    background-color: $background-color--disabled;
-    border-color: $background-color--disabled;
+  &:hover {
+    color: $color--hover;
 
-    svg {
-      fill: $color--disabled;
+    @if $background-color != false and $background-color != "unset" {
+      background-position: left bottom;
+    }
+
+    @if $border-hover and ($border != false and $border != "unset") {
+      border-color: $border-color--hover;
     }
   }
 
-  // Active, hover and focus-visible states
-  &:active:not([disabled]),
-  &:hover:not([disabled])
-  {
-    color: $color--hover;
-    background-color: $background-color--hover;
-    border-color: $border-color--hover;
+  &[disabled] {
+    color: $color--disabled;
+    cursor: not-allowed;
+
+    @if $background-color != false and $background-color != "unset" {
+      background: $background-color--disabled;
+    }
+
+    @if $border != false and $border != "unset" {
+      border-color: $border-color--disabled;
+    }
 
     svg {
-      fill: $color--icon-hover;
+      fill: $color--disabled;
     }
   }
 
@@ -124,15 +124,12 @@
     outline: none;
 
     &::after {
-      content: '';
       position: absolute;
-      top: -0.875rem;
-      right: -0.875rem;
-      bottom: -0.875rem;
-      left: -0.875rem;
-      border-radius: 1%;
-      border: 4px solid var(--color--white);
+      inset: -0.9375rem;
+      z-index: 2;
       pointer-events: none;
+      content: "";
+      border: 4px solid var(--color--white);
     }
   }
 }

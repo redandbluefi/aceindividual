@@ -1,3 +1,5 @@
-<svg     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-<path d="M12.7071 3.29297L11.2929 4.70718L17.5858 11.0001H4V13.0001H17.5858L11.2929 19.293L12.7071 20.7072L21.4142 12.0001L12.7071 3.29297Z"/>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<g id="Property 1=arrow right">
+<path id="Vector" d="M21 11C17.6863 11 15 8.31371 15 5H13C13 7.38939 14.0475 9.53411 15.7084 11H3V13H15.7084C14.0475 14.4659 13 16.6106 13 19H15C15 15.6863 17.6863 13 21 13V11Z"/>
+</g>
 </svg>
