@@ -22,7 +22,7 @@
   $border-color: var(--color--white),
   $border-color--hover: var(--color--white),
   $color: var(--rnb--color--text),
-  $color--hover: var(--rnb--color--primary),
+  $color--hover: var(--rnb--color--secondary),
   $color--disabled: var(--rnb--color--disabled--text),
   $background-color--disabled: var(--rnb--color--disabled--background),
   $border-color--disabled: var(--rnb--color--disabled--text),
@@ -38,6 +38,10 @@
 ) {
   position: relative;
   box-sizing: border-box;
+  display: flex;
+  gap: $icon-margin;
+  align-items: center;
+  justify-content: center;
   width: $width;
   max-width: $max-width;
   padding: $padding-top $padding-right $padding-bottom $padding-left;
@@ -53,6 +57,18 @@
   white-space: nowrap;
   appearance: none;
   cursor: pointer;
+
+  $transitions:
+    color $duration $easing,
+    border-color $duration $easing;
+
+  @if $background-color != false and $background-color != "unset" {
+    $transitions:
+      $transitions,
+      background-position $duration $easing;
+  }
+
+  transition: $transitions;
 
   span {
     display: inline-flex;
@@ -77,18 +93,6 @@
     border: $border-width $border-style $border-color;
     border-radius: $border-radius;
   }
-
-  $transitions:
-    color $duration $easing,
-    border-color $duration $easing;
-
-  @if $background-color != false and $background-color != "unset" {
-    $transitions:
-      $transitions,
-      background-position $duration $easing;
-  }
-
-  transition: $transitions;
 
   svg {
     fill: currentcolor;

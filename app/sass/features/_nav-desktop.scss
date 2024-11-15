@@ -137,21 +137,6 @@
     }
   }
 
-  .current-menu-parent,
-  .current-menu-item.menu-item__level-1 {
-    & > a,
-    & > button {
-      text-decoration: underline;
-    }
-  }
-
-  .current-menu-item {
-    .sub-menu__parent-item,
-    &:not(.menu-item__level-1) > a {
-      text-decoration: underline;
-    }
-  }
-
   .sub-menu {
     &__container {
       position: absolute;

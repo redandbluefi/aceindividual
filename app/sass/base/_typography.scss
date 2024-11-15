@@ -88,14 +88,38 @@ i {
 // Default paragraphs
 p {
   margin-bottom: var(--rnb--margin-between--paragraphs);
-}
 
-li {
-  margin-top: 0.25em;
+  a {
+    @include base-link-styles($color: var(--rnb--color--text));
+  }
 }
 
 a {
-  color: var(--rnb--color--primary);
+  @include base-link-styles($color: var(--rnb--color--text));
+}
+
+a:not(
+    [href^="mailto:"],
+    [href^="tel:"],
+    .button-primary,
+    .button-secondary,
+    .site-branding__link
+  ) {
+  @include hover-underline;
+}
+
+a[href^="mailto:"],
+a[href^="tel:"] {
+  text-decoration: underline;
+}
+
+ul li,
+ol li {
+  line-height: 1.75;
+
+  a {
+    @include base-link-styles($color: var(--rnb--color--text));
+  }
 }
 
 .tag {

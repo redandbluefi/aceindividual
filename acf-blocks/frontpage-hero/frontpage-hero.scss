@@ -25,10 +25,6 @@
     grid-template-columns: 1fr;
     gap: 2rem;
     padding: 0;
-
-    @media (min-width: $breakpoint-mobile-menu) {
-      padding: 2.5rem 0;
-    }
   }
 
   &__image {
@@ -47,7 +43,7 @@
     }
 
     @media (min-width: $breakpoint-mobile-menu) {
-      height: 100vh;
+      height: calc(100vh - 5.5rem);
     }
   }
 

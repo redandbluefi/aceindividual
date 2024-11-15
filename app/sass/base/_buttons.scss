@@ -16,10 +16,10 @@
   @include button(
     $background-color: var(--rnb--color--background--secondary),
     $background-color--hover: var(--color--very-dark-grayish-blue),
-    $border-color: var(--rnb--color--secondary),
+    $border-color: var(--rnb--color--primary),
     $border-color--hover: var(--color--very-dark-grayish-blue),
-    $color: var(--rnb--color--primary),
-    $color--hover: var(--rnb--color--secondary)
+    $color: var(--rnb--color--secondary),
+    $color--hover: var(--rnb--color--primary)
   );
 
   &:disabled {
@@ -32,9 +32,10 @@
   $easing: var(--rnb--transition-easing);
 
   @include button-reset;
+  @include hover-underline;
   @include button(
-    $color: var(--rnb--color--secondary),
-    $color--hover: var(--rnb--color--secondary),
+    $color: var(--rnb--color--primary),
+    $color--hover: var(--rnb--color--primary),
     $background-color: unset,
     $background-color--hover: unset,
     $border: false,
@@ -46,23 +47,6 @@
   display: flex;
   gap: 0.5rem;
   padding: 0;
-
-  &::before {
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    content: "";
-    background-color: currentcolor;
-    transition: width $duration $easing;
-  }
-
-  &:hover:not([disabled]) {
-    &::before {
-      width: 100%;
-    }
-  }
 
   &:disabled {
     color: var(--rnb--color--disabled--text);
