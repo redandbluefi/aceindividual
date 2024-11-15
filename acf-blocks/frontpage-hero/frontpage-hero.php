@@ -90,10 +90,8 @@ $home_url = get_home_url();
             <?php elseif ($button_url && $button_title): ?>
               <a href="<?php echo esc_url($button_url); ?>" class="button-primary"
                 target="<?php echo esc_attr($button_target); ?>">
-                <span>
-                  <?php echo esc_html($button_title); ?>
-                  <?php inline_svg('arrow-right.svg', array('wrapper' => 'i'), true); ?>
-                </span>
+                <?php echo esc_html($button_title); ?>
+                <?php inline_svg('arrow-right.svg', array('wrapper' => 'i'), true); ?>
               </a>
             <?php endif; ?>
           <?php endwhile; ?>

@@ -1,8 +1,52 @@
 .site-footer {
-  padding-top: var(--rnb--margin-between--blocks, 2rem);
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 
-  .nav-footer {
+  h3 {
+    @include heading($type: "h6");
+  }
 
+  &__navigation {
+    .site-footer__contact,
+    .site-footer__sitemap {
+      border-bottom: 1px solid var(--color--white);
+
+      @media (min-width: $breakpoint-md) {
+        border-right: 1px solid var(--color--white);
+        border-bottom: none;
+      }
+    }
+
+    @media (min-width: $breakpoint-md) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.7813rem;
+    }
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-bottom: 3.25rem;
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .site-footer__sitemap__menu-items,
+  .site-footer__menu__menu-items {
+    margin: 3.25rem 0;
+
+    @media (min-width: $breakpoint-md) {
+      margin: 0;
+    }
+  }
+
+  &__navigation,
+  &__sitemap,
+  &__menu {
     &__menu-items {
       padding-left: 0;
       list-style-type: none;
@@ -17,28 +61,48 @@
     }
   }
 
-  .nav-some {
+  // Bottom section
 
-    &__menu-items {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(0, 30px));
-      gap: 1rem;
-      padding-left: 0;
-      list-style-type: none;
+  &__bottom-section {
+    margin-top: 3rem;
 
-      .menu-item {
-        margin-bottom: 1rem;
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
 
-        i {
-          width: 1.875rem;
-          height: 1.875rem;
-        }
+    .site-footer__bottom-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+      color: var(--color--dark-grayish-blue);
 
-        svg {
-          width: 1.875rem;
-          height: 1.875rem;
+      a {
+        @include base-link-styles($color: var(--color--dark-grayish-blue));
+      }
 
-          //margin-right: 1rem;
+      p {
+        margin: 0;
+      }
+
+      @media (min-width: $breakpoint-md) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .site-branding {
+      .site-branding__link {
+        display: inline-block;
+        width: 100%;
+
+        .site-branding__logo {
+          display: block;
+          width: 100%;
+          max-width: 82.25rem;
+          margin: 0 auto;
         }
       }
     }
