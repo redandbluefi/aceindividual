@@ -198,7 +198,7 @@
         {
             "key": "field_6736083ac7526",
             "label": "Ota yhteyttä linkki",
-            "name": "footer_cta_buttom",
+            "name": "footer_cta_button",
             "aria-label": "",
             "type": "link",
             "instructions": "",
@@ -315,5 +315,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731655208
+    "modified": 1731678754
 }

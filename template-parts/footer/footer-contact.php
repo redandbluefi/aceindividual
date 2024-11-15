@@ -20,11 +20,11 @@ $footer_customer_text = get_field('footer_customer_text', $lang_pid) ?? '';
 $footer_customer_email = get_field('footer_customer_email', $lang_pid) ?? '';
 $footer_customer_phone = get_field('footer_customer_phone', $lang_pid) ?? '';
 
-$footer_cta_buttom = get_field('footer_cta_buttom', $lang_pid) ?? '';
-if ($footer_cta_buttom) {
-  $url = $footer_cta_buttom['url'];
-  $title = $footer_cta_buttom['title'];
-  $target = $footer_cta_buttom['target'] ? ' target="' . esc_attr($footer_cta_buttom['target']) . '"' : '';
+$footer_cta_button = get_field('footer_cta_button', $lang_pid) ?? '';
+if ($footer_cta_button) {
+  $button_url = $footer_cta_button['url'] ?? '';
+  $button_title = $footer_cta_button['title'] ?? '';
+  $button_target = $footer_cta_button['target'] ? ' target="' . esc_attr($footer_cta_button['target']) . '"' : '';
 }
 
 $wrapper_classes = 'site-footer__contact';
@@ -98,10 +98,10 @@ $wrapper_classes = 'site-footer__contact';
   </div>
 
 
-  <?php if (!empty($footer_cta_buttom)): ?>
+  <?php if (!empty($button_url) && !empty($button_title)): ?>
     <div class="<?php echo esc_attr($wrapper_classes . '__cta'); ?>">
-      <a href="<?php echo esc_url($url); ?>" class="button-secondary" <?php echo esc_attr($target); ?>>
-        <?php echo esc_html($title); ?>
+      <a href="<?php echo esc_url($button_url); ?>" class="button-secondary" <?php echo esc_attr($button_target); ?>>
+        <?php echo esc_html($button_title); ?>
         <?php inline_svg('arrow-right.svg', array('wrapper' => 'i'), true); ?>
       </a>
     </div>
