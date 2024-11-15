@@ -40,12 +40,13 @@
   $font-weight: var(--rnb--font-weight--regular),
   $letter-spacing: inherit,
   $text-transform: inherit,
-  $hover-color: var(--rnb--color--primary),
+  $hover-color: var(--rnb--color--secondary),
   $icon-hover: false,
-  $hover-underline: false,
+  $hover-underline: true,
   $duration: var(--rnb--transition-duration),
-  $easing: var(--rnb--transition-easing),
+  $easing: var(--rnb--transition-easing)
 ) {
+  position: relative;
   display: inline-block;
   font-size: $font-size;
   font-weight: $font-weight;
@@ -57,60 +58,63 @@
   white-space: nowrap;
   appearance: none;
   cursor: pointer;
-  transition-timing-function: $easing;
-  transition-duration: $duration;
-  transition-property: all;
+  transition: color $duration $easing;
 
-  &:active:not([disabled]),
+  @if $hover-underline {
+    &::after {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      content: "";
+      background-color: currentcolor;
+      transition: width $duration $easing;
+    }
+  }
+
   &:hover:not([disabled]),
   &:focus-visible:not([disabled]) {
-    @if  $hover-color {
+    @if $hover-color {
       color: $hover-color;
-    }
-    @else {
+    } @else {
       color: inherit;
     }
 
-    @if  $hover-underline {
-      text-decoration: underline;
-      text-underline-offset: 2px;
+    @if $hover-underline {
+      &::after {
+        width: 100%;
+      }
     }
 
-    @if  $icon-hover {
-
+    @if $icon-hover {
       i svg path {
         fill: $hover-color;
       }
     }
   }
 
-  @if  $icon {
-
+  @if $icon {
     & i {
       display: inline-block;
       width: $icon-size;
       height: auto;
 
-      @if  $icon-start {
+      @if $icon-start {
         margin-right: $icon-margin;
-      }
-      @else {
+      } @else {
         margin-left: $icon-margin;
       }
 
-      @if  $icon-color {
-
+      @if $icon-color {
         svg path {
           fill: $icon-color;
         }
       }
 
-      @if  $icon-hover {
-
+      @if $icon-hover {
         svg path {
-          transition-timing-function: $easing;
-          transition-duration: $duration;
-          transition-property: fill;
+          transition: fill $duration $easing;
         }
       }
     }

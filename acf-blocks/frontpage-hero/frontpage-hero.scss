@@ -2,6 +2,7 @@
 @import "../../app/sass/base/buttons";
 
 .block-frontpage-hero {
+  position: relative;
 
   .mobile-only {
     display: grid;
@@ -23,54 +24,69 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 3.5rem 0;
+    padding: 0;
 
     @media (min-width: $breakpoint-mobile-menu) {
-      grid-template-columns: 1fr 1fr;
-      padding: 4.5rem 0;
+      padding: 2.5rem 0;
     }
   }
 
   &__image {
+    min-width: 100vw;
+    min-height: 31.25rem;
 
     img {
       width: 100%;
-      height: auto;
+      height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: left;
 
       @media (min-width: $breakpoint-mobile-menu) {
         height: 100%;
       }
     }
+
+    @media (min-width: $breakpoint-mobile-menu) {
+      height: 100vh;
+    }
   }
 
   &__text-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 3rem;
+    left: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+
+    @media (min-width: $breakpoint-mobile-menu) {
+      bottom: 6.25rem;
+    }
   }
 
   &__title {
-    margin-bottom: 2rem;
     font-size: var(--rnb--font-size--hero);
     hyphens: auto;
     line-height: var(--rnb--line-height--heading);
-    white-space: auto;
+    text-align: center;
+    white-space: normal;
   }
 
   &__text {
-
     p {
       margin-bottom: 2.5rem;
       hyphens: auto;
-      white-space: auto;
+      white-space: normal;
     }
   }
 
   &__buttons {
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
     gap: 1.25rem;
+    align-items: center;
+    justify-content: center;
   }
 }

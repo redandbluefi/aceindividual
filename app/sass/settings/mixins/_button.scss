@@ -38,9 +38,6 @@
 ) {
   position: relative;
   box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   width: $width;
   max-width: $max-width;
   padding: $padding-top $padding-right $padding-bottom $padding-left;
@@ -56,6 +53,13 @@
   white-space: nowrap;
   appearance: none;
   cursor: pointer;
+
+  span {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+  }
 
   // Conditional Background
   @if $background-color != false and $background-color != "unset" {

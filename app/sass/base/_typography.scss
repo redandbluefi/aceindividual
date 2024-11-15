@@ -18,6 +18,12 @@ body {
   text-rendering: geometricPrecision;
 }
 
+body.wp-admin {
+  .is-root-container {
+    color: var(--rnb--color--text-inverted);
+  }
+}
+
 // Heading defaults
 h1,
 h2,
@@ -99,6 +105,6 @@ a {
 .tag--light {
   @include tag(
     $font-weight: var(--rnb--font-weight--regular),
-    $letter-spacing: 0.08em 
+    $letter-spacing: 0.08em
   );
 }

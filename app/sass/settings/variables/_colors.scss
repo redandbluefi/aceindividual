@@ -8,17 +8,62 @@
 
 // 1. Theme colors as HSL values.
 $hsl-colors: (
-  "black": (0, 0%, 0%),
-  "white": (0, 0%, 100%),
-  "transparent": (0, 0%, 0%, 0),
-  "red": (0, 100%, 53%),
-  "very-dark-grayish-blue": (220, 41%, 23%),
-  "dark-grayish-blue": (220, 12%, 29%),
-  "ligh-grayish-blue": (221, 15%, 76%),
-  "grey": (0, 0%, 51%),
-  "grey-1": (0, 0%, 71%),
-  "grey-2": (0, 0%, 77%),
-  "grey-3": (0, 0%, 51%),
+  "black": (
+    0,
+    0%,
+    0%,
+  ),
+  "white": (
+    0,
+    0%,
+    100%,
+  ),
+  "transparent": (
+    0,
+    0%,
+    0%,
+    0,
+  ),
+  "red": (
+    0,
+    100%,
+    53%,
+  ),
+  "very-dark-grayish-blue": (
+    220,
+    41%,
+    23%,
+  ),
+  "dark-grayish-blue": (
+    220,
+    12%,
+    29%,
+  ),
+  "ligh-grayish-blue": (
+    221,
+    15%,
+    76%,
+  ),
+  "grey": (
+    0,
+    0%,
+    51%,
+  ),
+  "grey-1": (
+    0,
+    0%,
+    71%,
+  ),
+  "grey-2": (
+    0,
+    0%,
+    77%,
+  ),
+  "grey-3": (
+    0,
+    0%,
+    51%,
+  ),
 );
 
 // 2. Functional colors
@@ -31,8 +76,8 @@ $functional-colors: (
   "background": "black",
   "background--primary": "black",
   "background--secondary": "white",
-  "disabled--text" : "grey-3",
-  "disabled--background" : "grey-1",
+  "disabled--text": "grey-3",
+  "disabled--background": "grey-1",
 );
 
 :root {

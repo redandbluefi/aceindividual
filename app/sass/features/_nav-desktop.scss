@@ -1,6 +1,7 @@
 :root {
   --nav-sub-menu-offset: 58px;
   --breakpoint-mobile-menu: 992px;
+  --nav-gap: 1.7rem;
 }
 
 .mobile-only,
@@ -65,7 +66,7 @@
   gap: 1rem;
 
   @media (min-width: $breakpoint-mobile-menu) {
-    @include vertical-divider($position: 'before', $gap: 1.7rem);
+    @include vertical-divider($position: "before", $gap: 1.7rem);
   }
 
   &__link {
@@ -98,7 +99,9 @@
 }
 
 .nav-primary {
+  display: flex;
   flex-grow: 1;
+  gap: var(--nav-gap);
 
   &__menu-items {
     display: flex;
@@ -108,7 +111,6 @@
   }
 
   .menu-item {
-
     &__level-1 {
       position: relative;
 
@@ -120,7 +122,6 @@
       & > button {
         @include nav-link;
       }
-
     }
 
     &__level-2 {
@@ -131,15 +132,13 @@
       }
 
       & > a {
-        @include nav-link($font-size: var(--rnb--font-size--nav-link-small),
-      );
+        @include nav-link($font-size: var(--rnb--font-size--nav-link-small));
       }
     }
   }
 
   .current-menu-parent,
   .current-menu-item.menu-item__level-1 {
-
     & > a,
     & > button {
       text-decoration: underline;
@@ -147,7 +146,6 @@
   }
 
   .current-menu-item {
-
     .sub-menu__parent-item,
     &:not(.menu-item__level-1) > a {
       text-decoration: underline;
@@ -155,7 +153,6 @@
   }
 
   .sub-menu {
-
     &__container {
       position: absolute;
       top: var(--nav-sub-menu-offset);
@@ -183,8 +180,10 @@
 
     /* stylelint-disable-next-line no-descending-specificity */
     &__parent-item {
-      @include nav-link($font-size: var(--rnb--font-size--h4),
-      $font-weight: var(--rnb--font-weight--medium));
+      @include nav-link(
+        $font-size: var(--rnb--font-size--h4),
+        $font-weight: var(--rnb--font-weight--medium)
+      );
 
       & {
         margin-bottom: var(--sub-menu-gap);
@@ -194,7 +193,6 @@
   }
 
   .sub-menu-open {
-
     .sub-menu__container {
       display: block;
     }
@@ -211,11 +209,11 @@
 
 /* stylelint-disable-next-line no-descending-specificity */
 .sub-menu-open .sub-menu__container {
-  animation: show-sub-menu var(--rnb--transition-duration) var(--rnb--transition-easing) normal;
+  animation: show-sub-menu var(--rnb--transition-duration)
+    var(--rnb--transition-easing) normal;
 }
 
 @keyframes show-sub-menu {
-
   from {
     transform: translateY(-20%) scaleY(0);
     transform-origin: top center;
