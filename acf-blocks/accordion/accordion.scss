@@ -1,14 +1,32 @@
 @import "../../app/sass/loaders/scss-tooling-import";
 
 /**
-* Styles for accordion block
-*/
+ * Styles for accordion block
+ */
+
+.accordion {
+  position: relative;
+  background: linear-gradient(to bottom right, #020203, #121725 50%, #1c263c);
+}
 
 .block-accordion {
-  --icon-width: 1rem;
+  --icon-width: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 0 0;
+
+  @media (min-width: $breakpoint-md) {
+    display: grid;
+    grid-template-areas:
+      "heading accordion"
+      "image accordion";
+    grid-template-columns: 1fr 1fr;
+    padding: 6.25rem 0 0;
+  }
 
   &__heading {
-    margin-bottom: 2rem;
+    grid-area: heading;
 
     &--title {
       margin-bottom: 0;
@@ -18,16 +36,58 @@
       margin-bottom: 0;
     }
   }
+
+  &__bg-image-overlay {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    order: 3;
+    overflow: hidden;
+
+    .block-accordion__bg-image {
+      position: absolute;
+      left: 0;
+      object-fit: cover;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      grid-area: image;
+      order: unset;
+      max-height: 39.25rem;
+
+      .block-accordion__bg-image {
+        left: -5.5rem;
+        width: 150%;
+        max-width: 100%;
+        height: auto;
+        max-height: 39.25rem;
+        object-fit: contain;
+      }
+    }
+  }
+
+  &__accordions {
+    display: flex;
+    flex-direction: column;
+    grid-area: accordion;
+  }
 }
 
 .accordion-item {
   display: flex;
   flex-direction: column;
   width: 100%;
+  border-bottom: 1px solid var(--color--white);
 
   &__title {
     position: relative;
     margin-bottom: 0;
+
+    @include heading($type: "h6");
+
+    span {
+      color: var(--rnb--color--text);
+    }
   }
 
   &__header {
@@ -42,6 +102,10 @@
     border: none;
     transition: var(--transition-duration-dialog);
 
+    @media (min-width: $breakpoint-md) {
+      padding: 1rem 2rem;
+    }
+
     .accordion-icon-wrapper {
       display: flex;
       align-items: center;
@@ -53,14 +117,20 @@
       position: absolute;
       right: 0;
       display: inline-block;
-      width: calc( var(--icon-width) + 0.5rem );
-      height: calc( var(--icon-width) + 0.5rem );
-      transition: var(--transition-easing-dialog) var(--transition-duration-dialog);
+      width: calc(var(--icon-width) + 0.5rem);
+      height: calc(var(--icon-width) + 0.5rem);
+      transition: var(--transition-easing-dialog)
+        var(--transition-duration-dialog);
 
       svg {
         width: var(--icon-width);
         height: var(--icon-width);
-        transition: var(--transition-easing-dialog) var(--transition-duration-dialog);
+        transition: var(--transition-easing-dialog)
+          var(--transition-duration-dialog);
+      }
+
+      @media (min-width: $breakpoint-md) {
+        right: 1rem;
       }
     }
 
@@ -68,19 +138,25 @@
       position: absolute;
       right: 0;
       display: none;
-      width: calc( var(--icon-width) + 0.5rem );
-      height: calc( var(--icon-width) + 0.5rem );
-      transition: var(--transition-easing-dialog) var(--transition-duration-dialog);
+      width: calc(var(--icon-width) + 0.5rem);
+      height: calc(var(--icon-width) + 0.5rem);
+      transition: var(--transition-easing-dialog)
+        var(--transition-duration-dialog);
 
       svg {
         width: var(--icon-width);
         height: var(--icon-width);
-        transition: var(--transition-easing-dialog) var(--transition-duration-dialog);
+        transition: var(--transition-easing-dialog)
+          var(--transition-duration-dialog);
+      }
+
+      @media (min-width: $breakpoint-md) {
+        right: 1rem;
       }
     }
 
     &[aria-expanded="true"] {
-      color: var(--color-black);
+      color: var(--color--white);
 
       .open-icon {
         display: none;
@@ -91,14 +167,12 @@
       }
 
       &:focus {
-        color: var(--color-black);
+        color: var(--color--white);
 
         .close-icon {
-
           svg {
-
             path {
-              fill: var(--color-black);
+              fill: var(--color--white);
             }
           }
         }
@@ -109,7 +183,7 @@
   &__section-wrapper {
     height: auto;
     overflow: hidden;
-    border-bottom: 1px solid var(--color-black);
+    border-bottom: 1px solid var(--color--white);
   }
 
   &__panel {
@@ -117,19 +191,14 @@
     width: 100%;
     max-height: 0;
     overflow: hidden;
-    transition: max-height var(--transition-duration-dialog) var(--transition-easing-dialog);
+    transition: max-height var(--transition-duration-dialog)
+      var(--transition-easing-dialog);
 
     figure {
       margin: 2rem 0 1.5rem;
 
       @media (min-width: $breakpoint-md) {
         margin: 2rem 0;
-      }
-    }
-
-    p {
-      @media (min-width: $breakpoint-lg) {
-        width: 70ch;
       }
     }
 
@@ -145,9 +214,24 @@
 
   &__content {
     padding: 0.5rem 0;
+
+    @media (min-width: $breakpoint-md) {
+      padding-inline: 2rem;
+    }
   }
 
   &:first-child {
-    border-top: 1px solid var(--color-black);
+    border-top: 1px solid var(--color--white);
+  }
+}
+
+// WP admin
+.wp-admin {
+  .block-accordion__bg-image {
+    position: relative;
+  }
+
+  .text__heading {
+    color: var(--color--white);
   }
 }
