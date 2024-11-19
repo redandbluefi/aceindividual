@@ -1,0 +1,31 @@
+<svg width="36" height="30" viewBox="0 0 36 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<rect width="36" height="30" fill="#E0E0E0"/>
+<g id="&#195;&#132;ss&#195;&#164;" clip-path="url(#clip0_0_1)">
+<rect width="1728" height="7362.07" transform="translate(-780 -2275)" fill="black"/>
+<g id="cases">
+<rect width="1728" height="1730" transform="translate(-780 -276)" fill="black"/>
+<g id="Frame 1371">
+<g id="content">
+<g id="case">
+<mask id="path-1-inside-1_0_1" fill="white">
+<path d="M-198 -56H860V1346H-198V-56Z"/>
+</mask>
+<path d="M-198 -55H860V-57H-198V-55Z" fill="white" mask="url(#path-1-inside-1_0_1)"/>
+<g id="quote">
+<g id="text">
+<g id="merkki">
+<path id="4" d="M8.49169 0H14.711L6.21927 15.6098H13.2757V30H0V15.6098L8.49169 0ZM29.6611 0H36L27.3887 15.6098H34.4452V30H21.289V15.6098L29.6611 0Z" fill="white"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_1">
+<rect width="1728" height="7362.07" fill="white" transform="translate(-780 -2275)"/>
+</clipPath>
+</defs>
+</svg>

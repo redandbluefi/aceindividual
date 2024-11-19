@@ -1,0 +1,16 @@
+{
+  "name": "acf/sidebar-accordion",
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "title": "Haitari - Sivupalkki",
+  "description": "Sivupalkki, jossa on haitari-tyylinen sisältö",
+  "keywords": [
+    "haitari"
+  ],
+  "icon": "arrow-down-alt2",
+  "category": "eternia",
+  "acf": {
+    "postTypes": [
+      "page"
+    ]
+  }
+}

@@ -11,6 +11,7 @@
 
 .block-accordion {
   --icon-width: 1.5rem;
+  --transition-duration-dialog: 0.3s;
 
   display: flex;
   flex-direction: column;
@@ -178,6 +179,11 @@
         }
       }
     }
+
+    &:hover {
+      cursor: pointer;
+      background: var(--color--very-dark-grayish-blue);
+    }
   }
 
   &__section-wrapper {
@@ -216,7 +222,7 @@
     padding: 0.5rem 0;
 
     @media (min-width: $breakpoint-md) {
-      padding-inline: 2rem;
+      padding: 0;
     }
   }
 

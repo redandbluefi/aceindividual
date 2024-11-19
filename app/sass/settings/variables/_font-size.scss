@@ -10,22 +10,27 @@
   --rnb--font-size--h4: 1.5rem;
   --rnb--font-size--h5: 1.375rem;
   --rnb--font-size--h6: 1.25rem;
+  --rnb--font-size--heading-regular: var(--rnb--font-size--h1);
 
   // Paragraph font sizes
   --rnb--font-size--body: 1rem;
   --rnb--font-size--body-large: 1.125rem;
   --rnb--font-size--body-small: 0.875rem;
   --rnb--font-size--tag: 0.75rem;
+  --rnb--font-size--quote: 1rem;
+  --rnb--font-size--regular: 1rem;
 
   // Form related font sizes
   --rnb--font-size--input: 1rem;
   --rnb--font-size--label: 0.8rem;
+  --rnb--font-size--form-regular: var(--rnb--font-size--input);
 
   // Links and buttons
   --rnb--font-size--nav-link: 1.125rem;
   --rnb--font-size--nav-link-small: 1rem;
   --rnb--font-size--button: 1rem;
   --rnb--font-size--ingress: 1.125rem;
+  --rnb--font-size--link-regular: var(--rnb--font-size--nav-link);
 
   // Line-heights
   --rnb--line-height--body: 1.5;
@@ -38,6 +43,7 @@
   --rnb--line-height--h4: 1.3333;
   --rnb--line-height--h5: 1.6;
   --rnb--line-height--h6: 1.4;
+  --rnb--line-height--regular: var(--rnb--line-height--body);
 
   // Font weights
   --rnb--font-weight--light: 300;
@@ -50,6 +56,7 @@
   --rnb--font-weight--h4: var(--rnb--font-weight--regular);
   --rnb--font-weight--h5: var(--rnb--font-weight--regular);
   --rnb--font-weight--h6: var(--rnb--font-weight--regular);
+  --rnb--font-weight--regular-global: var(--rnb--font-weight--regular);
 
   @media (min-width: $breakpoint-mobile-menu) {
     --rnb--font-size--hero: 2.75rem;
@@ -65,5 +72,7 @@
     --rnb--line-height--h4: 1.29;
     --rnb--line-height--h5: 1.4;
     --rnb--line-height--h6: 1.33;
+    --rnb--font-size--quote: 1.25rem;
+    --rnb--font-size--regular-mobile: var(--rnb--font-size--body);
   }
 }
