@@ -52,24 +52,31 @@
             "placeholder": ""
         },
         {
-            "key": "field_6659815bcc263",
-            "label": "Ingressi",
-            "name": "ingress",
+            "key": "field_673b34eb0fb56",
+            "label": "Tausta kuva",
+            "name": "bg_image",
             "aria-label": "",
-            "type": "textarea",
+            "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "rows": 3,
-            "placeholder": "",
-            "new_lines": "wpautop"
+            "relevanssi_exclude": 0,
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
         },
         {
             "key": "field_66598278b44ff",
@@ -108,6 +115,7 @@
                         "id": ""
                     },
                     "layout": "block",
+                    "parent_repeater": "field_66598278b44ff",
                     "sub_fields": [
                         {
                             "key": "field_66598378b4501",
@@ -149,8 +157,7 @@
                             "media_upload": 1,
                             "delay": 0
                         }
-                    ],
-                    "parent_repeater": "field_66598278b44ff"
+                    ]
                 }
             ]
         }
@@ -173,5 +180,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1717153757
+    "modified": 1731933482
 }

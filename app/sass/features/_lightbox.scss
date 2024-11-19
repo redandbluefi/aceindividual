@@ -10,7 +10,7 @@
   backdrop-filter: blur(40px);
   opacity: 0;
 
-  @media(min-width: $breakpoint-md) {
+  @media (min-width: $breakpoint-md) {
     padding: 3.5rem;
   }
 
@@ -24,7 +24,7 @@
     column-gap: 2rem;
     justify-content: space-between;
     margin-top: 2rem;
-    color: var(--color-text-inverted);
+    color: var(--rnb--color--text-inverted);
   }
 
   &__image {
@@ -39,7 +39,7 @@
 
   &__excerpt {
     margin-top: 1rem;
-    color: var(--color-text-inverted);
+    color: var(--rnb--color--text-inverted);
   }
 
   &__close {
@@ -50,22 +50,22 @@
     color: white;
 
     i svg {
-      fill: var(--color-text-inverted);
+      fill: var(--rnb--color--text-inverted);
     }
 
     @include focus-outline;
-    @include icon-button($background: transparent,
+    @include icon-button(
+      $background: transparent,
       $background-hover: transparent,
       $border-color: transparent,
       $border-hover-color: transparent,
-      $color: var(--color-text-inverted),
-      $hover-color: var(--color-primary),
+      $color: var(--rnb--color--text-inverted),
+      $hover-color: var(--color-primary)
     );
 
     &:active {
-
       i svg {
-        fill: var(--color-text-inverted);
+        fill: var(--rnb--color--text-inverted);
       }
     }
 
@@ -75,7 +75,7 @@
 
     &:focus {
       outline-width: 3px;
-      outline-color: var(--color-text-inverted);
+      outline-color: var(--rnb--color--text-inverted);
       outline-offset: -3px;
     }
   }
@@ -90,8 +90,9 @@
     }
 
     .swiper-button {
-      @include icon-button($color: var(--color-text-inverted),
-        $hover-color: var(--color-primary),
+      @include icon-button(
+        $color: var(--rnb--color--text-inverted),
+        $hover-color: var(--color-primary)
       );
       @include focus-outline;
 
@@ -100,13 +101,12 @@
       }
 
       i {
-        fill: var(--color-text-inverted);
+        fill: var(--rnb--color--text-inverted);
       }
     }
   }
 
   &[data-swiper-active="false"] {
-
     .lightbox__swipernav {
       display: none;
     }
@@ -117,7 +117,6 @@
     update the JS delay too if you change the animation delay here.
   */
   &.lightbox {
-
     &--open {
       display: flex;
       align-items: center;
@@ -142,7 +141,6 @@
   to improve the admin user experience.
 */
 body:has(.lightbox[aria-hidden="false"]) {
-
   #wpadminbar {
     display: none;
   }
@@ -153,14 +151,12 @@ body:has(.lightbox[aria-hidden="false"]) {
 */
 
 body.lightmode {
-
   .lightbox {
     background-color: rgb(255 255 255 / 85%);
   }
 }
 
 @keyframes show-dialog {
-
   from {
     opacity: 0;
   }
@@ -171,7 +167,6 @@ body.lightmode {
 }
 
 @keyframes hide-dialog {
-
   from {
     opacity: 100;
   }

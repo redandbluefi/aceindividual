@@ -13,14 +13,20 @@
  * @param {string} $border-color - Color of the divider
  * @example
  *  .divider {
- *    @include vertical-divider(1.7rem, 1.5rem, 1px, var(--color-text));
+ *    @include vertical-divider(1.7rem, 1.5rem, 1px, var(--rnb--color--text));
  *  }
  */
 
-@mixin vertical-divider($position: 'before', $gap: 1.7rem, $height: 1.5rem, $width: 1px, $border-color: var(--rnb--color--text)) {
+@mixin vertical-divider(
+  $position: "before",
+  $gap: 1.7rem,
+  $height: 1.5rem,
+  $width: 1px,
+  $border-color: var(--rnb--color--text)
+) {
   position: relative;
-  
-  @if  $position == 'before' {
+
+  @if $position == "before" {
     margin-left: $gap;
 
     &::before {
@@ -33,8 +39,7 @@
       border-left: $width solid $border-color;
       transform: translateY(-50%);
     }
-  }
-  @else {
+  } @else {
     margin-right: $gap;
 
     &::after {
