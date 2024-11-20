@@ -46,8 +46,8 @@
   $color: null,
   $font-family: null,
   $font-weight: null,
-  $font-size: var(--font-size-body-#{$type}),
-  $line-height: var(--line-height-body-#{$type}),
+  $font-size: var(--rnb--font-size--#{$type}),
+  $line-height: var(--rnb--line-height--#{$type}),
   $letter-spacing: null,
   $text-transform: null,
   $text-decoration: null
@@ -149,6 +149,39 @@
   $letter-spacing: null,
   $text-transform: null,
   $font-weight: var(--rnb--font-weight--light)
+) {
+  @if $color {
+    color: $color;
+  }
+
+  @if $font-size {
+    font-size: $font-size;
+  }
+
+  @if $line-height {
+    line-height: $line-height;
+  }
+
+  @if $letter-spacing {
+    letter-spacing: $letter-spacing;
+  }
+
+  @if $text-transform {
+    text-transform: $text-transform;
+  }
+
+  @if $font-weight {
+    font-weight: $font-weight;
+  }
+}
+
+@mixin quote(
+  $color: null,
+  $font-size: var(--rnb--font-size--quote),
+  $line-height: var(--rnb--line-height--ingress),
+  $letter-spacing: null,
+  $text-transform: null,
+  $font-weight: var(--rnb--font-weight--regular)
 ) {
   @if $color {
     color: $color;

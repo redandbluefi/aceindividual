@@ -43,19 +43,25 @@ function resizeOverlayAndImage() {
   const MAX_IMAGE_SIZE = 628; // Maximum size for the image
   const MIN_IMAGE_SIZE = 244; // Minimum size for the image
 
+  const MAX_OVERLAY_SIZE = 428; // Maximum size for the overlay
+  const MIN_OVERLAY_SIZE = 244; // Minimum size for the overlay
+
   const sectionWidth = section.clientWidth;
-  const newSize = Math.min(
+
+  const imageSize = Math.min(
     Math.max(sectionWidth * 0.5, MIN_IMAGE_SIZE),
     MAX_IMAGE_SIZE,
-  ); // Calculate the new size within the allowed range
+  );
 
-  // Set the overlay dimensions
-  overlay.style.width = `${newSize}px`;
-  overlay.style.height = `${newSize}px`;
+  const overlaySize = Math.min(
+    Math.max(sectionWidth * 0.6, MIN_OVERLAY_SIZE),
+    MAX_OVERLAY_SIZE,
+  );
 
-  // Position and size the image
-  image.style.width = `${newSize}px`;
-  image.style.height = `${newSize}px`;
+  overlay.style.width = `${overlaySize}px`;
+  overlay.style.height = `${overlaySize}px`;
+
+  image.style.width = `${imageSize}px`;
 }
 
 // Initialize accordion functionality and resize logic

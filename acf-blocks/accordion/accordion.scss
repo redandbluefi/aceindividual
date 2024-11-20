@@ -11,6 +11,7 @@
 
 .block-accordion {
   --icon-width: 1.5rem;
+  --transition-duration-dialog: 0.3s;
 
   display: flex;
   flex-direction: column;
@@ -47,6 +48,7 @@
     .block-accordion__bg-image {
       position: absolute;
       left: 0;
+      height: auto;
       object-fit: cover;
     }
 
@@ -56,10 +58,9 @@
       max-height: 39.25rem;
 
       .block-accordion__bg-image {
-        left: -5.5rem;
-        width: 150%;
+        bottom: 0;
+        left: 0;
         max-width: 100%;
-        height: auto;
         max-height: 39.25rem;
         object-fit: contain;
       }
@@ -178,6 +179,11 @@
         }
       }
     }
+
+    &:hover {
+      cursor: pointer;
+      background: var(--color--very-dark-grayish-blue);
+    }
   }
 
   &__section-wrapper {
@@ -193,6 +199,10 @@
     overflow: hidden;
     transition: max-height var(--transition-duration-dialog)
       var(--transition-easing-dialog);
+
+    @media (min-width: $breakpoint-md) {
+      padding: 1rem 0;
+    }
 
     figure {
       margin: 2rem 0 1.5rem;

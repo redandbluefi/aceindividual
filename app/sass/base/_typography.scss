@@ -132,3 +132,9 @@ ol li {
     $letter-spacing: 0.08em
   );
 }
+
+.quote {
+  @include quote;
+
+  font-style: italic;
+}
