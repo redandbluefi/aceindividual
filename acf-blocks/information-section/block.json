@@ -1,0 +1,18 @@
+{
+  "name": "acf/information-section",
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "title": "Tietolohko",
+  "description": "Kaksipalstainen lohko, jossa vasemmalla on otsikko ja sisältö ja oikealla toistettava osio kohteille.",
+  "keywords": [
+    "information",
+    "content",
+    "repeater"
+  ],
+  "category": "eternia",
+  "icon": "editor-table",
+  "acf": {
+    "postTypes": [
+      "page"
+    ]
+  }
+}

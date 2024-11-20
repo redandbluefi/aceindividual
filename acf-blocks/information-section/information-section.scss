@@ -1,0 +1,47 @@
+@import "../../app/sass/loaders/scss-tooling-import";
+
+.block-info {
+  padding: 3rem 0;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 6rem 0;
+  }
+
+  &__container {
+    display: grid;
+    gap: 3.75rem;
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__content {
+    max-width: 56ch;
+  }
+
+  &__items {
+    display: grid;
+    gap: 2.5rem;
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item {
+    &__title {
+      @include heading($type: "h5");
+
+      margin-bottom: 0.75rem;
+    }
+
+    &__text {
+      margin-bottom: 0;
+    }
+  }
+}
