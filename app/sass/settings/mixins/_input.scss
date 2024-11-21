@@ -1,31 +1,35 @@
-// Input mixin
 @mixin input(
-  $padding: 1rem,
+  $padding: 0.75rem 1rem,
   $additional-padding-left: 0.3rem,
+  $background-color: var(--color--black),
   $border-color: var(--rnb--color--text),
   $border-style: solid,
   $border-width: 1px,
-  $border-radius: 32px,
-  $border-width-hover: 3px,
+  $border-radius: 4px,
   $border-color-hover: var(--rnb--color--primary),
-  $border-color-disabled: var(--rnb--color--disabled-text),
-  $border-color-error: var(--rnb--color--error),
+  $border-color-disabled: var(--rnb--color--disabled--text),
+  $border-color-error: var(--rnb--color--primary),
   $border-color-success: var(--rnb--color--secondary),
   $color: var(--rnb--color--text),
-  $placeholder-color: var(--rnb--color--disabled-text),
+  $placeholder-color: var(--rnb--color--disabled--text),
   $font-size: var(--rnb--font-size--input),
-  $line-height: var(--rnb--line-height--input),
+  $line-height: var(--rnb--line-height--input)
 ) {
+  position: relative;
   box-sizing: border-box;
-  padding: $padding $padding $padding calc($padding + $additional-padding-left);
-  font-family: var(--rnb--font--paragraph);
+  padding: $padding;
+  font-family: var(--rnb--font-family--paragraph);
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $color;
+  background-color: $background-color;
   border-color: $border-color;
   border-style: $border-style;
   border-width: $border-width;
   border-radius: $border-radius;
-
-  $font-size: $font-size;
-  $line-height: $line-height;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
 
   &:focus {
     outline: none;
@@ -41,21 +45,16 @@
     border-color: $border-color-error;
   }
 
-  &[disabled],
-  &[aria-invalid="true"],
   &:hover,
-  &:active,
-  &:focus {
-    padding: calc($padding - $border-width-hover + $border-width) calc($padding - $border-width-hover + $border-width) calc($padding - $border-width-hover + $border-width) calc($padding - $border-width-hover + $border-width + $additional-padding-left);
-    border-width: $border-width-hover;
-  }
-
-  &:hover,
-  &:active,
-  &:focus {
-
+  &:active {
     &:not([disabled]) {
+      cursor: pointer;
+      background-color: var(--color--dark-grayish-blue);
       border-color: $border-color-hover;
     }
+  }
+
+  &:focus-within:not([disabled]) {
+    outline: none;
   }
 }

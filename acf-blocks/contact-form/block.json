@@ -1,0 +1,22 @@
+{
+  "name": "acf/contact-form",
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "title": "Yhteystiedot -lomake",
+  "description": "Lomake, jolla käyttäjä voi ottaa yhteyttä.",
+  "category": "formatting",
+  "icon": "email",
+  "keywords": [
+    "contact",
+    "form",
+    "yhteystiedot"
+  ],
+  "supports": {
+    "align": true,
+    "html": false
+  },
+  "acf": {
+    "postTypes": [
+      "page"
+    ]
+  }
+}

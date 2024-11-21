@@ -249,7 +249,7 @@ function theme_settings()
       'script-src' => array("'self'", "'unsafe-inline'", "'unsafe-eval'", 'googletagmanager.com', 'cookiebot.eu'),
       'style-src' => array("'self'", "'unsafe-inline'"),
       'worker-src' => array("'self'", "'unsafe-inline'", "blob:"),
-      'img-src' => array("'self'", '*.gravatar.com', ),
+      'img-src' => array("'self'", 'data:', '*.gravatar.com'),
       'font-src' => array("'self'", "'unsafe-inline'", "data:"),
       'connect-src' => array("'self'"),
       'media-src' => array("'self'"),
