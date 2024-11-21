@@ -6,7 +6,7 @@
 // Typography settings
 .is-root-container,
 .acf-block-preview .block,
-body {
+body:not(.wp-admin) {
   font-family: var(--rnb--font-family--paragraph);
   font-size: var(--rnb--font-size--body);
   font-weight: var(--rnb--font-weight--regular);
@@ -15,78 +15,75 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   // stylelint-disable-next-line value-keyword-case
-  text-rendering: geometricPrecision;
+  text-rendering: geometricprecision;
 }
 
-body.wp-admin {
-  .is-root-container {
-    color: var(--rnb--color--text-inverted);
-  }
-}
-
-// Heading defaults
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  margin-bottom: var(--rnb--margin-between--paragraphs);
-  font-family: var(--rnb--font-family--heading);
-  font-weight: var(--rnb--font-weight--heading);
-  line-height: var(--rnb--line-height--heading);
-}
-
+// Headings
 h1,
 .h1 {
-  font-size: var(--rnb--font-size--h1);
+  @include heading(
+    $type: "h1",
+    $font-size: var(--rnb--font-size--h1),
+    $line-height: var(--rnb--line-height--h1),
+    $letter-spacing: var(--rnb--letter-spacing--h1)
+  );
 }
 
 h2,
 .h2 {
-  font-size: var(--rnb--font-size--h2);
+  @include heading(
+    $type: "h2",
+    $font-size: var(--rnb--font-size--h2),
+    $line-height: var(--rnb--line-height--h2),
+    $letter-spacing: var(--rnb--letter-spacing--h2)
+  );
 }
 
 h3,
 .h3 {
-  font-size: var(--rnb--font-size--h3);
+  @include heading(
+    $type: "h3",
+    $font-size: var(--rnb--font-size--h3),
+    $line-height: var(--rnb--line-height--h3),
+    $letter-spacing: var(--rnb--letter-spacing--h3)
+  );
 }
 
 h4,
 .h4 {
-  font-size: var(--rnb--font-size--h4);
+  @include heading(
+    $type: "h4",
+    $font-size: var(--rnb--font-size--h4),
+    $line-height: var(--rnb--line-height--h4)
+  );
 }
 
 h5,
 .h5 {
-  font-size: var(--rnb--font-size--h5);
+  @include heading(
+    $type: "h5",
+    $font-size: var(--rnb--font-size--h5),
+    $line-height: var(--rnb--line-height--h5)
+  );
 }
 
 h6,
 .h6 {
-  font-size: var(--rnb--font-size--h6);
+  @include heading(
+    $type: "h6",
+    $font-size: var(--rnb--font-size--h6),
+    $line-height: var(--rnb--line-height--h6)
+  );
 }
 
-// Bold
-b,
-strong {
-  font-weight: var(--rnb--font-weight--bold);
-}
-
-// Italic
-em,
-i {
-  font-style: italic;
-}
-
-// Default paragraphs
+// Paragraphs
 p {
+  @include paragraph(
+    $type: "regular",
+    $font-size: var(--rnb--font-size--body),
+    $line-height: var(--rnb--line-height--body)
+  );
+
   margin-bottom: var(--rnb--margin-between--paragraphs);
 
   a {
@@ -94,6 +91,23 @@ p {
   }
 }
 
+p.large {
+  @include paragraph(
+    $type: "body-large",
+    $font-size: var(--rnb--font-size--body-large),
+    $line-height: var(--rnb--line-height--body)
+  );
+}
+
+p.small {
+  @include paragraph(
+    $type: "body-small",
+    $font-size: var(--rnb--font-size--body-small),
+    $line-height: var(--rnb--line-height--body)
+  );
+}
+
+// Links
 a {
   @include base-link-styles($color: var(--rnb--color--text));
 }
@@ -113,26 +127,20 @@ a[href^="tel:"] {
   text-decoration: underline;
 }
 
+// Lists
 ul li,
 ol li {
-  line-height: 1.75;
+  @include paragraph(
+    $font-size: var(--rnb--font-size--list),
+    $line-height: var(--rnb--line-height--body)
+  );
 
   a {
     @include base-link-styles($color: var(--rnb--color--text));
   }
 }
 
-.tag {
-  @include tag;
-}
-
-.tag--light {
-  @include tag(
-    $font-weight: var(--rnb--font-weight--regular),
-    $letter-spacing: 0.08em
-  );
-}
-
+// Quotes
 .quote {
   @include quote;
 

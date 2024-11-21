@@ -1,78 +1,64 @@
-/*
-  Font size variables.
-*/
 :root {
-  // Heading font sizes
-  --rnb--font-size--hero: 2.25rem;
-  --rnb--font-size--h1: 2.25rem;
-  --rnb--font-size--h2: 2rem;
-  --rnb--font-size--h3: 1.75rem;
-  --rnb--font-size--h4: 1.5rem;
-  --rnb--font-size--h5: 1.375rem;
-  --rnb--font-size--h6: 1.25rem;
-  --rnb--font-size--heading-regular: var(--rnb--font-size--h1);
+  /* Heading font sizes */
+  --rnb--font-size--hero: 3.875rem; /* Default desktop size */
+  --rnb--font-size--h1: 3.875rem;
+  --rnb--font-size--h2: 3.75rem;
+  --rnb--font-size--h3: 3.25rem;
+  --rnb--font-size--h4: 2.75rem;
+  --rnb--font-size--h5: 2rem;
+  --rnb--font-size--h6: 1.75rem;
 
-  // Paragraph font sizes
+  /* Paragraph font sizes */
   --rnb--font-size--body: 1rem;
   --rnb--font-size--body-large: 1.125rem;
   --rnb--font-size--body-small: 0.875rem;
-  --rnb--font-size--tag: 0.75rem;
-  --rnb--font-size--quote: 1rem;
-  --rnb--font-size--regular: 1rem;
+  --rnb--font-size--quote: 1.25rem;
+  --rnb--font-size--list: 1.25rem;
 
-  // Form related font sizes
-  --rnb--font-size--input: 1rem;
-  --rnb--font-size--label: 0.8rem;
-  --rnb--font-size--form-regular: var(--rnb--font-size--input);
+  /* Line heights */
+  --rnb--line-height--h1: 1.2; /* 120% */
+  --rnb--line-height--h2: 1.2;
+  --rnb--line-height--h3: 1.28; /* 128% */
+  --rnb--line-height--h4: 1.28;
+  --rnb--line-height--h5: 1.28;
+  --rnb--line-height--h6: 1.28;
+  --rnb--line-height--body: 1.76; /* 176% */
+  --rnb--line-height--quote: 1.6; /* 160% */
 
-  // Links and buttons
-  --rnb--font-size--nav-link: 1.125rem;
-  --rnb--font-size--nav-link-small: 1rem;
-  --rnb--font-size--button: 1rem;
-  --rnb--font-size--ingress: 1.125rem;
-  --rnb--font-size--link-regular: var(--rnb--font-size--nav-link);
+  /* Letter spacing */
+  --rnb--letter-spacing--h1: -1.24px;
+  --rnb--letter-spacing--h2: -1.2px;
+  --rnb--letter-spacing--h3: -1.04px;
+  --rnb--letter-spacing--h4: 0px;
+  --rnb--letter-spacing--h5: 0px;
+  --rnb--letter-spacing--h6: 0px;
 
-  // Line-heights
-  --rnb--line-height--body: 1.5;
-  --rnb--line-height--heading: 1.22;
-  --rnb--line-height--input: 1.3;
-  --rnb--line-height--ingress: 1.3;
-  --rnb--line-height--h1: 1.0667;
-  --rnb--line-height--h2: 1.1154;
-  --rnb--line-height--h3: 1.1818;
-  --rnb--line-height--h4: 1.3333;
-  --rnb--line-height--h5: 1.6;
-  --rnb--line-height--h6: 1.4;
-  --rnb--line-height--regular: var(--rnb--line-height--body);
+  /* Font weights */
+  --rnb--font-weight--h1: 400;
+  --rnb--font-weight--h2: 400;
+  --rnb--font-weight--h3: 400;
+  --rnb--font-weight--h4: 400;
+  --rnb--font-weight--h5: 400;
+  --rnb--font-weight--h6: 400;
+  --rnb--font-weight--body: 400;
 
-  // Font weights
-  --rnb--font-weight--light: 300;
-  --rnb--font-weight--regular: 400;
-  --rnb--font-weight--medium: 500;
-  --rnb--font-weight--bold: 700;
-  --rnb--font-weight--h1: var(--rnb--font-weight--regular);
-  --rnb--font-weight--h2: var(--rnb--font-weight--regular);
-  --rnb--font-weight--h3: var(--rnb--font-weight--regular);
-  --rnb--font-weight--h4: var(--rnb--font-weight--regular);
-  --rnb--font-weight--h5: var(--rnb--font-weight--regular);
-  --rnb--font-weight--h6: var(--rnb--font-weight--regular);
-  --rnb--font-weight--regular-global: var(--rnb--font-weight--regular);
-
-  @media (min-width: $breakpoint-mobile-menu) {
-    --rnb--font-size--hero: 2.75rem;
-    --rnb--font-size--h1: 3.875rem;
-    --rnb--font-size--h2: 3.75rem;
-    --rnb--font-size--h3: 3.25rem;
-    --rnb--font-size--h4: 2.75rem;
-    --rnb--font-size--h5: 2rem;
-    --rnb--font-size--h6: 1.75rem;
-    --rnb--line-height--h1: 1.22;
-    --rnb--line-height--h2: 1.22;
-    --rnb--line-height--h3: 1.25;
-    --rnb--line-height--h4: 1.29;
-    --rnb--line-height--h5: 1.4;
-    --rnb--line-height--h6: 1.33;
-    --rnb--font-size--quote: 1.25rem;
-    --rnb--font-size--regular-mobile: var(--rnb--font-size--body);
+  /* Mobile adjustments */
+  @media (width <= 768px) {
+    --rnb--font-size--h1: 2.25rem;
+    --rnb--font-size--h2: 2rem;
+    --rnb--font-size--h3: 1.75rem;
+    --rnb--font-size--h4: 1.5rem;
+    --rnb--font-size--h5: 1.375rem;
+    --rnb--font-size--h6: 1.25rem;
+    --rnb--font-size--quote: 1rem;
+    --rnb--line-height--h1: 1.2;
+    --rnb--line-height--h2: 1.2;
+    --rnb--line-height--h3: 1.28;
+    --rnb--line-height--h4: 1.28;
+    --rnb--line-height--h5: 1.28;
+    --rnb--line-height--h6: 1.28;
+    --rnb--letter-spacing--h1: -0.72px;
+    --rnb--letter-spacing--h2: -0.64px;
+    --rnb--letter-spacing--h3: -0.56px;
   }
 }

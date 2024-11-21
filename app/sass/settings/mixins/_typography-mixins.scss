@@ -42,7 +42,7 @@
 }
 
 @mixin paragraph(
-  $type: "regular",
+  $type: "body",
   $color: null,
   $font-family: null,
   $font-weight: null,
@@ -178,10 +178,10 @@
 @mixin quote(
   $color: null,
   $font-size: var(--rnb--font-size--quote),
-  $line-height: var(--rnb--line-height--ingress),
+  $line-height: var(--rnb--line-height--quote),
   $letter-spacing: null,
   $text-transform: null,
-  $font-weight: var(--rnb--font-weight--regular)
+  $font-weight: var(--rnb--font-weight--body)
 ) {
   @if $color {
     color: $color;

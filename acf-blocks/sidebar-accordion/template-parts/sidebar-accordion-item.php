@@ -46,7 +46,7 @@ $accordion_closing_element = '</h' . esc_attr($args['single_accordion_heading_le
           </div>
           <?php
         } ?>
-        <p class='quote-text'>
+        <p class='quote-text quote'>
           <span class="quote-icon">
             <?php echo inline_svg(
               '../icons/quote.svg',
