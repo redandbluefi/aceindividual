@@ -7,74 +7,73 @@
 
 namespace Eternia;
 
-if ( ! isset( $block ) ) {
-	return;
+if (!isset($block)) {
+  return;
 }
 
 $block_id = 'block-cta-' . $block['id'];
 
-if ( ! empty( $block['anchor'] ) ) {
-	$block_id = $block['anchor'];
+if (!empty($block['anchor'])) {
+  $block_id = $block['anchor'];
 }
 
-// Required ACF fields.
-$button  = get_field( 'cta_button' ) ?? null;
-$heading = get_field( 'cta_title' ) ?? null;
+$background_image_id = get_field('background_image') ?? null;
+$background_image_url = $background_image_id ? wp_get_attachment_image_url($background_image_id, 'full') : null;
 
-// Fail fast if no heading or button.
-if ( empty( $heading ) || empty( $button ) ) {
-	return;
+$cta_title = get_field('cta_title') ?? null;
+
+$cta_buttons = null;
+if (have_rows('cta_buttons')) {
+  $cta_buttons = [];
+  while (have_rows('cta_buttons')) {
+    the_row();
+    $button = get_sub_field('cta_link');
+    if (!empty($button) && is_array($button)) {
+      $cta_buttons[] = [
+        'title' => $button['title'] ?? '',
+        'url' => $button['url'] ?? '',
+        'target' => $button['target'] ?? '_self',
+      ];
+    }
+  }
 }
 
-// Additional ACF fields.
-$background_color = get_field( 'cta_background-color' ) ?? 'light';
-$heading_level    = get_field( 'cta_heading-level' ) ?? '2';
-$text             = get_field( 'cta_text' ) ?? null;
-
-// Button fields.
-$button_url    = $button['url'] ?? null;
-$button_title  = $button['title'] ?? null;
-$button_target = $button['target'] ?? '_self';
-
-$allow_break = array( 'br' => array() );
-
-// Wrapper classes.
-$wrapper_classes = array( 'block-cta', 'block-cta--' . $background_color, 'alignfull', 'extend-layout-grid' );
-
-// Check if block has additional classes from the editor.
-if ( ! empty( $block['className'] ) ) {
-	$wrapper_classes[] = $block['className'];
+// Exit early if no buttons are defined.
+if (empty($cta_buttons)) {
+  return;
 }
 
-// Heading level check.
-$opening_element = '<h' . esc_attr( $heading_level ) . ' class="block-cta__heading">';
-$closing_element = '</h' . esc_attr( $heading_level ) . '>';
+$wrapper_classes = ['block-cta', 'alignwide'];
 
+if (!empty($block['className'])) {
+  $wrapper_classes[] = $block['className'];
+}
+
+$section_style = '';
+if (!empty($background_image_url)) {
+  $section_style = "background-image: url('" . esc_url($background_image_url) . "');";
+}
 ?>
 
-<section id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $wrapper_classes ) ); ?>">
-	<div class="block-cta__inner-content alignwide">
+<section id="<?php echo esc_attr($block_id); ?>" class="<?php echo esc_attr(implode(' ', $wrapper_classes)); ?>"
+  style="<?php echo esc_attr($section_style); ?>">
+  <div class="block-cta__inner-content alignwide">
+    <?php if (!empty($cta_title)): ?>
+      <h2 class="block-cta__title"><?php echo esc_html($cta_title); ?></h2>
+    <?php endif; ?>
 
-		<?php if ( $heading ) : ?>
-			<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				echo $opening_element . $heading . $closing_element;
-			?>
-		<?php endif; ?>
-
-		<?php if ( $text ) : ?>
-			<p class="block-cta__text"><?php echo wp_kses( $text, $allow_break ); ?></p>
-		<?php endif; ?>
-
-		<?php if ( ( $button_url && $button_title ) && ( '_blank' === $button_target ) ) : ?>
-			<a href="<?php echo esc_url( $button_url ); ?>" class="button button-primary" target="<?php echo esc_attr( $button_target ); ?>" rel="noreferrer noopener">
-				<?php echo esc_html( $button_title ); ?>
-				<span class="screen-reader-text"><?php echo esc_html( translate__( 'Avautuu uuteen välilehteen', '', 'eternia' ) ); ?></span>
-			</a>
-		<?php elseif ( $button_url && $button_title ) : ?>
-			<a href="<?php echo esc_url( $button_url ); ?>" class="button button-primary" target="<?php echo esc_attr( $button_target ); ?>">
-				<?php echo esc_html( $button_title ); ?>
-			</a>
-		<?php endif; ?>
-
-	</div>
+    <?php if (!empty($cta_buttons)): ?>
+      <div class="block-cta__buttons">
+        <?php foreach ($cta_buttons as $button): ?>
+          <?php if (!empty($button['url']) && !empty($button['title'])): ?>
+            <a href="<?php echo esc_url($button['url']); ?>" class="button button-secondary"
+              target="<?php echo esc_attr($button['target']); ?>">
+              <?php echo esc_html($button['title']); ?>
+              <?php inline_svg('arrow-right.svg', array('wrapper' => 'i'), true); ?>
+            </a>
+          <?php endif; ?>
+        <?php endforeach; ?>
+      </div>
+    <?php endif; ?>
+  </div>
 </section>
