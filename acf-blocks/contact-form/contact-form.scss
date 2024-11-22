@@ -141,7 +141,8 @@
 
       form {
         .gfield_required_text,
-        .ginput_counter {
+        .ginput_counter,
+        legend.gfield_label {
           display: none;
         }
 
