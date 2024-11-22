@@ -33,6 +33,10 @@
     }
   }
 
+  &__title {
+    margin-bottom: 2rem;
+  }
+
   &__item {
     &__title {
       @include heading($type: "h5");
