@@ -1,0 +1,242 @@
+@import "../../app/sass/loaders/scss-tooling-import";
+
+.block-contact {
+  display: grid;
+  gap: 2rem;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-areas:
+      "intro intro"
+      "left right";
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  &__intro {
+    max-width: 49.5ch;
+
+    @media (min-width: $breakpoint-md) {
+      grid-area: intro;
+
+      .block-contact__title {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+
+  &__ingress {
+    margin-bottom: 2.5rem;
+
+    @media (min-width: $breakpoint-md) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__left-column {
+    @media (min-width: $breakpoint-md) {
+      grid-area: left;
+      padding-right: 3rem;
+      border-right: 1px solid var(--color--white);
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      padding-right: 8.8125rem;
+    }
+
+    .block-contact__personnel {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--color--white);
+    }
+
+    .person {
+      @media (min-width: $breakpoint-md) {
+        display: flex;
+        gap: 3rem;
+      }
+
+      &__image {
+        img {
+          max-width: 10.1875rem;
+          aspect-ratio: 1 / 1;
+          margin-bottom: 2rem;
+
+          @media (min-width: $breakpoint-md) {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      &__details {
+        display: flex;
+        flex-direction: column;
+
+        .person__name {
+          @include heading($type: "h6");
+        }
+
+        h3,
+        p {
+          margin-bottom: 0;
+        }
+
+        .person__role {
+          margin-bottom: 1rem;
+        }
+      }
+
+      &__contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    .block-contact__info {
+      padding-bottom: 2.5rem;
+      margin-top: 3rem;
+      border-bottom: 1px solid var(--color--white);
+
+      .block-contact__email,
+      .block-contact__mobile {
+        margin-bottom: 0.5rem;
+      }
+
+      @media (min-width: $breakpoint-md) {
+        border-bottom: none;
+      }
+    }
+
+    .block-contact__contact-title {
+      @include heading($type: "h6");
+    }
+  }
+
+  &__right-column {
+    @media (min-width: $breakpoint-md) {
+      grid-area: right;
+      padding-left: 3rem;
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      padding-left: 8.8125rem;
+    }
+
+    .block-contact__form-title {
+      @include heading($type: "h4");
+
+      margin-bottom: 2.5rem;
+
+      @media (min-width: $breakpoint-md) {
+        margin-bottom: 3rem;
+      }
+    }
+
+    .gform_wrapper {
+      .gform_validation_errors {
+        display: none;
+      }
+
+      form {
+        .gfield_required_text,
+        .ginput_counter {
+          display: none;
+        }
+
+        label.gfield_label,
+        label.gform-field-label {
+          @include paragraph(
+            $type: "body-large",
+            $font-weight: var(--rnb--font-weight--regular)
+          );
+
+          padding: 0;
+          margin: 0 0 0.5rem;
+        }
+
+        .ginput_container {
+          input {
+            @include input;
+          }
+
+          textarea {
+            @include input;
+
+            resize: vertical;
+          }
+        }
+
+        .gform_footer {
+          .gform_button {
+            @include button;
+          }
+        }
+
+        // Errors
+
+        .gfield_error {
+          position: relative;
+
+          label {
+            color: var(--rnb--color--primary);
+          }
+
+          input,
+          textarea {
+            box-sizing: border-box;
+            width: 100%;
+            padding-right: 2.5rem;
+          }
+
+          input[type="checkbox"] {
+            width: auto;
+            padding-right: 0;
+          }
+
+          &::after {
+            position: absolute;
+            top: 3.5rem;
+            right: 0.75rem;
+            width: 24px;
+            height: 24px;
+            pointer-events: none;
+            content: "";
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><g id="Property 1=error"><path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM13 7V13C12.3333 13 11.6667 13 11 13V7H13ZM11 15H13V17H11V15Z" fill="%23FF470E"/></g></svg>');
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+        }
+
+        .gfield--type-consent {
+          position: relative;
+
+          &::after {
+            top: 0;
+            right: 0.75rem;
+            width: 24px;
+            height: 24px;
+            pointer-events: none;
+            content: "";
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><g id="Property 1=error"><path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM13 7V13C12.3333 13 11.6667 13 11 13V7H13ZM11 15H13V17H11V15Z" fill="%23FF470E"/></g></svg>');
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+        }
+
+        .gfield_validation_message {
+          @include paragraph(
+            $type: "body-small",
+            $font-weight: var(--rnb--font-weight--regular),
+            $color: var(--rnb--color--error)
+          );
+
+          padding: 0;
+          background: none;
+          border: none;
+        }
+      }
+    }
+  }
+}

@@ -21,7 +21,7 @@
   $icon-fill-hover: var(--rnb--color--primary),
   $duration: var(--rnb--transition-duration),
   $easing: var(--rnb--transition-easing),
-  $disabled-color: var(--rnb--color--disabled-text),
+  $disabled-color: var(--rnb--color--disabled--text)
 ) {
   @include button-reset;
 
@@ -51,8 +51,7 @@
     color: $hover-color;
 
     // icon
-    @if  $icon {
-
+    @if $icon {
       svg > path {
         fill: $icon-fill-hover;
       }
@@ -60,8 +59,7 @@
   }
 
   // icon
-  @if  $icon {
-
+  @if $icon {
     i {
       display: inline-block;
       width: $icon-width;
@@ -69,11 +67,10 @@
       transition-timing-function: $easing;
       transition-duration: $duration;
       transition-property: all;
-      
+
       @if $icon-start {
         margin-right: $icon-margin;
-      }
-      @else {
+      } @else {
         margin-left: $icon-margin;
       }
     }
@@ -91,7 +88,6 @@
     cursor: not-allowed;
 
     @if $icon {
-
       i svg > path {
         fill: $disabled-color;
       }
