@@ -16,7 +16,7 @@ if (!empty($block['anchor'])) {
   $block_id = $block['anchor'];
 }
 
-$title = get_field('title');
+$title = get_field('title') ?: 'Yhteystiedot';
 $ingress = get_field('ingress');
 $personnel = get_field('personnel');
 $contact_title = get_field('contact_title');
@@ -68,13 +68,15 @@ if (!empty($block['className'])) {
 
                 <?php if (!empty($person['email'])): ?>
                   <p class="person__email">
-                    <a href="mailto:<?php echo esc_attr($person['email']); ?>"><?php echo esc_html($person['email']); ?></a>
+                    <a
+                      href="mailto:<?php echo esc_attr(antispambot($person['email'])); ?>"><?php echo esc_html(antispambot($person['email'])); ?></a>
                   </p>
                 <?php endif; ?>
 
                 <?php if (!empty($person['mobile'])): ?>
+                  <?php $person_mobile_href = str_replace(' ', '', $person['mobile']); ?>
                   <p class="person__mobile">
-                    <a href="tel:<?php echo esc_attr($person['mobile']); ?>"><?php echo esc_html($person['mobile']); ?></a>
+                    <a href="tel:<?php echo esc_attr($person_mobile_href); ?>"><?php echo esc_html($person['mobile']); ?></a>
                   </p>
                 <?php endif; ?>
               </div>
@@ -96,13 +98,15 @@ if (!empty($block['className'])) {
 
         <?php if (!empty($contact_email)): ?>
           <p class="block-contact__email">
-            <a href="mailto:<?php echo esc_attr($contact_email); ?>"><?php echo esc_html($contact_email); ?></a>
+            <a
+              href="mailto:<?php echo esc_attr(antispambot($contact_email)); ?>"><?php echo esc_html(antispambot($contact_email)); ?></a>
           </p>
         <?php endif; ?>
 
         <?php if (!empty($contact_mobile)): ?>
+          <?php $contact_mobile_href = str_replace(' ', '', $contact_mobile); ?>
           <p class="block-contact__mobile">
-            <a href="tel:<?php echo esc_attr($contact_mobile); ?>"><?php echo esc_html($contact_mobile); ?></a>
+            <a href="tel:<?php echo esc_attr($contact_mobile_href); ?>"><?php echo esc_html($contact_mobile); ?></a>
           </p>
         <?php endif; ?>
       </div>
