@@ -148,6 +148,10 @@
           display: none;
         }
 
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
         label.gfield_label,
         label.gform-field-label {
           @include paragraph(
