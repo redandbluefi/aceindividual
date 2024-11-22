@@ -1,43 +1,34 @@
 @import "../../app/sass/loaders/scss-tooling-import";
 
 .block-cta {
-  // Content wrapper, on default full width
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2.5rem 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media (min-width: $breakpoint-md) {
+    margin: 5.5rem 0;
+  }
+
   &__inner-content {
-    padding: 4.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
+    padding: 6.25rem 1rem;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
 
     @media (min-width: $breakpoint-md) {
-      padding: 4.5rem 0;
+      flex-direction: row;
+      gap: 1.5rem;
+      justify-content: center;
     }
-  }
-
-  // Light and dark variations
-  &--dark {
-    color: var(--rnb--color--background);
-    background-color: var(--rnb--color--text);
-  }
-
-  &--light {
-    color: var(--rnb--color--text);
-    background-color: var(--rnb--color--background);
-  }
-
-  // Block element styles
-  &__heading {
-    margin-bottom: 2rem;
-    font-size: var(--rnb--font-size--h1);
-    hyphens: auto;
-    line-height: var(--rnb--line-height--h1);
-    white-space: auto;
-  }
-
-  &__text {
-    font-size: var(--rnb--font-size--body-large);
-    hyphens: auto;
-    line-height: var(--rnb--line-height--body);
-    white-space: auto;
-  }
-
-  .button {
-    margin-top: 2rem;
   }
 }

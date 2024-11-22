@@ -3,6 +3,7 @@
 .block-contact {
   display: grid;
   gap: 2rem;
+  margin: 3rem 0;
 
   @media (min-width: $breakpoint-md) {
     grid-template-areas:
@@ -10,6 +11,7 @@
       "left right";
     grid-template-columns: 1fr 1fr;
     gap: 0;
+    margin: 6rem 0;
   }
 
   &__intro {
@@ -141,7 +143,8 @@
 
       form {
         .gfield_required_text,
-        .ginput_counter {
+        .ginput_counter,
+        legend.gfield_label {
           display: none;
         }
 
