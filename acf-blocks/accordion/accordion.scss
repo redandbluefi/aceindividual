@@ -15,7 +15,7 @@
 
   display: flex;
   flex-direction: column;
-  padding: 4rem 0 0;
+  padding: 3rem 0 0;
 
   @media (min-width: $breakpoint-md) {
     display: grid;
@@ -29,6 +29,7 @@
 
   &__heading {
     grid-area: heading;
+    margin-bottom: 2rem;
 
     &--title {
       margin-bottom: 0;

@@ -1,0 +1,21 @@
+{
+  "name": "acf/two-column-block",
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "title": "Kaksi Kolumnia",
+  "description": "Kaksi kolumnia",
+  "category": "formatting",
+  "icon": "editor-table",
+  "keywords": [
+    "kaksi",
+    "kolumnia"
+  ],
+  "supports": {
+    "align": true,
+    "html": false
+  },
+  "acf": {
+    "postTypes": [
+      "page"
+    ]
+  }
+}
