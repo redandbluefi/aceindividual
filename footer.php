@@ -13,7 +13,7 @@ namespace Eternia;
 </div><!-- #site-content -->
 
 <footer class="site-footer layout-grid" aria-hidden="false">
-	<?php echo do_blocks('<!-- wp:eternia/legacy-footer /-->') ?>
+	<?php echo do_blocks( '<!-- wp:eternia/legacy-footer /-->' ); ?>
 </footer><!-- #colophon -->
 
 </div><!-- #page -->
