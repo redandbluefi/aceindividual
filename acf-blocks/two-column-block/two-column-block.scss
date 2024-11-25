@@ -1,0 +1,24 @@
+@import "../../app/sass/loaders/scss-tooling-import";
+
+.two-column-block {
+  display: grid;
+  gap: 3.75rem;
+  margin: 3rem 0;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: 1fr 1fr;
+    margin: 6rem 0;
+  }
+
+  .two-column-block__column--left,
+  .two-column-block__column--right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+
+    @media (min-width: $breakpoint-md) {
+      gap: 2rem;
+    }
+  }
+}

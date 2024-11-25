@@ -1,22 +1,19 @@
 @import "../../app/sass/loaders/scss-tooling-import";
 
 .block-info {
-  padding: 3rem 0;
   margin: 0;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
-  @media (min-width: $breakpoint-md) {
-    padding: 6rem 0;
-  }
-
   &__container {
     display: grid;
     gap: 3.75rem;
+    padding: 3rem 0;
 
     @media (min-width: $breakpoint-md) {
       grid-template-columns: 1fr 1fr;
+      padding: 6rem 0;
     }
   }
 

@@ -26,6 +26,7 @@
   --rnb--line-height--body-small: 1.76;
   --rnb--line-height--body-large: 1.76; /* 176% */
   --rnb--line-height--quote: 1.6; /* 160% */
+  --rnb--line-height--heading: 1.2; /* 120% */
 
   /* Letter spacing */
   --rnb--letter-spacing--h1: -1.24px;
@@ -47,6 +48,7 @@
 
   /* Mobile adjustments */
   @media (width <= 768px) {
+    --rnb--font-size--hero: 2.75rem;
     --rnb--font-size--h1: 2.25rem;
     --rnb--font-size--h2: 2rem;
     --rnb--font-size--h3: 1.75rem;
