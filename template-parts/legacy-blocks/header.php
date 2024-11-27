@@ -11,7 +11,6 @@ $lang_pid = get_default_lang_option();
 $home_url = get_home_url();
 
 $cta_button = get_field( 'cta_button', $lang_pid ) ?? '';
-
 ?>
 
 <div class="header alignfull" id="main-navigation">
@@ -22,7 +21,12 @@ $cta_button = get_field( 'cta_button', $lang_pid ) ?? '';
 	  </div>
 	  <div class="header__logo" id="logo">
 		<a href="<?php echo esc_url( $home_url ); ?>">
-		  <?php inline_svg( 'logo.svg', array( 'wrapper' => 'div' ), true ); ?>
+		  <div class="logo-mobile">
+			<?php inline_svg( 'logo-mobile.svg', array( 'wrapper' => 'div' ), true ); ?>
+		  </div>
+		  <div class="logo-desktop" style="display: none;">
+			<?php inline_svg( 'logo-desktop.svg', array( 'wrapper' => 'div' ), true ); ?>
+		  </div>
 		</a>
 	  </div>
 	  <div class="header__cta desktop-only">

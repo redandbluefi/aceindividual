@@ -62,7 +62,7 @@ function theme_settings()
      * Logo and featured image
      */
     'default_featured_image' => null,
-    'logo' => '/build/img/logo.svg',
+    'logo' => '/build/img/logo-desktop.svg',
 
     /**
      * Custom setting group settings when using Air setting groups plugin.
