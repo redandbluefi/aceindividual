@@ -15,7 +15,7 @@ namespace Eternia;
 	<span class="screen-reader-text"><?php bloginfo( 'name' ); ?></span>
 	<?php
 	inline_svg(
-		'logo.svg',
+		'logo-desktop.svg',
 		array(
 			'class'    => 'site-branding__logo',
 			'itemprop' => 'logo',
