@@ -24,25 +24,20 @@ $hsl-colors: (
     0%,
     0,
   ),
-  "red": (
-    0,
-    100%,
-    53%,
+  "dark-grayish-blue": (
+    249,
+    8%,
+    16%,
   ),
   "very-dark-grayish-blue": (
-    220,
-    41%,
-    23%,
-  ),
-  "dark-grayish-blue": (
-    220,
-    12%,
+    219,
+    58%,
     29%,
   ),
   "ligh-grayish-blue": (
-    221,
+    219,
     15%,
-    76%,
+    54%,
   ),
   "grey": (
     0,
@@ -72,7 +67,7 @@ $functional-colors: (
   "text-inverted": "black",
   "primary": "white",
   "secondary": "black",
-  "error": "red",
+  "error": "white",
   "background": "black",
   "background--primary": "black",
   "background--secondary": "white",
