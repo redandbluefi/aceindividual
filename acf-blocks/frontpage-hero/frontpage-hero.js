@@ -1,12 +1,36 @@
-// Wait until the DOM is fully loaded before running the script
 document.addEventListener("DOMContentLoaded", () => {
   const hero = document.querySelector(".page-template-wide-template");
-
-  // Check if the "hero" element exists before proceeding
+  document.body.classList.add("preloader-active");
+  initPreloader();
   if (hero) {
     heroAnimation(hero);
   }
 });
+
+function initPreloader() {
+  const preloader = document.getElementById("preloader");
+  const preloaderLogo = preloader.querySelector(".preloader-logo");
+  const logoMobile = preloaderLogo.querySelector(".logo-mobile");
+  const logoDesktop = preloaderLogo.querySelector(".logo-desktop");
+
+  function swapPreloaderLogo() {
+    if (window.innerWidth >= 834) {
+      logoMobile.style.display = "none";
+      logoDesktop.style.display = "block";
+    } else {
+      logoMobile.style.display = "block";
+      logoDesktop.style.display = "none";
+    }
+  }
+
+  swapPreloaderLogo();
+  window.addEventListener("resize", swapPreloaderLogo);
+
+  preloaderLogo.addEventListener("animationend", function () {
+    preloader.style.display = "none";
+    document.body.classList.remove("preloader-active");
+  });
+}
 
 function heroAnimation(hero) {
   // Select key elements required for the animation

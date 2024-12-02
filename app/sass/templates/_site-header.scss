@@ -1,4 +1,8 @@
 /* Base styles */
+body.preloader-active #main-navigation {
+  display: none;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -156,4 +160,23 @@
 .page-template-wide-template .header__wrapper {
   padding-right: 0;
   padding-left: 0;
+}
+
+body:not(.page-template-wide-template) {
+  .header__logo {
+    .logo-mobile {
+      opacity: 0;
+    }
+
+    top: 1.6875rem;
+    left: 7rem;
+
+    @media (min-width: $breakpoint-md) {
+      left: 50%;
+    }
+
+    .logo-desktop {
+      opacity: 1 !important;
+    }
+  }
 }

@@ -1,8 +1,98 @@
 @import "../../app/sass/loaders/scss-tooling-import";
 @import "../../app/sass/base/buttons";
 
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #000;
+
+  .preloader-logo {
+    position: absolute;
+    top: 9.375rem;
+    opacity: 0;
+    animation: logoBlinkAnimation 4s forwards;
+
+    .logo-mobile {
+      display: block;
+    }
+
+    .logo-desktop {
+      display: none;
+    }
+
+    @media (min-width: $breakpoint-mobile-menu) {
+      .logo-mobile {
+        display: none;
+      }
+
+      .logo-desktop {
+        display: block;
+        justify-self: 10.875rem;
+        width: 55rem;
+      }
+    }
+  }
+}
+
+@keyframes logoBlinkAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  12.5% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  43.75% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  56.25% {
+    opacity: 0;
+  }
+
+  62.5% {
+    opacity: 1;
+  }
+
+  68.75% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+body.preloader-active #main-navigation {
+  display: none;
+}
+
 .block-frontpage-hero {
   position: relative;
+  opacity: 0;
+  animation: heroFadeIn 1.5s forwards;
+  animation-delay: 3.5s;
 
   .mobile-only {
     display: grid;
@@ -39,6 +129,7 @@
 
       @media (min-width: $breakpoint-mobile-menu) {
         height: 100%;
+        object-position: center;
       }
     }
 
@@ -86,5 +177,15 @@
     gap: 1.25rem;
     align-items: center;
     justify-content: center;
+  }
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
