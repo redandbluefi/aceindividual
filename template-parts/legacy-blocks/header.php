@@ -14,7 +14,7 @@ $cta_button = get_field( 'cta_button', $lang_pid ) ?? '';
 ?>
 
   <?php if ( is_page_template( 'wide-template.php' ) ) : ?>
-	<div id="preloader">
+	<div id="preloader" class="hidden">
 	  <div class="preloader-logo">
 	  <div class="logo-mobile">
 		<?php inline_svg( 'logo-mobile.svg', array( 'wrapper' => 'div' ), true ); ?>

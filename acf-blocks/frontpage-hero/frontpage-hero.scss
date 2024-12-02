@@ -1,6 +1,10 @@
 @import "../../app/sass/loaders/scss-tooling-import";
 @import "../../app/sass/base/buttons";
 
+#main-navigation {
+  display: none;
+}
+
 #preloader {
   position: fixed;
   top: 0;
@@ -18,7 +22,7 @@
     position: absolute;
     top: 9.375rem;
     opacity: 0;
-    animation: logoBlinkAnimation 4s forwards;
+    animation: logoBlinkAnimation 3s forwards;
 
     .logo-mobile {
       display: block;
@@ -47,35 +51,39 @@
     opacity: 0;
   }
 
-  12.5% {
+  10% {
     opacity: 1;
   }
 
   25% {
-    opacity: 0;
+    opacity: 1;
   }
 
-  43.75% {
+  30% {
     opacity: 0;
   }
 
   50% {
-    opacity: 1;
-  }
-
-  56.25% {
     opacity: 0;
   }
 
-  62.5% {
+  52% {
     opacity: 1;
   }
 
-  68.75% {
+  54% {
     opacity: 0;
   }
 
-  75% {
+  56% {
+    opacity: 1;
+  }
+
+  58% {
+    opacity: 0;
+  }
+
+  60% {
     opacity: 1;
   }
 
@@ -84,15 +92,13 @@
   }
 }
 
-body.preloader-active #main-navigation {
-  display: none;
-}
-
 .block-frontpage-hero {
   position: relative;
   opacity: 0;
-  animation: heroFadeIn 1.5s forwards;
-  animation-delay: 3.5s;
+
+  &.hero-fade-in {
+    animation: heroFadeIn 1.5s forwards;
+  }
 
   .mobile-only {
     display: grid;

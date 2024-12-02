@@ -3,6 +3,10 @@ body.preloader-active #main-navigation {
   display: none;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .header {
   position: fixed;
   top: 0;
