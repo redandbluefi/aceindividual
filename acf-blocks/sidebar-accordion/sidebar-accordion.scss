@@ -1,11 +1,21 @@
 @import "../../app/sass/loaders/scss-tooling-import";
 
 /**
-* Styles for accordion block
-*/
+ * Styles for sidebar accordion block with animations
+ */
 
 .sidebar-accordion {
   width: 100%;
+  opacity: 0;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+  transform: translateY(50px);
+
+  &.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   &__container {
     padding: calc(3rem - var(--rnb--margin-between--blocks)) 0;
@@ -15,21 +25,41 @@
     }
   }
 
-  &__sidebar {
-    display: flex;
-    flex-direction: column;
-
-    @media (min-width: $breakpoint-md) {
-    }
-  }
-
   &__heading {
     margin-bottom: 2.5rem;
+    opacity: 0;
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+    transform: translateY(30px);
+  }
+
+  &.animate &__heading {
+    opacity: 1;
+    transition-delay: 0.2s;
+    transform: translateY(0);
   }
 
   &__items {
     display: flex;
     flex-direction: column;
+
+    .sidebar-accordion-item {
+      opacity: 0;
+      transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
+      transition-delay: calc(var(--item-index) * 0.2s);
+      transform: translateY(30px);
+      will-change: opacity, transform;
+    }
+  }
+
+  &.animate &__items {
+    .sidebar-accordion-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   &__content {
@@ -40,67 +70,78 @@
     padding: 3rem 0;
     overflow-y: auto;
     border-top: 1px solid var(--color--white);
+    opacity: 0;
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+    transform: translateY(30px);
 
     @media (min-width: $breakpoint-md) {
       gap: 3.5rem;
       padding: 3.5rem 0;
     }
+  }
 
-    &__wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
+  &.animate &__content {
+    opacity: 1;
+    transition-delay: 0.3s;
+    transform: translateY(0);
+  }
 
-      @media (min-width: $breakpoint-md) {
-        display: grid;
-        grid-template-columns: 35% 1fr;
-      }
-    }
+  &__content__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
 
-    .quote {
+    @media (min-width: $breakpoint-md) {
       display: grid;
-      gap: 1.5rem;
+      grid-template-columns: 35% 1fr;
+    }
+  }
+
+  .quote {
+    display: grid;
+    gap: 1.5rem;
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: auto 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  .quote-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .quote-author-image {
+    width: 100%;
+    max-width: 9.25rem;
+
+    .image {
+      width: 6.25rem;
+      height: 6.25rem;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
 
       @media (min-width: $breakpoint-md) {
-        grid-template-columns: auto 1fr;
-        gap: 2.5rem;
+        width: 9.25rem;
+        height: 9.25rem;
       }
     }
+  }
 
-    .quote-text {
-      display: flex;
-      flex-direction: column;
-      gap: 1.75rem;
-      padding: 0;
-      margin: 0;
-    }
-
-    .quote-author-image {
+  .accordion-item__content {
+    img {
       width: 100%;
-      max-width: 9.25rem;
+      margin-bottom: 2.25rem;
 
-      .image {
-        width: 6.25rem;
-        height: 6.25rem;
-        object-fit: cover;
-        object-position: center;
-        border-radius: 50%;
-
-        @media (min-width: $breakpoint-md) {
-          width: 9.25rem;
-          height: 9.25rem;
-        }
-      }
-    }
-
-    .accordion-item__content {
-      img {
-        width: 100%;
-        margin-bottom: 2.25rem;
-
-        @media (min-width: $breakpoint-md) {
-          margin-bottom: 3.5rem;
-        }
+      @media (min-width: $breakpoint-md) {
+        margin-bottom: 3.5rem;
       }
     }
   }
@@ -141,7 +182,7 @@
   }
 
   &__panel {
-    display: none; // Default state
+    display: none;
     padding: 1rem;
   }
 

@@ -74,3 +74,37 @@ if (accordions.length > 0) {
     window.addEventListener("resize", resizeOverlayAndImage); // Resize elements on window resize
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const accordions = document.querySelectorAll(".accordion");
+
+  const observerOptions = {
+    root: null,
+    threshold: 0.2,
+  };
+
+  const handleIntersect = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const accordionItems = entry.target.querySelectorAll(
+          ".block-accordion__accordions > *",
+        );
+
+        entry.target.classList.add("animate");
+
+        accordionItems.forEach((item, index) => {
+          item.style.setProperty("--item-index", index);
+          item.classList.add("visible");
+        });
+
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+  accordions.forEach((accordion) => {
+    observer.observe(accordion);
+  });
+});

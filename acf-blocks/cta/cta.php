@@ -64,13 +64,15 @@ if ( ! empty( $background_image_url ) ) {
 
 	<?php if ( ! empty( $cta_buttons ) ) : ?>
 	  <div class="block-cta__buttons">
-		<?php foreach ( $cta_buttons as $button ) : ?>
+		<?php foreach ( $cta_buttons as $index => $button ) : ?>
 			<?php if ( ! empty( $button['url'] ) && ! empty( $button['title'] ) ) : ?>
-			<a href="<?php echo esc_url( $button['url'] ); ?>" class="button button-secondary"
-			  target="<?php echo esc_attr( $button['target'] ); ?>">
+		  <a href="<?php echo esc_url( $button['url'] ); ?>"
+			 class="button button-secondary block-cta__button"
+			 target="<?php echo esc_attr( $button['target'] ); ?>"
+			 style="--cta-button-index: <?php echo $index; ?>">
 				<?php echo esc_html( $button['title'] ); ?>
 				<?php inline_svg( 'arrow-right.svg', array( 'wrapper' => 'i' ), true ); ?>
-			</a>
+		  </a>
 		  <?php endif; ?>
 		<?php endforeach; ?>
 	  </div>

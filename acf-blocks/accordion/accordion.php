@@ -54,7 +54,7 @@ $accordion_args = array(
 );
 
 ?>
-<section class="alignfull accordion layout-grid">
+<section class="alignfull accordion layout-grid js-animate">
   <div id="<?php echo esc_attr( $block_id ); ?>" class="block-accordion alignwide">
 	<?php
 	if ( $bg_image ) {

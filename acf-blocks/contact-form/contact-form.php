@@ -47,40 +47,39 @@ if ( ! empty( $block['className'] ) ) {
   <div class="block-contact__left-column">
 	<?php if ( ! empty( $personnel ) && is_array( $personnel ) ) : ?>
 	  <div class="block-contact__section block-contact__personnel">
-		<?php foreach ( $personnel as $person ) : ?>
+		<?php foreach ( $personnel as $index => $person ) : ?>
 			<?php if ( ! empty( $person ) && is_array( $person ) ) : ?>
-			<div class="person">
+		  <div class="person" style="--person-index: <?php echo $index; ?>">
 				<?php if ( ! empty( $person['image'] ) ) : ?>
-				<div class="person__image">
-				  <img src="<?php echo esc_url( wp_get_attachment_image_url( $person['image'], 'medium' ) ); ?>"
-					alt="<?php echo ! empty( $person['name'] ) ? esc_attr( $person['name'] ) : ''; ?>">
-				</div>
+			<div class="person__image">
+			  <img src="<?php echo esc_url( wp_get_attachment_image_url( $person['image'], 'medium' ) ); ?>"
+				alt="<?php echo ! empty( $person['name'] ) ? esc_attr( $person['name'] ) : ''; ?>">
+			</div>
+			<?php endif; ?>
+
+			<div class="person__details">
+				<?php if ( ! empty( $person['name'] ) ) : ?>
+				<h3 class="person__name"><?php echo esc_html( $person['name'] ); ?></h3>
 			  <?php endif; ?>
 
-			  <div class="person__details">
-				<?php if ( ! empty( $person['name'] ) ) : ?>
-				  <h3 class="person__name"><?php echo esc_html( $person['name'] ); ?></h3>
-				<?php endif; ?>
-
 				<?php if ( ! empty( $person['role'] ) ) : ?>
-				  <p class="person__role"><?php echo esc_html( $person['role'] ); ?></p>
-				<?php endif; ?>
+				<p class="person__role"><?php echo esc_html( $person['role'] ); ?></p>
+			  <?php endif; ?>
 
 				<?php if ( ! empty( $person['email'] ) ) : ?>
-				  <p class="person__email">
-					<a
-					  href="mailto:<?php echo esc_attr( antispambot( $person['email'] ) ); ?>"><?php echo esc_html( antispambot( $person['email'] ) ); ?></a>
-				  </p>
-				<?php endif; ?>
+				<p class="person__email">
+				  <a href="mailto:<?php echo esc_attr( antispambot( $person['email'] ) ); ?>"><?php echo esc_html( antispambot( $person['email'] ) ); ?></a>
+				</p>
+			  <?php endif; ?>
 
 				<?php if ( ! empty( $person['mobile'] ) ) : ?>
 					<?php $person_mobile_href = str_replace( ' ', '', $person['mobile'] ); ?>
-				  <p class="person__mobile">
-					<a href="tel:<?php echo esc_attr( $person_mobile_href ); ?>"><?php echo esc_html( $person['mobile'] ); ?></a>
-				  </p>
-				<?php endif; ?>
-			  </div>
+				<p class="person__mobile">
+				  <a href="tel:<?php echo esc_attr( $person_mobile_href ); ?>"><?php echo esc_html( $person['mobile'] ); ?></a>
+				</p>
+			  <?php endif; ?>
 			</div>
+		  </div>
 		  <?php endif; ?>
 		<?php endforeach; ?>
 	  </div>
@@ -98,8 +97,7 @@ if ( ! empty( $block['className'] ) ) {
 
 		<?php if ( ! empty( $contact_email ) ) : ?>
 		  <p class="block-contact__email">
-			<a
-			  href="mailto:<?php echo esc_attr( antispambot( $contact_email ) ); ?>"><?php echo esc_html( antispambot( $contact_email ) ); ?></a>
+			<a href="mailto:<?php echo esc_attr( antispambot( $contact_email ) ); ?>"><?php echo esc_html( antispambot( $contact_email ) ); ?></a>
 		  </p>
 		<?php endif; ?>
 

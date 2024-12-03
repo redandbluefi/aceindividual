@@ -45,5 +45,42 @@ function handleSidebarAccordion() {
   });
 }
 
+function handleSidebarAccordionAnimation() {
+  const sidebarAccordions = document.querySelectorAll(".sidebar-accordion");
+
+  const observerOptions = {
+    root: null,
+    threshold: 0.2,
+  };
+
+  const handleIntersect = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const sidebarItems = entry.target.querySelectorAll(
+          ".sidebar-accordion__items > .sidebar-accordion-item",
+        );
+
+        entry.target.classList.add("animate");
+
+        sidebarItems.forEach((item, index) => {
+          item.style.setProperty("--item-index", index);
+          item.classList.add("visible");
+        });
+
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+  sidebarAccordions.forEach((accordion) => {
+    observer.observe(accordion);
+  });
+}
+
 // Initialize sidebar accordion functionality
-document.addEventListener("DOMContentLoaded", handleSidebarAccordion);
+document.addEventListener("DOMContentLoaded", () => {
+  handleSidebarAccordion();
+  handleSidebarAccordionAnimation();
+});
