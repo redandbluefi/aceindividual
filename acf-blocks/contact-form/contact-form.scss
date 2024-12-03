@@ -4,6 +4,43 @@
   display: grid;
   gap: 2rem;
   margin: 3rem 0;
+  opacity: 0;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+  transform: translateY(50px);
+
+  &.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .block-contact__personnel .person {
+    opacity: 0;
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+    transition-delay: calc(var(--person-index, 0) * 0.2s);
+    transform: translateY(30px);
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .block-contact__form {
+    opacity: 0;
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+    transform: translateY(30px);
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
   @media (min-width: $breakpoint-md) {
     grid-template-areas:

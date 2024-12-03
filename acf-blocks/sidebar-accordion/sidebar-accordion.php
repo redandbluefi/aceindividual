@@ -71,7 +71,6 @@ $accordion_args = array(
 	</div>
 	<div class="sidebar-accordion__content__wrapper">
 	  <aside class="sidebar-accordion__sidebar">
-
 		<div class="sidebar-accordion__items">
 		  <?php
 			foreach ( $accordions as $counter => $accordion_item ) {
@@ -84,7 +83,6 @@ $accordion_args = array(
 			?>
 		</div>
 	  </aside>
-
 	  <div class="sidebar-accordion__content">
 		<?php
 		// Display content of the first accordion item by default
@@ -94,4 +92,5 @@ $accordion_args = array(
 		?>
 	  </div>
 	</div>
+  </div>
 </section>

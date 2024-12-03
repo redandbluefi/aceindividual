@@ -7,6 +7,16 @@
   margin: 2.5rem 0;
   background-repeat: no-repeat;
   background-size: cover;
+  opacity: 0;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+  transform: translateY(50px);
+
+  &.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   @media (min-width: $breakpoint-md) {
     margin: 5.5rem 0;
@@ -17,6 +27,19 @@
     flex-direction: column;
     gap: 2.75rem;
     padding: 6.25rem 1rem;
+
+    .block-cta__title {
+      opacity: 0;
+      transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
+      transform: translateY(30px);
+
+      .block-cta.animate & {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
 
   &__buttons {
@@ -29,6 +52,20 @@
       flex-direction: row;
       gap: 1.5rem;
       justify-content: center;
+    }
+
+    .block-cta__button {
+      opacity: 0;
+      transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
+      transition-delay: calc(var(--cta-button-index, 0) * 0.2s);
+      transform: translateY(30px);
+
+      &.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   }
 }

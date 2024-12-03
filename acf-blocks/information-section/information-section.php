@@ -35,7 +35,7 @@ if ( ! empty( $block['className'] ) ) {
 
 ?>
 
-<section id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $wrapper_classes ) ); ?>" 
+<section id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $wrapper_classes ) ); ?>"
 						<?php
 						if ( $background_image_url ) :
 							?>
@@ -53,12 +53,12 @@ if ( ! empty( $block['className'] ) ) {
 	<div class="block-info__right">
 	  <?php if ( ! empty( $right_repeater ) ) : ?>
 		<div class="block-info__items">
-			<?php foreach ( $right_repeater as $item ) : ?>
+			<?php foreach ( $right_repeater as $index => $item ) : ?>
 				<?php
 				$item_title = $item['item_title'] ?? '';
 				$item_text  = $item['item_text'] ?? '';
 				?>
-			<div class="block-info__item">
+			<div class="block-info__item" style="--item-index: <?php echo esc_attr( $index ); ?>;">
 				<?php if ( ! empty( $item_title ) ) : ?>
 				<h3 class="block-info__item__title">
 					<?php echo esc_html( $item_title ); ?>
