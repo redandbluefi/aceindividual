@@ -1,12 +1,87 @@
-// Wait until the DOM is fully loaded before running the script
 document.addEventListener("DOMContentLoaded", () => {
-  const hero = document.querySelector(".page-template-wide-template");
+  const hero = document.querySelector(".block-frontpage-hero"); // Get the hero section element
+  const mainNavigation = document.getElementById("main-navigation"); // Get the main navigation element
+  const preloader = document.getElementById("preloader"); // Get the preloader element
 
-  // Check if the "hero" element exists before proceeding
+  // Retrieve the timestamp of when the preloader was last shown from localStorage
+  const preloaderShownTimestamp = localStorage.getItem(
+    "preloaderShownTimestamp",
+  );
+  const now = Date.now(); // Get the current timestamp
+  const twentyFourHours = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
+  let showPreloader = true; // Flag to determine whether to show the preloader
+
+  if (preloaderShownTimestamp) {
+    const timeSinceLastShown = now - parseInt(preloaderShownTimestamp, 10); // Calculate time since last shown
+    if (timeSinceLastShown < twentyFourHours) {
+      showPreloader = false; // Do not show the preloader if less than 24 hours have passed
+    }
+  }
+
+  if (showPreloader) {
+    document.body.classList.add("preloader-active"); // Add class to body to indicate preloader is active
+
+    if (preloader) {
+      preloader.classList.remove("hidden"); // Make the preloader visible
+    }
+
+    initPreloader(hero, mainNavigation); // Initialize the preloader animations and logic
+
+    // Store the current timestamp to track when the preloader was last shown
+    localStorage.setItem("preloaderShownTimestamp", now.toString());
+  } else {
+    // If preloader should not be shown, display main navigation and hero content immediately
+    if (mainNavigation) {
+      mainNavigation.style.display = "block"; // Show the main navigation
+    }
+    if (hero) {
+      hero.classList.add("hero-fade-in"); // Start the hero fade-in animation
+    }
+  }
+
   if (hero) {
-    heroAnimation(hero);
+    heroAnimation(hero); // Initialize the hero animations
   }
 });
+
+function initPreloader(hero, mainNavigation) {
+  const preloader = document.getElementById("preloader"); // Get the preloader element
+  const preloaderLogo = preloader.querySelector(".preloader-logo"); // Get the logo within the preloader
+  const logoMobile = preloaderLogo.querySelector(".logo-mobile"); // Mobile version of the logo
+  const logoDesktop = preloaderLogo.querySelector(".logo-desktop"); // Desktop version of the logo
+
+  // Function to swap logos based on screen width
+  function swapPreloaderLogo() {
+    if (window.innerWidth >= 834) {
+      logoMobile.style.display = "none"; // Hide mobile logo
+      logoDesktop.style.display = "block"; // Show desktop logo
+    } else {
+      logoMobile.style.display = "block"; // Show mobile logo
+      logoDesktop.style.display = "none"; // Hide desktop logo
+    }
+  }
+
+  swapPreloaderLogo(); // Initial call to set the correct logo
+  window.addEventListener("resize", swapPreloaderLogo); // Update logo on window resize
+
+  preloaderLogo.addEventListener(
+    "animationend",
+    function () {
+      preloader.style.display = "none"; // Hide the preloader after animation ends
+      document.body.classList.remove("preloader-active"); // Remove active class from body
+
+      if (hero) {
+        hero.classList.add("hero-fade-in"); // Start the hero fade-in animation
+      }
+
+      if (mainNavigation) {
+        mainNavigation.style.display = "block"; // Show the main navigation
+      }
+    },
+    { once: true }, // Ensure the event listener is called only once
+  );
+}
 
 function heroAnimation(hero) {
   // Select key elements required for the animation

@@ -13,29 +13,42 @@ $home_url = get_home_url();
 $cta_button = get_field( 'cta_button', $lang_pid ) ?? '';
 ?>
 
-<div class="header alignfull" id="main-navigation">
-  <div class="header__navigation layout-grid">
-	<div class="header__wrapper alignwide">
-	  <div class="header__navigation-content desktop-only">
-		<?php get_template_part( 'template-parts/header/nav-menu', null, array( 'context' => 'desktop' ) ); ?>
+  <?php if ( is_page_template( 'wide-template.php' ) ) : ?>
+	<div id="preloader" class="hidden">
+	  <div class="preloader-logo">
+	  <div class="logo-mobile">
+		<?php inline_svg( 'logo-mobile.svg', array( 'wrapper' => 'div' ), true ); ?>
 	  </div>
-	  <div class="header__logo" id="logo">
-		<a href="<?php echo esc_url( $home_url ); ?>">
-		  <div class="logo-mobile">
-			<?php inline_svg( 'logo-mobile.svg', array( 'wrapper' => 'div' ), true ); ?>
-		  </div>
-		  <div class="logo-desktop" style="display: none;">
-			<?php inline_svg( 'logo-desktop.svg', array( 'wrapper' => 'div' ), true ); ?>
-		  </div>
-		</a>
+	  <div class="logo-desktop" style="display: none;">
+		<?php inline_svg( 'logo-desktop.svg', array( 'wrapper' => 'div' ), true ); ?>
 	  </div>
-	  <div class="header__cta desktop-only">
-		<a href="<?php echo esc_url( $cta_button['url'] ); ?>" class="button-secondary">
-		  <?php echo esc_html( $cta_button['title'] ); ?>
-		  <?php inline_svg( 'arrow-right.svg', array( 'wrapper' => 'i' ), true ); ?>
-		</a>
 	  </div>
 	</div>
+  <?php endif; ?>
+
+  <div class="header alignfull" id="main-navigation">
+	<div class="header__navigation layout-grid">
+	  <div class="header__wrapper alignwide">
+		<div class="header__navigation-content desktop-only">
+		  <?php get_template_part( 'template-parts/header/nav-menu', null, array( 'context' => 'desktop' ) ); ?>
+		</div>
+		<div class="header__logo" id="logo">
+		  <a href="<?php echo esc_url( $home_url ); ?>">
+			<div class="logo-mobile">
+			  <?php inline_svg( 'logo-mobile.svg', array( 'wrapper' => 'div' ), true ); ?>
+			</div>
+			<div class="logo-desktop">
+			  <?php inline_svg( 'logo-desktop.svg', array( 'wrapper' => 'div' ), true ); ?>
+			</div>
+		  </a>
+		</div>
+		<div class="header__cta desktop-only">
+		  <a href="<?php echo esc_url( $cta_button['url'] ); ?>" class="button-secondary">
+			<?php echo esc_html( $cta_button['title'] ); ?>
+			<?php inline_svg( 'arrow-right.svg', array( 'wrapper' => 'i' ), true ); ?>
+		  </a>
+		</div>
+	  </div>
+	</div>
+	<?php get_template_part( 'template-parts/header/nav-toggle' ); ?>
   </div>
-  <?php get_template_part( 'template-parts/header/nav-toggle' ); ?>
-</div>
