@@ -80,6 +80,7 @@ h6,
 p {
   @include paragraph(
     $type: "regular",
+
     $font-size: var(--rnb--font-size--body),
     $line-height: var(--rnb--line-height--body)
   );
@@ -117,7 +118,8 @@ a:not(
     [href^="tel:"],
     .button-primary,
     .button-secondary,
-    .site-branding__link
+    .site-branding__link,
+    .header__logo a
   ) {
   @include hover-underline;
 }

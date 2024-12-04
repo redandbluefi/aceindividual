@@ -4,6 +4,7 @@
  * Styles for accordion block with staggered animations
  */
 .accordion {
+  background: linear-gradient(to top left, #1c2d53, #121725 50%, #010101 100%);
   opacity: 0;
   transition:
     opacity 0.8s ease-out,
@@ -48,13 +49,14 @@
   flex-direction: column;
   padding: 3rem 0 0;
 
-  @media (min-width: $breakpoint-md) {
+  @media (min-width: $breakpoint-lg) {
     display: grid;
     grid-template-areas:
       "heading accordion"
       "image accordion";
     grid-template-columns: 1fr 1fr;
-    min-height: calc(100vh - 6.25rem);
+
+    // min-height: calc(100vh - 6.25rem);
     padding: 6.25rem 0 2rem;
   }
 
@@ -85,7 +87,7 @@
       object-fit: cover;
     }
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-lg) {
       grid-area: image;
       order: unset;
       max-height: 39.25rem;
@@ -150,7 +152,7 @@
     border: none;
     transition: var(--transition-duration-dialog);
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-lg) {
       padding: 1rem 2rem;
     }
 
@@ -177,7 +179,7 @@
           var(--transition-duration-dialog);
       }
 
-      @media (min-width: $breakpoint-md) {
+      @media (min-width: $breakpoint-lg) {
         right: 1rem;
       }
     }
@@ -198,7 +200,7 @@
           var(--transition-duration-dialog);
       }
 
-      @media (min-width: $breakpoint-md) {
+      @media (min-width: $breakpoint-lg) {
         right: 1rem;
       }
     }
@@ -247,14 +249,14 @@
     transition: max-height var(--transition-duration-dialog)
       var(--transition-easing-dialog);
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-lg) {
       padding: 1rem 0;
     }
 
     figure {
       margin: 2rem 0 1.5rem;
 
-      @media (min-width: $breakpoint-md) {
+      @media (min-width: $breakpoint-lg) {
         margin: 2rem 0;
       }
     }
@@ -272,7 +274,7 @@
   &__content {
     padding: 0.5rem 0;
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-lg) {
       padding-inline: 2rem;
     }
   }

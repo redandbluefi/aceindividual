@@ -44,7 +44,7 @@
 @mixin paragraph(
   $type: "body",
   $color: null,
-  $font-family: null,
+  $font-family: var(--rnb--font-family--paragraph),
   $font-weight: null,
   $font-size: var(--rnb--font-size--#{$type}),
   $line-height: var(--rnb--line-height--#{$type}),
