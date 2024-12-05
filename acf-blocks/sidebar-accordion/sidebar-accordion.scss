@@ -167,12 +167,12 @@
     transition: background 0.3s;
 
     &.is-active {
-      background: var(--color--very-dark-grayish-blue);
+      background: linear-gradient(90deg, #224075 0%, rgb(0 0 0 / 0%) 100%);
       border-color: var(--color--white);
     }
 
     &:hover {
-      background: var(--color--very-dark-grayish-blue);
+      background: linear-gradient(90deg, #224075 0%, rgb(0 0 0 / 0%) 100%);
     }
   }
 
