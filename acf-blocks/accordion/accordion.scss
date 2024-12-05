@@ -55,9 +55,7 @@
       "heading accordion"
       "image accordion";
     grid-template-columns: 1fr 1fr;
-
-    // min-height: calc(100vh - 6.25rem);
-    padding: 6.25rem 0 2rem;
+    padding: 8.25rem 0 6.25rem;
   }
 
   &__heading {
@@ -231,7 +229,7 @@
 
     &:hover {
       cursor: pointer;
-      background: var(--color--very-dark-grayish-blue);
+      background: linear-gradient(90deg, #224075 0%, rgb(0 0 0 / 0%) 100%);
     }
   }
 
