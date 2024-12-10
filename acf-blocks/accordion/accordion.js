@@ -59,7 +59,7 @@ function resizeOverlayAndImage() {
   );
 
   overlay.style.width = `${overlaySize}px`;
-  overlay.style.height = `${overlaySize}px`;
+  overlay.style.height = `${overlaySize * 0.75}px`;
 
   image.style.width = `${imageSize}px`;
 }

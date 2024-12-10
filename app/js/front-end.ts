@@ -5,14 +5,15 @@
 
 // Import modules
 import reframe from 'reframe.js';
+import './core-image-lightbox';
 import {
   initExternalLinkLabels,
   styleExternalLinks,
 } from './modules/external-link';
+import initFooterAnimation from './modules/footerAnimation';
 import initNavigation from './modules/navigation';
 import './modules/search';
 import initTooltip from './modules/tooltip';
-import './core-image-lightbox';
 
 // Define Javascript is active by changing the body class
 document.body.classList.remove('no-js');
@@ -28,4 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (hasTooltip) {
     initTooltip();
   }
+
+  initFooterAnimation();
 });
