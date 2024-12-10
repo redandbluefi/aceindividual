@@ -4,6 +4,15 @@
  * Styles for the block-info section with sequential animations
  */
 
+body.wp-admin [data-type="acf/information-section"] {
+  color: var(--color--white) !important;
+  background-color: var(--color--black) !important;
+
+  .block-info {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 .block-info {
   margin: 0;
   background-repeat: no-repeat;
@@ -18,6 +27,12 @@
   &.animate {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  body.wp-admin & {
+    opacity: 1 !important;
+    transition: none !important;
+    transform: none !important;
   }
 
   &__container {
@@ -45,6 +60,12 @@
     transform: translateY(0);
   }
 
+  body.wp-admin &__left {
+    opacity: 1 !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
   &__items {
     display: grid;
     gap: 2.5rem;
@@ -66,6 +87,12 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  body.wp-admin &__item {
+    opacity: 1 !important;
+    transition: none !important;
+    transform: none !important;
   }
 
   &__content {

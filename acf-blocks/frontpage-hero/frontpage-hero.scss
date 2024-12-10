@@ -1,6 +1,10 @@
 @import "../../app/sass/loaders/scss-tooling-import";
 @import "../../app/sass/base/buttons";
 
+body.wp-admin [data-type="acf/frontpage-hero"] {
+  color: var(--color--white) !important;
+}
+
 #main-navigation {
   display: none;
 }
@@ -98,6 +102,11 @@
 
   &.hero-fade-in {
     animation: heroFadeIn 1.5s forwards;
+  }
+
+  body.wp-admin & {
+    opacity: 1 !important;
+    animation: none !important;
   }
 
   .mobile-only {

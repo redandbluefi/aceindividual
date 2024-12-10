@@ -1,5 +1,25 @@
 @import "../../app/sass/loaders/scss-tooling-import";
 
+body.wp-admin [data-type="acf/contact-form"] {
+  color: var(--color--white) !important;
+  background-color: var(--color--black) !important;
+
+  a {
+    color: var(--color--white);
+  }
+
+  .gform_button {
+    color: var(--color--white) !important;
+    border: 1px solid var(--color--white) !important;
+  }
+
+  .gform-body input,
+  .gform-body textarea {
+    background-color: var(--color--black) !important;
+    border: 1px solid var(--color--white) !important;
+  }
+}
+
 .block-contact {
   display: grid;
   gap: 2rem;
@@ -9,6 +29,11 @@
     opacity 0.8s ease-out,
     transform 0.8s ease-out;
   transform: translateY(50px);
+
+  body.wp-admin & {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 
   &.animate {
     opacity: 1;
@@ -27,6 +52,11 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    body.wp-admin & {
+      opacity: 1 !important;
+      transform: none !important;
+    }
   }
 
   .block-contact__form {
@@ -39,6 +69,11 @@
     &.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    body.wp-admin & {
+      opacity: 1 !important;
+      transform: none !important;
     }
   }
 
@@ -217,8 +252,6 @@
             @include button;
           }
         }
-
-        // Errors
 
         .gfield_error {
           position: relative;
