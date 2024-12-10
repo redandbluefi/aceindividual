@@ -1,5 +1,10 @@
 @import "../../app/sass/loaders/scss-tooling-import";
 
+body.wp-admin [data-type="acf/two-column-block"] {
+  color: var(--color--white) !important;
+  background-color: var(--color--black) !important;
+}
+
 .two-column-block {
   display: grid;
   gap: 3.75rem;
@@ -13,6 +18,12 @@
   &.animate {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  body.wp-admin & {
+    opacity: 1 !important;
+    transition: none !important;
+    transform: none !important;
   }
 
   @media (min-width: $breakpoint-md) {
@@ -39,6 +50,12 @@
     &.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    body.wp-admin & {
+      opacity: 1 !important;
+      transition: none !important;
+      transform: none !important;
     }
   }
 }

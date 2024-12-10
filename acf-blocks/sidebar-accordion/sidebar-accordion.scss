@@ -4,6 +4,11 @@
  * Styles for sidebar accordion block with animations
  */
 
+body.wp-admin [data-type="acf/sidebar-accordion"] {
+  color: var(--color--white) !important;
+  background-color: var(--color--black) !important;
+}
+
 .sidebar-accordion {
   width: 100%;
   opacity: 0;
@@ -15,6 +20,12 @@
   &.animate {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  body.wp-admin & {
+    opacity: 1 !important;
+    transition: none !important;
+    transform: none !important;
   }
 
   &__container {
@@ -40,6 +51,12 @@
     transform: translateY(0);
   }
 
+  body.wp-admin &__heading {
+    opacity: 1 !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
   &__items {
     display: flex;
     flex-direction: column;
@@ -55,11 +72,15 @@
     }
   }
 
-  &.animate &__items {
-    .sidebar-accordion-item {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  &.animate &__items .sidebar-accordion-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  body.wp-admin &__items .sidebar-accordion-item {
+    opacity: 1 !important;
+    transition: none !important;
+    transform: none !important;
   }
 
   &__content {
@@ -86,6 +107,12 @@
     opacity: 1;
     transition-delay: 0.3s;
     transform: translateY(0);
+  }
+
+  body.wp-admin &__content {
+    opacity: 1 !important;
+    transition: none !important;
+    transform: none !important;
   }
 
   &__content__wrapper {
