@@ -18,6 +18,10 @@ body:not(.wp-admin) {
   text-rendering: geometricprecision;
 }
 
+.wp-admin .is-root-container {
+  color: var(--color--black);
+}
+
 // Headings
 h1,
 .h1 {
