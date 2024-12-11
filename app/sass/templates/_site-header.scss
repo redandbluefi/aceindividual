@@ -183,3 +183,15 @@ body:not(.page-template-wide-template) {
     }
   }
 }
+
+.header__cta-lang {
+  @media (min-width: $breakpoint-xl) {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+    .active-lang {
+      font-weight: var(--rnb--font-weight--bold);
+    }
+  }
+}

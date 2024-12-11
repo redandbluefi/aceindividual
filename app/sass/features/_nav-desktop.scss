@@ -65,12 +65,16 @@
   display: flex;
   gap: 1rem;
 
-  @media (min-width: $breakpoint-mobile-menu) {
-    @include vertical-divider($position: "before", $gap: 1.7rem);
-  }
-
   &__link {
     @include nav-link($text-transform: uppercase);
+  }
+
+  &__item {
+    &:first-child {
+      @media (min-width: $breakpoint-mobile-menu) {
+        @include vertical-divider($position: "after", $gap: 1rem);
+      }
+    }
   }
 }
 

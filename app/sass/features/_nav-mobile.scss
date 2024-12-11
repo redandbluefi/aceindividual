@@ -194,3 +194,12 @@
 .skip-link[aria-hidden="true"] {
   visibility: hidden;
 }
+
+// NAV LANG SWITCHER
+.nav-lang-switcher {
+  padding: 0;
+
+  .active-lang {
+    font-weight: var(--rnb--font-weight--bold);
+  }
+}
