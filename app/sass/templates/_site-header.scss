@@ -148,7 +148,6 @@ body.preloader-active #main-navigation {
   position: absolute;
   left: 50%;
   width: 80%;
-  max-width: 57.5rem;
   margin: 0;
   transition:
     transform 0.3s ease,
@@ -181,6 +180,18 @@ body:not(.page-template-wide-template) {
 
     .logo-desktop {
       opacity: 1 !important;
+    }
+  }
+}
+
+.header__cta-lang {
+  @media (min-width: $breakpoint-xl) {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+    .active-lang {
+      font-weight: var(--rnb--font-weight--semi-bold);
     }
   }
 }
