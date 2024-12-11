@@ -42,12 +42,14 @@ $cta_button = get_field( 'cta_button', $lang_pid ) ?? '';
 			</div>
 		  </a>
 		</div>
-		<div class="header__cta desktop-only">
-		  <a href="<?php echo esc_url( $cta_button['url'] ); ?>" class="button-secondary">
-			<?php echo esc_html( $cta_button['title'] ); ?>
-			<?php inline_svg( 'arrow-right.svg', array( 'wrapper' => 'i' ), true ); ?>
-		  </a>
-		</div>
+		<?php if ( $cta_button ) : ?>
+      <div class="header__cta desktop-only">
+        <a href="<?php echo esc_url( $cta_button['url'] ); ?>" class="button-secondary">
+        <?php echo esc_html( $cta_button['title'] ); ?>
+        <?php inline_svg( 'arrow-right.svg', array( 'wrapper' => 'i' ), true ); ?>
+        </a>
+      </div>
+	  <?php endif; ?>
 	  </div>
 	</div>
 	<?php get_template_part( 'template-parts/header/nav-toggle' ); ?>

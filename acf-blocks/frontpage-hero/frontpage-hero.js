@@ -85,14 +85,24 @@ function heroAnimation(hero) {
   });
 
   function initializeLogo() {
+    const screenHeight = window.innerHeight;
+    const screenWidth = window.innerWidth;
+
+    // Dynamically calculate top position based on screen height
+    const dynamicTop = calculateDynamicTop(screenWidth);
+    logo.style.top = `${dynamicTop}px`;
+
+    // Dynamically calculate max-width based on screen width
+    const dynamicMaxWidth = calculateDynamicMaxWidth(screenWidth);
+    logo.style.maxWidth = `${dynamicMaxWidth}rem`;
+
+    // Transform and scale logic
+    logo.style.transform = "translateX(-50%) scale(1)";
+
     if (isDesktop()) {
-      logo.style.transform = "translateX(-50%) scale(1)";
-      logo.style.top = "150px";
       swapLogoToDesktop();
       currentLogoState = "desktop";
     } else {
-      logo.style.transform = "translateX(-50%) scale(1)";
-      logo.style.top = "150px";
       swapLogoToMobile();
       currentLogoState = "mobile";
     }
@@ -100,12 +110,34 @@ function heroAnimation(hero) {
 
   function handleScroll() {
     const scrollY = window.scrollY;
+
+    // Dynamically update logo's position and size on scroll
+    initializeLogo();
+
     if (isDesktop()) {
       applyDesktopAnimation(scrollY);
     } else {
       applyMobileAnimation(scrollY);
     }
     adjustHeaderOpacity(scrollY / heroBottom, scrollY >= heroBottom);
+  }
+
+  function calculateDynamicTop(screenWidth) {
+    if (screenWidth < 800) return 127;
+    if (screenWidth < 1200) return 123;
+    return 150;
+  }
+
+  function calculateDynamicMaxWidth(screenWidth) {
+    if (screenWidth > 1920) return 57.5;
+    if (screenWidth <= 1440) return 50;
+    return 53;
+  }
+
+  function calculateMobileTranslate(scrollY) {
+    const screenHeight = window.innerHeight;
+    const baseTranslateY = -110;
+    return baseTranslateY + (scrollY / screenHeight) * 10; // Adjust scaling factor as needed
   }
 
   function isDesktop() {
@@ -121,8 +153,8 @@ function heroAnimation(hero) {
     progress = parseFloat(progress.toFixed(5));
 
     const scaleFactor = maxScale - progress * (maxScale - minScale);
-    const logoTopStart = 150;
-    const logoTopEnd = 18;
+    const logoTopStart = parseFloat(logo.style.top) || 150; // Use dynamic `top`
+    const logoTopEnd = 10; // End point for desktop
     const logoTop = logoTopStart - progress * (logoTopStart - logoTopEnd);
 
     logo.style.transform = `translateX(-50%) scale(${scaleFactor.toFixed(5)})`;
@@ -137,11 +169,10 @@ function heroAnimation(hero) {
   function applyMobileAnimation(scrollY) {
     const scrollThreshold = heroBottom * 0.1;
     const logoStartTranslateX = -50;
-    const logoFinalTranslateX = -65;
-    const logoFinalTranslateY = -125;
+    const dynamicTranslateY = calculateMobileTranslate(scrollY);
 
     if (scrollY > scrollThreshold && currentLogoState !== "desktop") {
-      logo.style.transform = `translate(${logoFinalTranslateX}%, ${logoFinalTranslateY}px) scale(0.8)`;
+      logo.style.transform = `translate(-65%, ${dynamicTranslateY}px) scale(0.8)`;
       logo.classList.add("logo--desktop");
       logo.classList.remove("logo--mobile");
       swapLogoToDesktop();
