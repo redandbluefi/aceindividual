@@ -147,7 +147,7 @@ function heroAnimation(hero) {
   function applyDesktopAnimation(scrollY) {
     const maxScale = 1;
     const minScale =
-      window.innerWidth >= 834 && window.innerWidth <= 1268 ? 0.4 : 0.2;
+      window.innerWidth >= 834 && window.innerWidth <= 1268 ? 0.3 : 0.2;
     const scrollThreshold = heroBottom * 0.3;
     let progress = Math.min(scrollY / scrollThreshold, 1);
     progress = parseFloat(progress.toFixed(5));
