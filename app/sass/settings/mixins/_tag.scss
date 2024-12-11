@@ -8,10 +8,10 @@
   // Typography.
   $line-height: var(--rnb--line-height--body),
   $font-size: var(--rnb--font-size--tag),
-  $font-weight: var(--rnb--font-weight--bold),
+  $font-weight: var(--rnb--font-weight--semi-bold),
   $font-family: var(--rnb--font-family--paragraph),
   $text-transform: uppercase,
-  $letter-spacing: 0.14em,
+  $letter-spacing: 0.14em
 ) {
   font-family: $font-family;
   font-size: $font-size;
