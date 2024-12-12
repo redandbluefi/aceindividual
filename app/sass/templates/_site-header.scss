@@ -185,7 +185,7 @@ body:not(.page-template-wide-template) {
 }
 
 .header__cta-lang {
-  @media (min-width: $breakpoint-xl) {
+  @media (min-width: $breakpoint-xxl) {
     display: flex;
     gap: 2rem;
     align-items: center;
