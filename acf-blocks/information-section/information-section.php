@@ -35,7 +35,7 @@ if ( ! empty( $block['className'] ) ) {
 
 ?>
 
-<section id="<?php echo esc_attr( $block_id ); ?> information" class="<?php echo esc_attr( implode( ' ', $wrapper_classes ) ); ?>"
+<section id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $wrapper_classes ) ); ?>"
 						<?php
 						if ( $background_image_url ) :
 							?>

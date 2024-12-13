@@ -32,7 +32,7 @@ if ( ! empty( $block['className'] ) ) {
 }
 ?>
 
-<section id="<?php echo esc_attr( $block_id ); ?> two-column-block" class="<?php echo esc_attr( implode( ' ', $wrapper_classes ) ); ?>">
+<section id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $wrapper_classes ) ); ?>">
 	<div class="two-column-block__column--left">
 		<?php if ( $left_title || $left_text ) : ?>
 			<?php if ( $left_title ) : ?>

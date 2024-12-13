@@ -55,7 +55,7 @@ if ( ! empty( $background_image_url ) ) {
 }
 ?>
 
-<section id="<?php echo esc_attr( $block_id ); ?> cta" class="<?php echo esc_attr( implode( ' ', $wrapper_classes ) ); ?>"
+<section id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $wrapper_classes ) ); ?>"
   style="<?php echo esc_attr( $section_style ); ?>">
   <div class="block-cta__inner-content alignwide">
 	<?php if ( ! empty( $cta_title ) ) : ?>

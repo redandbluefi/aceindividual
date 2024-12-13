@@ -33,7 +33,7 @@ if ( ! empty( $block['className'] ) ) {
 }
 ?>
 
-<section id="<?php echo esc_attr( $block_id ); ?> contact-form" class="<?php echo esc_attr( implode( ' ', $wrapper_classes ) ); ?>">
+<section id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $wrapper_classes ) ); ?>">
   <div class="block-contact__section block-contact__intro">
 	<?php if ( ! empty( $title ) ) : ?>
 	  <h2 class="block-contact__title"><?php echo esc_html( $title ); ?></h2>

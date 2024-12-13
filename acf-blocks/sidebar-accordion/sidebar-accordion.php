@@ -54,7 +54,7 @@ $accordion_args = array(
 );
 
 ?>
-<section id="<?php echo esc_attr( $block_id ); ?> sidebar-accordion" class="sidebar-accordion alignwide">
+<section id="<?php echo esc_attr( $block_id ); ?>" class="sidebar-accordion alignwide">
   <div class="sidebar-accordion__container">
 	<div class="sidebar-accordion__heading">
 	  <?php if ( $heading_open && $heading_close ) : ?>
