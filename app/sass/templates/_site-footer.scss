@@ -107,6 +107,10 @@
       }
     }
   }
+
+  .nav-lang-switcher {
+    @include list-reset;
+  }
 }
 
 @keyframes footerLogoBlink {
