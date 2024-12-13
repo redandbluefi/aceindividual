@@ -28,6 +28,9 @@
       }
     }
   },
+  "supports": {
+    "anchor": true
+  },
   "acf": {
     "postTypes": [
       "page"

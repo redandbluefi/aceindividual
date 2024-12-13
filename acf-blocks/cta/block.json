@@ -3,7 +3,10 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "title": "CTA",
   "description": "CTA-nostoon voi lisätä otsikon ja tekstin. Lisäksi nostoon voi lisätä painikkeen, joka ohjaa käyttäjän haluttuun osoitteeseen.",
-  "keywords": ["cta", "nosto"],
+  "keywords": [
+    "cta",
+    "nosto"
+  ],
   "category": "eternia",
   "icon": "megaphone",
   "example": {
@@ -22,7 +25,12 @@
       }
     }
   },
+  "supports": {
+    "anchor": true
+  },
   "acf": {
-    "postTypes": ["page"]
+    "postTypes": [
+      "page"
+    ]
   }
 }

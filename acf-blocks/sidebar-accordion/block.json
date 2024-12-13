@@ -6,6 +6,9 @@
   "keywords": [
     "haitari"
   ],
+  "supports": {
+    "anchor": true
+  },
   "icon": "arrow-down-alt2",
   "category": "eternia",
   "acf": {
