@@ -8,6 +8,9 @@
     "content",
     "repeater"
   ],
+  "supports": {
+    "anchor": true
+  },
   "category": "eternia",
   "icon": "editor-table",
   "acf": {

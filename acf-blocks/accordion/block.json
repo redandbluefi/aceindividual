@@ -3,10 +3,17 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "title": "Haitari",
   "description": "Haitari-lohkoon voit lisätä avattavia ja suljettavia osioita.",
-  "keywords": ["haitari"],
+  "keywords": [
+    "haitari"
+  ],
   "icon": "arrow-down-alt2",
   "category": "eternia",
   "acf": {
-    "postTypes": ["page"]
+    "postTypes": [
+      "page"
+    ]
+  },
+  "supports": {
+    "anchor": true
   }
 }
