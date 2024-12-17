@@ -24,6 +24,28 @@
             "append": ""
         },
         {
+            "key": "field_6761341e5d2ad",
+            "label": "Leipäteksti",
+            "name": "frontpage-hero_ingress",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
             "key": "field_66a235ae60bad",
             "label": "Painikkeet",
             "name": "frontpage-hero_buttons",
@@ -111,5 +133,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731575882
+    "modified": 1734423671
 }

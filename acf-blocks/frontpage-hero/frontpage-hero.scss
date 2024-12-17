@@ -171,12 +171,18 @@ body.wp-admin [data-type="acf/frontpage-hero"] {
   }
 
   &__title {
-    max-width: 25ch;
+    max-width: 30ch;
     font-size: var(--rnb--font-size--hero);
     hyphens: auto;
     line-height: var(--rnb--line-height--heading);
     text-align: center;
     white-space: normal;
+  }
+
+  &__ingress {
+    @include heading($type: "h6");
+
+    max-width: 30ch;
   }
 
   &__text {
