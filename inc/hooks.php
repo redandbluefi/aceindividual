@@ -18,7 +18,7 @@ namespace Eternia;
 /**
  * Breadcrumb
  */
-// phpcs:ignore 
+// phpcs:ignore
 // require_once __DIR__. '/hooks/breadcrumb.php';
 
 /**
@@ -103,8 +103,6 @@ add_filter( 'redandblue-user-roles/rnb_urc_users', '__return_true' ); // Allow c
  */
 require_once __DIR__ . '/hooks/wp-admin.php';
 add_action( 'admin_menu', __NAMESPACE__ . '\redirect_plugin_access_to_content_managers' );
-add_action( 'pre_trash_post', __NAMESPACE__ . '\restrict_post_deletion', 10, 1 );
-add_action( 'before_delete_post', __NAMESPACE__ . '\restrict_post_deletion', 10, 1 );
 add_filter( 'rest_pre_dispatch', __NAMESPACE__ . '\restrict_frontpage_rest_api_deletion', 10, 3 );
 add_action( 'admin_notices', __NAMESPACE__ . '\restrict_frontpage_admin_notice' );
 
