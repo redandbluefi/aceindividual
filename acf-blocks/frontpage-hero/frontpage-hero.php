@@ -20,6 +20,7 @@ if ( ! empty( $block['anchor'] ) ) {
 // Required ACF fields.
 $heading = get_field( 'frontpage-hero_title' ) ?? null;
 $image   = get_field( 'frontpage-hero_image' ) ?? null;
+$ingress = get_field( 'frontpage-hero_ingress' ) ?? null;
 
 // Fail fast if no heading or image.
 if ( empty( $heading ) || empty( $image ) ) {
@@ -65,6 +66,13 @@ $home_url = get_home_url();
 			<?php echo esc_html( $heading ); ?>
 		</h1>
 	  <?php endif; ?>
+
+	  <?php if ( $ingress ) : ?>
+			<p class="block-frontpage-hero__ingress">
+				<?php echo wp_kses( $ingress, ALLOW_ONLY_BR ); ?>
+			</p>
+	  <?php endif; ?>
+
 	  <?php if ( have_rows( 'frontpage-hero_buttons' ) ) : ?>
 		<div class="block-frontpage-hero__buttons">
 			<?php
