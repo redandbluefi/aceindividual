@@ -183,6 +183,7 @@ body.wp-admin [data-type="acf/frontpage-hero"] {
     @include heading($type: "h6");
 
     max-width: 30ch;
+    text-align: center;
   }
 
   &__text {
