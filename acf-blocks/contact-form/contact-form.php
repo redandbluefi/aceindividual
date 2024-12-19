@@ -92,7 +92,7 @@ if ( ! empty( $block['className'] ) ) {
 		<?php endif; ?>
 
 		<?php if ( ! empty( $contact_opening_hours ) ) : ?>
-		  <p class="block-contact__opening-hours"><?php echo esc_html( $contact_opening_hours ); ?></p>
+		  <p class="block-contact__opening-hours"><?php echo wp_kses( $contact_opening_hours, ALLOW_ONLY_BR ); ?></p>
 		<?php endif; ?>
 
 		<?php if ( ! empty( $contact_email ) ) : ?>

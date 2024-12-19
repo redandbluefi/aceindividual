@@ -237,7 +237,7 @@
             "label": "Aukioloajat",
             "name": "contact_opening_hours",
             "aria-label": "",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -249,10 +249,10 @@
             "relevanssi_exclude": 0,
             "default_value": "",
             "maxlength": "",
-            "allow_in_bindings": 0,
+            "allow_in_bindings": 1,
+            "rows": 3,
             "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "new_lines": "br"
         },
         {
             "key": "field_673ddb54c2249",
@@ -358,6 +358,28 @@
             "allow_null": 0,
             "multiple": 0,
             "allow_in_bindings": 0
+        },
+        {
+            "key": "field_6757eabc8b569",
+            "label": "Koodi",
+            "name": "form_code",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -378,5 +400,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732108391
+    "modified": 1734593429
 }
