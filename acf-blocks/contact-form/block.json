@@ -15,6 +15,11 @@
     "html": false,
     "anchor": true
   },
+  "eternia": {
+    "cache": {
+      "mode": "general"
+    }
+  },
   "acf": {
     "postTypes": [
       "page"
