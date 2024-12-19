@@ -134,6 +134,7 @@ body.wp-admin [data-type="acf/frontpage-hero"] {
 
   &__image {
     min-width: 100vw;
+    height: calc(100vh - 3.5rem);
     min-height: 31.25rem;
 
     img {
