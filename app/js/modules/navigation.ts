@@ -366,6 +366,29 @@ function initNavigation() {
     updateMobileMenuOffset();
   }
 
+  mobileSubMenuToggles?.forEach((toggle) => toggle?.addEventListener('click', () => toggleSubMenu({ toggle, menu: mobileMenu })));
+
+  function handleAnchorLinkClick(event: Event) {
+    const target = event.currentTarget as HTMLAnchorElement;
+    const href = target.getAttribute('href');
+
+    if (href && href.startsWith('#')) {
+      if (mobileMenuDialog?.open) {
+        closeDialog(mobileMenuDialog, dialogTransitionDuration);
+        if (mobileMenuToggle) {
+          mobileMenuToggle.dataset.action = 'open';
+          mobileMenuToggle.ariaLabel = mobileMenuToggle.dataset.ariaOpen!;
+          mobileMenuToggle.focus();
+        }
+      }
+    }
+  }
+
+  const mobileMenuAnchorLinks = mobileMenu?.querySelectorAll('a[href^="#"]') || [];
+mobileMenuAnchorLinks.forEach((link) => {
+  link.addEventListener('click', handleAnchorLinkClick);
+});
+
   function handleClickOutside(target) {
     // desktop sub menu
     const desktopSubMenus = desktopMenu?.querySelectorAll('.sub-menu');
