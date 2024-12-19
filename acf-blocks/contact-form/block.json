@@ -17,7 +17,7 @@
   },
   "eternia": {
     "cache": {
-      "mode": "general"
+      "mode": "off"
     }
   },
   "acf": {
