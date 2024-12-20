@@ -171,24 +171,36 @@ function heroAnimation(hero) {
     const logoStartTranslateX = -50;
     const dynamicTranslateY = calculateMobileTranslate(scrollY);
 
-    if (scrollY > scrollThreshold && currentLogoState !== "desktop") {
-      logo.style.transform = `translate(-65%, ${dynamicTranslateY}px) scale(0.8)`;
+    if (currentLogoState === "desktop" && scrollY > scrollThreshold) return;
+    if (currentLogoState === "mobile" && scrollY <= scrollThreshold) return;
+
+    if (scrollY > scrollThreshold) {
+      logo.style.transform = `translate(-65%, -107px) scale(0.8)`;
       logo.classList.add("logo--desktop");
       logo.classList.remove("logo--mobile");
-      swapLogoToDesktop();
+
+      const logoMobile = logo.querySelector(".logo-mobile");
+      const logoDesktop = logo.querySelector(".logo-desktop");
+      if (logoMobile) logoMobile.style.display = "none";
+      if (logoDesktop) logoDesktop.style.display = "block";
+
       currentLogoState = "desktop";
-    } else if (scrollY <= scrollThreshold && currentLogoState !== "mobile") {
+    } else if (scrollY <= scrollThreshold) {
       logo.style.transform = `translate(${logoStartTranslateX}%, 0) scale(1)`;
       logo.classList.add("logo--mobile");
       logo.classList.remove("logo--desktop");
-      swapLogoToMobile();
+
+      const logoMobile = logo.querySelector(".logo-mobile");
+      const logoDesktop = logo.querySelector(".logo-desktop");
+      if (logoMobile) logoMobile.style.display = "block";
+      if (logoDesktop) logoDesktop.style.display = "none";
+
       currentLogoState = "mobile";
     }
   }
 
   function adjustHeaderOpacity(progress, isStuck) {
     header.style.backgroundColor = `rgba(0, 0, 0, ${progress.toFixed(3)})`;
-    header.classList.toggle("header--stuck", isStuck);
     header.classList.toggle("header--fixed", !isStuck);
   }
 
