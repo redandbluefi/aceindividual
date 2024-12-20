@@ -137,6 +137,12 @@
       flex-direction: column;
       row-gap: var(--nav-gap);
       padding: 0;
+
+      a {
+        &:focus {
+          outline: none;
+        }
+      }
     }
 
     .sub-menu {
