@@ -108,6 +108,5 @@ $home_url = get_home_url();
 		</div>
 	  <?php endif; ?>
 	</div>
-
   </div>
 </section>
