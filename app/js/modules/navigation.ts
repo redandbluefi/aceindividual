@@ -13,6 +13,7 @@ function initNavigation() {
   const mobileMenuDialog: HTMLDialogElement | null = document?.querySelector('#mobile-menu') ?? null;
   const desktopMenu: HTMLDialogElement | null = document?.querySelector('#main-menu-desktop') ?? null;
   const mobileMenu: HTMLDialogElement | null = document?.querySelector('#main-menu-mobile') ?? null;
+  const contactButton: HTMLButtonElement | null = document?.querySelector('#menu-mobile__contact-button') ?? null;
 
   const dialogTransitionDuration = parseInt(
     getComputedStyle(document?.documentElement)
@@ -178,7 +179,7 @@ function initNavigation() {
     } else {
       // else open the dialog
       // first, close all other open dialogs
-      dialogSets.forEach(async (dialogSet:{dialog:HTMLDialogElement|null, button:HTMLButtonElement|null}) => {
+      dialogSets.forEach(async (dialogSet: { dialog: HTMLDialogElement | null, button: HTMLButtonElement | null }) => {
         if (dialogSet?.dialog?.open) {
           const updatedDialogButton = { ...dialogSet.button };
           closeDialog(dialogSet.dialog, duration);
@@ -256,39 +257,39 @@ function initNavigation() {
     const nextIndex = currentIndex + increment;
 
     switch (currentIndex) {
-    // first focusable element aka first additional element
-    case 0:
-      if (nextIndex < 0) {
-        focusableElements[focusableElements.length - 1].focus();
-        event.preventDefault();
-      }
-      break;
+      // first focusable element aka first additional element
+      case 0:
+        if (nextIndex < 0) {
+          focusableElements[focusableElements.length - 1].focus();
+          event.preventDefault();
+        }
+        break;
 
-    // last additional element
-    case additionalElements.length - 1:
-      if (nextIndex > additionalElements.length - 1) {
-        focusableElements[additionalElements.length].focus();
-        event.preventDefault();
-      }
-      break;
+      // last additional element
+      case additionalElements.length - 1:
+        if (nextIndex > additionalElements.length - 1) {
+          focusableElements[additionalElements.length].focus();
+          event.preventDefault();
+        }
+        break;
 
-    // first focusable dialog element
-    case additionalElements.length:
-      if (nextIndex < additionalElements.length) {
-        focusableElements[additionalElements.length - 1].focus();
-        event.preventDefault();
-      }
-      break;
+      // first focusable dialog element
+      case additionalElements.length:
+        if (nextIndex < additionalElements.length) {
+          focusableElements[additionalElements.length - 1].focus();
+          event.preventDefault();
+        }
+        break;
 
-    // last focusable element aka last dialog element
-    case focusableElements.length - 1:
-      if (nextIndex > focusableElements.length - 1) {
-        focusableElements[0].focus();
-        event.preventDefault();
-      }
-      break;
-    default:
-      break;
+      // last focusable element aka last dialog element
+      case focusableElements.length - 1:
+        if (nextIndex > focusableElements.length - 1) {
+          focusableElements[0].focus();
+          event.preventDefault();
+        }
+        break;
+      default:
+        break;
     }
   }
 
@@ -298,12 +299,12 @@ function initNavigation() {
       if (dialogSet?.dialog?.open) {
         let selectors = '';
         switch (dialogSet.dialog.id) {
-        case 'mobile-menu':
-          selectors = '#site-header button, #site-header a[href], #site-header [tabindex]:not([tabindex="-1"])';
-          break;
-        default:
-          selectors = `#${dialogSet?.button?.id}`;
-          break;
+          case 'mobile-menu':
+            selectors = '#site-header button, #site-header a[href], #site-header [tabindex]:not([tabindex="-1"])';
+            break;
+          default:
+            selectors = `#${dialogSet?.button?.id}`;
+            break;
         }
 
         // get all visible elements that are outside of dialog but should be included in focus trap
@@ -371,7 +372,7 @@ function initNavigation() {
   function handleAnchorLinkClick(event: Event) {
     const target = event.currentTarget as HTMLAnchorElement;
     const href = target.getAttribute('href');
-
+    console.log('href', href);
     if (href && href.startsWith('#')) {
       if (mobileMenuDialog?.open) {
         closeDialog(mobileMenuDialog, dialogTransitionDuration);
@@ -385,9 +386,11 @@ function initNavigation() {
   }
 
   const mobileMenuAnchorLinks = mobileMenu?.querySelectorAll('a[href^="#"]') || [];
-mobileMenuAnchorLinks.forEach((link) => {
-  link.addEventListener('click', handleAnchorLinkClick);
-});
+  mobileMenuAnchorLinks.forEach((link) => {
+    link.addEventListener('click', handleAnchorLinkClick);
+  });
+
+  contactButton?.addEventListener('click', handleAnchorLinkClick);
 
   function handleClickOutside(target) {
     // desktop sub menu
@@ -424,7 +427,7 @@ mobileMenuAnchorLinks.forEach((link) => {
   // mouse click outside opened menu
   siteWrapper?.addEventListener('click', (e) => handleClickOutside(e.target));
 
-  document.addEventListener('keydown', (e:KeyboardEvent) => {
+  document.addEventListener('keydown', (e: KeyboardEvent) => {
     // escape key
     if (e.key === 'Escape') {
       handleEscapeKey();

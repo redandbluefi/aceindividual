@@ -37,7 +37,7 @@ $cta_button = get_field( 'cta_button', $lang_pid ) ?? '';
   <div class="mobile-menu__section mobile-menu__section--cta">
   <?php get_template_part( 'template-parts/header/nav-lang-switcher' ); ?>
 	<?php if ( $cta_button ) : ?>
-	<a href="<?php echo esc_url( $cta_button['url'] ); ?>" class="button-secondary">
+	<a id="menu-mobile__contact-button" href="<?php echo esc_url( $cta_button['url'] ); ?>" class="button-secondary">
 	  <span>
 		<?php echo esc_html( $cta_button['title'] ); ?>
 		<?php inline_svg( 'arrow-right.svg', array( 'wrapper' => 'i' ), true ); ?>
